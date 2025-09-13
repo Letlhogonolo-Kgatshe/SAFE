@@ -37,7 +37,6 @@
                     <nav id="nav-links" class="flex items-baseline space-x-4">
                         <a href="#hero" class="nav-link text-gold hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
                         <a href="#about" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                        <a href="#how-to-start" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">How to Start</a>
                         <a href="#game" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Game</a>
                         <a href="#resources" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Resources</a>
                         <a href="#gallery" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
@@ -100,7 +99,7 @@
                     <p class="text-gray-300 text-sm mb-4">Understand key financial terms with our Definitions page, complete with examples and quizzes.</p>
                     <a href="#definitions" class="btn btn-primary">Explore Definitions</a>
                 </div>
-                
+
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="text-xl font-semibold text-gold mb-4">Watch & Learn</h3>
                     <p class="text-gray-300 text-sm mb-4">Discover YouTube channels like Financial Bunny and Money Marx for beginner-friendly insights.</p>
@@ -189,45 +188,103 @@
             </div>
     </section>
 
-    <!-- Resources Section -->
-    <section id="resources" class="py-16 bg-primary">
+<!-- Resources Section -->
+    <section id="resources" class="py-16 bg-gray-900">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Local <span class="text-gold">Resources & Tools</span></h2>
-            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 text-center hover:border-gold/40 transition-colors">
-                    <div class="text-4xl mb-4">📊
-
+            <h2 class="text-3xl font-bold text-center mb-12">Financial <span class="text-gold">Resources</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8 text-center">Explore our tools to plan your investments, loans, and property purchases, or convert currencies with real-time rates.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <!-- Currency Converter -->
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Currency Converter</h3>
+                    <p class="text-gray-300 text-sm mb-4">Convert between 200+ currencies using real-time exchange rates. Powered by <a href="https://github.com/fawazahmed0/exchange-api" target="_blank" class="text-gold hover:text-white">currency-api</a>.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">From Currency:</label>
+                            <select id="fromCurrency" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white focus:border-gold focus:outline-none" aria-label="From Currency">
+                                <option value="">Select Currency</option>
+                            </select>
                         </div>
-                    <h3 class="text-xl font-semibold text-gold mb-2">Budget Template</h3>
-                    <p class="text-gray-300 text-sm mb-4">Download our budget template to plan your monthly expenses.</p>
-                    <a href="https://www.wonga.co.za/media/le3jnedg/budget-planner-2.xlsx">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Download</button></a>
-                
-                    </div>
-                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 text-center hover:border-gold/40 transition-colors">
-                    <div class="text-4xl mb-4">💰
-
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">To Currency:</label>
+                            <select id="toCurrency" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white focus:border-gold focus:outline-none" aria-label="To Currency">
+                                <option value="">Select Currency</option>
+                            </select>
                         </div>
-                    <h3 class="text-xl font-semibold text-gold mb-2">Investment Calculator</h3>
-                    <p class="text-gray-300 text-sm mb-4">Calculate potential investment growth over time.</p>
-                    <a href="https://www.gbsbank.co.za/calculate/investment">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Use Calculator</button></a>
-                
-                    </div>
-                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 text-center hover:border-gold/40 transition-colors">
-                    <div class="text-4xl mb-4">📈
-
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Amount:</label>
+                            <input type="number" id="amount" placeholder="Enter amount" min="0" step="0.01" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
                         </div>
-                    <h3 class="text-xl font-semibold text-gold mb-2">SARS Tax Tools</h3>
-                    <p class="text-gray-300 text-sm mb-4">Access SARS tools for tax planning and compliance.</p>
-                    <a href="https://www.sars.gov.za/">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Visit SARS</button></a>
-                
+                        <button onclick="convertCurrency()" class="w-full btn bg-gold text-black px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Convert</button>
+                        <div id="conversionResult" class="text-center text-lg font-semibold text-gold hidden"></div>
+                        <div id="lastUpdated" class="text-xs text-gray-400 text-center"></div>
                     </div>
-            
                 </div>
-        
+                <!-- Investment Calculator -->
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Investment Calculator</h3>
+                    <p class="text-gray-300 text-sm mb-4">Calculate the future value of your investment with compound interest.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Principal Amount (R):</label>
+                            <input type="number" id="investPrincipal" placeholder="e.g., 10000" min="0" step="0.01" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Annual Interest Rate (%):</label>
+                            <input type="number" id="investRate" placeholder="e.g., 7.5" min="0" step="0.01" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Term (Years):</label>
+                            <input type="number" id="investTerm" placeholder="e.g., 5" min="1" step="1" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Compound Frequency:</label>
+                            <select id="investCompound" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white focus:border-gold focus:outline-none">
+                                <option value="12">Monthly</option>
+                                <option value="4">Quarterly</option>
+                                <option value="1">Annually</option>
+                            </select>
+                        </div>
+                        <button onclick="calculateInvestment()" class="w-full btn bg-gold text-black px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Calculate</button>
+                        <div id="investResult" class="text-center text-lg font-semibold text-gold hidden"></div>
+                    </div>
+                </div>
+                <!-- Loan Calculator -->
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Loan Calculator</h3>
+                    <p class="text-gray-300 text-sm mb-4">Estimate your monthly loan repayments and total interest.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Loan Amount (R):</label>
+                            <input type="number" id="loanAmount" placeholder="e.g., 100000" min="0" step="0.01" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Annual Interest Rate (%):</label>
+                            <input type="number" id="loanRate" placeholder="e.g., 10.5" min="0" step="0.01" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Term (Years):</label>
+                            <input type="number" id="loanTerm" placeholder="e.g., 5" min="1" step="1" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <button onclick="calculateLoan()" class="w-full btn bg-gold text-black px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Calculate</button>
+                        <div id="loanResult" class="text-center text-lg font-semibold text-gold hidden"></div>
+                    </div>
+                </div>
+                <!-- Property Purchase Costs -->
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Property Purchase Costs</h3>
+                    <p class="text-gray-300 text-sm mb-4">Estimate additional costs when buying a property in South Africa.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Property Price (R):</label>
+                            <input type="number" id="propertyPrice" placeholder="e.g., 1000000" min="0" step="0.01" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        </div>
+                        <button onclick="calculatePropertyCosts()" class="w-full btn bg-gold text-black px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Calculate</button>
+                        <div id="propertyResult" class="text-center text-lg font-semibold text-gold hidden"></div>
+                    </div>
+                </div>
             </div>
+        </div>
     </section>
 
     <!-- Gallery Section -->
@@ -626,12 +683,11 @@
             <p class="text-gray-300 max-w-3xl mx-auto mb-8">Stay updated with the latest financial news from trusted sources via RSS feeds.</p>
             <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
-                    <div class="text-gold text-sm mb-2">📈 Inflation Rate • April 2025
-
-                        </div>
+                    <div class="text-gold text-sm mb-2">📈 Inflation Rate 2025 </div>
                     <h3 class="font-semibold text-gold mb-2">Inflation Rate</h3>
                     <p class="text-gray-300 text-sm mb-4">Headline CPI inflation for April 2025 was 2.8%, up slightly from 2.7% in March.</p>
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                    <a href="https://www.gbsbank.co.za/invest/interest-rates" target="_blank" class="btn btn-primary"> 
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button> </a>
                 
                     </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
@@ -652,24 +708,7 @@
                     <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
                 
                     </div>
-                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
-                    <div class="text-gold text-sm mb-2">📚 Financial Literacy
 
-                        </div>
-                    <h3 class="font-semibold text-gold mb-2">Financial Literacy</h3>
-                    <p class="text-gray-300 text-sm mb-4">Only around 51% of adult South Africans are considered financially literate.</p>
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
-                
-                    </div>
-                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
-                    <div class="text-gold text-sm mb-2">👴 Retirement Coverage
-
-                        </div>
-                    <h3 class="font-semibold text-gold mb-2">Retirement Coverage</h3>
-                    <p class="text-gray-300 text-sm mb-4">75% of South Africa’s elderly rely on government grants for retirement income.</p>
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
-                
-                    </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <div class="text-gold text-sm mb-2">🏦 SARB Repo Rate • May 2025
 
@@ -689,21 +728,13 @@
                 
                     </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
-                    <div class="text-gold text-sm mb-2">🌍 Mag 7 VS Terrific 10
-
-                        </div>
-                    <h3 class="font-semibold text-gold mb-2">Mag 7 VS Terrific 10</h3>
-                    <p class="text-gray-300 text-sm mb-4">Compare the Magnificent Seven (Apple, Microsoft, etc.) with the Terrific 10 (Alibaba, Tencent, etc.).</p>
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
-                
-                    </div>
-                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <div class="text-gold text-sm mb-2">🛒 Zero-Rated Items
 
                         </div>
                     <h3 class="font-semibold text-gold mb-2">Zero-Rated Items</h3>
                     <p class="text-gray-300 text-sm mb-4">List of 19 essential food items taxed at 0% VAT to promote affordability.</p>
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                    <a href="https://www.evergreen-accounting.co.za/16-zero-rated-vat-supplies-sars-south-africa/#:~:text=Basic%20Foodstuffs,animal%20protein%20and%20calcium%20sources." target="_blank" class="btn btn-primary">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button></a>
                 
                     </div>
             
