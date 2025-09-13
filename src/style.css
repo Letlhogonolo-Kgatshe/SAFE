@@ -60,3 +60,9 @@ section { animation: fadeIn 1s; }
     .tagline { font-size: 1.2rem; }
     .start-grid { grid-template-columns: 1fr; }
 }
+#conversionResult {
+    background: rgba(255, 215, 0, 0.1); /* Subtle gold background */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--secondary);
+}
