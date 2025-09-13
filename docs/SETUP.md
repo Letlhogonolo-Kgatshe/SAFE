@@ -4,32 +4,44 @@
 
 # Setup Instructions
 
-Follow the steps below to set up and run the project. (Example)
-
+``` VS Code
+- Download Zip File from Repo
+-Unzip file in file explore
+- Open Project in VS Code
+- Right Click
+-Select "Opem with Live Server"
 ---
 
 ## 📦 Requirements
 ``` c
-// TODO: List software, runtimes, frameworks, and or dependencies
-// along with instructions on how to set each up.
-```
-- Example: Node.js v18+
-- Example: Python 3.10
-- Example: Docker
-
+Node.js v18+ (for local development server)
+Python 3.10 (optional, for backend calculator logic if implemented)
+Git (for cloning the repository)
+A modern web browser (e.g., Chrome, Firefox)
+Optional: Docker (for containerized deployment)
 ---
+
+Installation Instructions:
+
+Node.js: Download and install from https://nodejs.org/en/download/.
+Python: Install from https://www.python.org/downloads/ if using backend scripts.
+Git: Install via https://git-scm.com/downloads.
+Docker: Install from https://www.docker.com/get-started/ for containerized setup.
 
 ## ⚙️ Installation
 ``` bash
 # Clone the repository
-git clone <your-repo-url>
-cd <repo-name>
+git clone https://github.com/yourusername/safe-financial-education.git
+cd safe-financial-education
 
 # Install dependencies
-<insert command here>
+npm install
 ```
 
 ## ▶️ Running the Project
-``` bash
-<insert run command here> # Or an explanation on what to do
+``` VS Code
+
+- Open Project in VS Code
+- Right Click
+-Select "Opem with Live Server"
 ```

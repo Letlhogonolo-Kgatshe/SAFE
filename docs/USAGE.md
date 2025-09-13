@@ -8,17 +8,21 @@
 // Add commands or steps here.
 ```
 ``` bash
-# Example
+# Start the web server
 npm start
+
+The site will be available at http://localhost:5501.
 ```
 
 ## 🖥️ How to Use
-``` c
-// TODO: Provide step-by-step usage instructions for judges/users.
-```
-1. Step 1 -> Do this
-2. Step 2 -> Then this
-3. Step 3 -> See the output/result
+
+Visit the Homepage: Start at http://localhost:3000 to explore featured content (e.g., latest courses, game updates, or community news).
+Navigate Sections: Use the top navigation bar (Home, About, Game, Learn, Community, Support) to access specific content.
+Use Calculators: In the Game section, try the investment, loan, or property cost calculators (inspired by GBS Mutual Bank) by entering values like principal, rate, or term.
+Explore Learning Content: Go to the Learn section to browse courses, podcasts, articles, or resources. Filter by type (e.g., click tabs for Podcasts).
+Join the Community: Visit the Community section to access forums, Discord, or news updates.
+Get Support: Check the Support section for FAQs or submit a query via the contact form.
+See Results: Outputs like calculator results or embedded media (e.g., YouTube videos) display instantly.
 
 ## 🎥 Demo
 ``` c
@@ -29,7 +33,8 @@ Check out the Demos:
 - [Demo Presentation](../demo/demo.pptx)
 
 ## 📌 Notes
-``` c
-// TODO: Add any special instructions, caveats, or tips
-// for using your project.
-```
+
+Ensure an internet connection for YouTube and Embedly API calls.
+Calculators use local JavaScript (financial.js) and hardcoded South African rates (e.g., SARS transfer duties, GBS Prime at 10.75%). Update rates manually via data/rates.json.
+For best performance, optimize images in the Gallery section (use WebP format).
+Test responsiveness on mobile devices (320px–1200px) using browser dev tools.
