@@ -70,9 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.closeLightbox = function() {
         const lightbox = document.getElementById('lightbox');
         lightbox.classList.add('hidden');
+        // Clear image source to prevent memory issues
+        document.getElementById('lightbox-image').src = '';
+        document.getElementById('lightbox-caption').textContent = '';
     };
 
-    // Stock Market Game Functionality
+    // Stock Market Game Functionality (unchanged from previous version)
     let balance = 10000;
     let day = 1;
     let portfolio = {};
