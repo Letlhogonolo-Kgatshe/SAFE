@@ -4,25 +4,26 @@
 
 # Team Information
 
-## ⚒️ Team Name
+## ⚒️ Team Name Arctic
 ``` c
 // TODO: Fill-in the name of your team.
 ```
 
 ## 👥 Members
-| Name     | Role                | Institution           | Discord Handle | Email |
-|----------|---------------------|-----------------------| -------------------|-------------|
-| **Name 1**   | Backend Developer   | University of Cape Town | name1 | <email1@gmail.com> |
-| **Name 2**   | Frontend Developer  | University of the Witwatersrand | name2 | <email2@gmail.com> |
-| **Name 3**   | Designer            | University of Johannesburg | name3 | <email3@gmail.com> |
-| **Name 4**   | Q.A Tester          | University of the Western Cape | name4 | <email4@gmail.com> |
+| Name                       | Role                | Institution         | Discord Handle    | Email                     |
+|----------------------------|---------------------|---------------------| ------------------|---------------------------|
+| **Letlhogonolo Kgatshe**   | Backend Developer   | IIE Varsity College | name1             | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Frontend Developer  | IIE Varsity College | name2             | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Designer            | IIE Varsity College | name3             | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Q.A Tester          | IIE Varsity College | name4             | <Tlhogikgatshe@gmail.com> |
 
 ## 🏫 Institution
 ``` c
-// TODO: Fill-in the name of the institution your
-// team is competing under.
+// TODO: IIE Varsity College
+// team is competing under IIE Varsity College
 ```
 
 ## 📧 Other Contact Info
-- GitHub Repo: <https://github.com/user-name/repo-name>
+- GitHub Repo: [<https://github.com/Letlhogonolo-Kgatshe/SAFE.git>]
+- LinkedIn: [<https://www.linkedin.com/in/letlhogonolo-kgatshe-69aa2a2b7/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BtAmj2ZiTTn6bH0VZKbAx9Q%3D%3D>] 
 - Other Info (if available): LinkedIn, Website, etc.
