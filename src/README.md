@@ -1,6 +1,8 @@
-SAFE - South African Financial Education Website
+    SAFE - South African Financial Education Website
 Overview
+
 SAFE is a South African Financial Education website designed to empower beginners and intermediate learners with accessible, practical knowledge on topics like budgeting, saving, investing, debt management, financial goals, and taxes. The platform aims to make financial education as common as everyday conversation, offering curated resources, a community forum, and interactive tools like quizzes to enhance learning. The website features a modern, user-friendly design with a focus on accessibility and engagement.
+
 Disclaimer: None of the information provided on SAFE constitutes financial advice. For personalized financial advice, consult a professional registered and certified with the Financial Sector Conduct Authority (FSCA). This is financial information only.
 Features
 
