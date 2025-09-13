@@ -119,74 +119,83 @@
     </section>
 
     <!-- Game Section -->
-    <section id="game" class="py-16 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Stock Market <span class="text-gold">Challenge</span></h2>
-            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Step into the world of investing! Buy and sell stocks in our virtual market to maximize your portfolio value. Now with more stocks, random events, achievements, and extended gameplay!</p>
-            <div id="game-container" class="bg-card border border-gold/20 rounded-lg p-6">
-                <p class="text-lg">Balance: $<span id="balance">10000</span></p>
-                <p class="text-lg">Portfolio Value: $<span id="portfolio">0</span></p>
-                <p class="text-lg">Total Net Worth: $<span id="net-worth">10000</span></p>
-                <p class="text-lg">Day: <span id="day">1</span>/20</p>
-                <div id="stock-chart" class="w-full h-64 my-4 border border-gold/20 rounded-lg bg-gray-800">
-
+<section id="game" class="py-16 bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Stock Market <span class="text-gold">Game</span></h2>
+        <div id="game-container" class="bg-card border border-gold/20 rounded-lg p-6">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left Column: Portfolio and Trade Controls -->
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gold mb-4">Portfolio</h3>
+                        <p>Balance: $<span id="balance">10000.00</span></p>
+                        <p>Portfolio Value: $<span id="portfolio">0.00</span></p>
+                        <p>Net Worth: $<span id="net-worth">10000.00</span></p>
+                        <p>Day: <span id="day">1</span></p>
+                        <ul id="portfolio-list" class="text-gray-300 text-sm mt-4 space-y-2"></ul>
                     </div>
-                <div id="stocks" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('TechCorp')">
-                        <strong>TechCorp</strong><br>Price: $<span id="price-TechCorp">100.00</span>
-                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gold mb-4">Trade</h3>
+                        <div id="trade-controls" class="hidden space-y-4">
+                            <p>Selected Stock: <span id="selected-stock"></span></p>
+                            <p>Current Price: $<span id="current-price">0.00</span></p>
+                            <input type="number" id="quantity" placeholder="Quantity" min="1" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                            <div class="flex gap-4">
+                                <button onclick="buyStock()" class="flex-1 btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Buy</button>
+                                <button onclick="sellStock()" class="flex-1 btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Sell</button>
+                            </div>
                         </div>
-                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('GreenEnergy')">
-                        <strong>GreenEnergy</strong><br>Price: $<span id="price-GreenEnergy">80.00</span>
-                    
-                        </div>
-                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('HealthInc')">
-                        <strong>HealthInc</strong><br>Price: $<span id="price-HealthInc">120.00</span>
-                    
-                        </div>
-                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('AutoDrive')">
-                        <strong>AutoDrive</strong><br>Price: $<span id="price-AutoDrive">150.00</span>
-                    
-                        </div>
-                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('FoodChain')">
-                        <strong>FoodChain</strong><br>Price: $<span id="price-FoodChain">90.00</span>
-                    
-                        </div>
-                
+                        <p id="result" class="text-gray-300 mt-4"></p>
                     </div>
-                <div id="trade-controls" class="mt-4 hidden">
-                    <h3 class="text-xl font-semibold text-gold">Trade <span id="selected-stock"></span></h3>
-                    <p>Current Price: $<span id="current-price">0</span></p>
-                    <input type="number" id="quantity" min="1" placeholder="Quantity" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none my-2">
-                    <div class="space-x-4">
-                        <button onclick="buyStock()" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Buy</button>
-                        <button onclick="sellStock()" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Sell</button>
-                    
-                        </div>
-                
-                    </div>
-                <button id="next-day" onclick="nextDay()" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors mt-4">Next Day</button>
-                <p id="result" class="text-lg mt-4"></p>
-                <div id="portfolio-details" class="mt-4">
-                    <h4 class="text-lg font-semibold text-gold">Your Portfolio:</h4>
-                    <ul id="portfolio-list" class="text-gray-300"></ul>
-                
-                    </div>
-                <div id="events-log" class="mt-4 p-4 bg-gray-800 rounded-lg max-h-40 overflow-y-auto">
-                    <h4 class="text-lg font-semibold text-gold">Market Events:</h4>
-                    <ul id="events-list" class="text-gray-300"></ul>
-                
-                    </div>
-                <div id="achievements" class="mt-4 p-4 bg-yellow-900/20 rounded-lg">
-                    <h4 class="text-lg font-semibold text-gold">Achievements:</h4>
-                    <ul id="achievements-list" class="text-gray-300"></ul>
-                
-                    </div>
-            
                 </div>
-        
+                <!-- Right Column: Market, Chart, Events, Achievements -->
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gold mb-4">Market</h3>
+                        <ul class="text-gray-300 text-sm space-y-3">
+                            <li class="flex items-center gap-3">
+                                <button onclick="selectStock('TechCorp')" class="text-gold hover:text-white font-medium py-1 px-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors">TechCorp</button>
+                                <span>$<span id="price-TechCorp">100.00</span></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <button onclick="selectStock('GreenEnergy')" class="text-gold hover:text-white font-medium py-1 px-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors">GreenEnergy</button>
+                                <span>$<span id="price-GreenEnergy">80.00</span></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <button onclick="selectStock('HealthInc')" class="text-gold hover:text-white font-medium py-1 px-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors">HealthInc</button>
+                                <span>$<span id="price-HealthInc">120.00</span></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <button onclick="selectStock('AutoDrive')" class="text-gold hover:text-white font-medium py-1 px-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors">AutoDrive</button>
+                                <span>$<span id="price-AutoDrive">150.00</span></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <button onclick="selectStock('FoodChain')" class="text-gold hover:text-white font-medium py-1 px-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors">FoodChain</button>
+                                <span>$<span id="price-FoodChain">90.00</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gold mb-4">Stock Chart</h3>
+                        <div id="stock-chart" class="relative h-64 w-full"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gold mb-4">Events</h3>
+                        <ul id="events-list" class="text-gray-300 text-sm space-y-2"></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gold mb-4">Achievements</h3>
+                        <ul id="achievements-list" class="text-gray-300 text-sm space-y-2"></ul>
+                    </div>
+                </div>
             </div>
-    </section>
+            <div class="mt-6 flex justify-center gap-4">
+                <button id="next-day" onclick="nextDay()" class="btn bg-gold text-black px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Next Day</button>
+                <button id="reset-game" onclick="resetGame()" class="btn bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">Reset/New Game</button>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Resources Section -->
     <section id="resources" class="py-16 bg-gray-900">
