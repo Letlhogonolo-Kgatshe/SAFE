@@ -17,13 +17,14 @@ Contact Section: Includes contact details and a form for user inquiries.
 
 Project Structure
 SAFE/
-├── index.html          # Main HTML file with all sections
-├── script.js           # JavaScript for navigation, smooth scrolling, and quiz functionality
-├── styles.css          # CSS for styling the website
-├── favicon.png         # Website favicon
-├── SAFE(1).img.JPG   # Logo image
-├── images/             # Placeholder for images (e.g., financial-bunny.jpg, budgeting-diagram.jpg)
-└── README.md           # This file
+
+    ├── index.html          # Main HTML file with all sections
+    ├── script.js           # JavaScript for navigation, smooth scrolling, and quiz functionality
+    ├── styles.css          # CSS for styling the website
+    ├── favicon.png         # Website favicon
+    ├── SAFE(1).img.JPG   # Logo image
+    ├── images/             # Placeholder for images (e.g., financial-bunny.jpg, budgeting-diagram.jpg)
+    └── README.md           # This file
 
 Setup Instructions
 
