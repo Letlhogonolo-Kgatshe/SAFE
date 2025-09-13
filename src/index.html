@@ -3,768 +3,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SAFE: Your go-to resource for financial literacy. Learn budgeting, saving, investing, debt management, and more with beginner-friendly content and a vibrant community.">
-    <meta name="keywords" content="Financial Literacy, Budgeting, Saving, Investing, Debt Management, Financial Education, SAFE">
-    <meta name="author" content="SAFE">
-    <title>SAFE - South African Financial Education</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4C+X6FfnJmE6tE62D3GZoKcD5nHct6bUyBrT3p5N+0h5iFwV0QhH6Tt4HcGlwSZk+wTjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>SAFE - Empowering Wealth Creation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#FFD700',
+                        'dark-gold': '#B8860B',
+                        'primary': '#000',
+                        'card': '#1a1a1a',
+                        'shadow': 'rgba(0,0,0,0.5)'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <img src="SAFE.jpg" alt="SAFE Logo" class="logo">
-                <h1>SAFE</h1>
-            </div>
-            <nav>
-                <ul id="nav-links" role="navigation">
-                    <li><a href="#hero" aria-label="Home">Home</a></li>
-                    <li><a href="#about" aria-label="About">About</a></li>
-                    <li><a href="#how-to-start" aria-label="How to Start">How to Start</a></li>
-                    <li><a href="#tools" aria-label="Tools">Tools</a></li>
-                    <li><a href="#definitions" aria-label="Definitions">Definitions</a></li>
-                    <li><a href="#youtube" aria-label="YouTube">YouTube</a></li>
-                    <li><a href="#podcasts" aria-label="Podcasts">Podcasts</a></li>
-                    <li><a href="#articles" aria-label="Articles">Articles</a></li>
-                    <li><a href="#news" aria-label="News">News</a></li>
-                    <li><a href="#courses" aria-label="Courses">Courses</a></li>
-                    <li><a href="#community" aria-label="Community">Community</a></li>
-                    <li><a href="#faq" aria-label="FAQ">FAQ</a></li>
-                    <li><a href="#contact" aria-label="Contact">Contact</a></li>
-                </ul>
-                <div class="hamburger" id="hamburger" aria-label="Toggle Menu">
-                    <i class="fas fa-bars"></i>
+<body class="bg-primary text-white font-sans">
+    <!-- Navigation -->
+    <header class="bg-primary border-b border-gold/20 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="SAFE.jpg" alt="SAFE Logo" class="logo w-12 h-12 mr-4">
+                    <h1 class="text-2xl font-bold text-gold">💰 SAFE</h1>
+                
+                    </div>
+                <div class="hidden md:block">
+                    <nav id="nav-links" class="flex items-baseline space-x-4">
+                        <a href="#hero" class="nav-link text-gold hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#how-to-start" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">How to Start</a>
+                        <a href="#game" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Game</a>
+                        <a href="#resources" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Resources</a>
+                        <a href="#gallery" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
+                        <a href="#youtube" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">YouTube</a>
+                        <a href="#podcasts" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Podcasts</a>
+                        <a href="#articles" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Articles</a>
+                        <a href="#news" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">News</a>
+                        <a href="#courses" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Courses</a>
+                        <a href="#community" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Community</a>
+                        <a href="#faq" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                        <a href="#contact" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </nav>
+                
+                    </div>
+                <div class="md:hidden">
+                    <button id="hamburger" class="hamburger text-gold text-2xl" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+                
+                    </div>
+            
                 </div>
-            </nav>
-        </div>
+        
+            </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Welcome to SAFE</h1>
-            <p class="tagline">Empowering Wealth Creation Through Financial Literacy</p>
-            <p class="disclaimer">Disclaimer: None of the information provided here constitutes financial advice. For personalized financial advice, please consult a professional registered and certified with the FSCA. This is financial information only.</p>
-            <div class="cta-buttons">
-                <a href="#how-to-start" class="btn btn-primary">Get Started</a>
-                <a href="#community" class="btn btn-secondary">Join Our Community</a>
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-br from-primary via-gray-900 to-primary py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-6">Welcome to <span class="text-gold">SAFE</span></h1>
+            <p class="tagline text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Empowering Wealth Creation Through Financial Literacy</p>
+            <p class="disclaimer text-sm text-red-400 italic mb-8">Disclaimer: None of the information provided here constitutes financial advice. For personalized financial advice, please consult a professional registered and certified with the FSCA. This is financial information only.</p>
+            <div class="space-x-4">
+                <button onclick="scrollToSection('how-to-start')" class="btn bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Get Started</button>
+                <button onclick="scrollToSection('community')" class="btn bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Join Our Community</button>
+            
+                </div>
+        
             </div>
-        </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About SAFE</h2>
-            <p>At SAFE, we’re dedicated to helping novice investors grow and learn. Financial literacy should be as common as talking about the weather. Our mission is to make financial education accessible by packaging essential information in one place, tailored for beginners and beyond.</p>
-            <p>We’re not reinventing the wheel—just delivering clear, practical knowledge to empower you. Let’s normalize conversations about portfolios, new listings, and financial goals. Join us, keep an open mind, and let’s grow together, even through the failures.</p>
-            <p><strong>Our Vision:</strong> To make money conversations as casual as asking, “How’s your portfolio looking?” or “Seen any new listings?” Let’s educate ourselves and those around us.</p>
-        </div>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">About <span class="text-gold">SAFE - South African Financial Education</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto">At SAFE, we’re dedicated to helping novice investors grow and learn. Financial literacy should be as common as talking about the weather (assuming taking about the weather is commom to you 😂). Our mission is to make financial education accessible by packaging essential information in one place, tailored for beginners and beyond.</p>
+            <p class="text-gray-300 max-w-3xl mx-auto mt-4">We’re not reinventing the wheel—just delivering clear, practical knowledge to empower you. Let’s normalize conversations about portfolios, new listings, and financial goals. Join us, keep an open mind, and let’s grow together, even through the failures.</p>
+            <p class="text-gray-300 max-w-3xl mx-auto mt-4">Our Vision: To make money conversations as casual as asking, “How’s your portfolio looking?” or “Seen any new listings?” Let’s educate ourselves and those around us.</p>
+        
+            </div>
     </section>
 
-    <section id="how-to-start">
-        <div class="container">
-            <h2>How to Start</h2>
-            <p>Begin your financial journey with these resources tailored for beginners. Explore definitions, watch curated YouTube channels, listen to insightful podcasts, and start investing with platforms like EasyEquities or Franc App.</p>
-            <div class="start-grid">
-                <div class="start-card">
-                    <h3>Learn the Basics</h3>
-                    <p>Understand key financial terms with our Definitions page, complete with examples and quizzes.</p>
+    <!-- How to Start Section -->
+    <section id="how-to-start" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">How to <span class="text-gold">Start</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Begin your financial journey with these resources tailored for beginners. Explore definitions, watch curated YouTube channels, listen to insightful podcasts, and start investing with platforms like EasyEquities or Franc App.</p>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Learn the Basics</h3>
+                    <p class="text-gray-300 text-sm mb-4">Understand key financial terms with our Definitions page, complete with examples and quizzes.</p>
                     <a href="#definitions" class="btn btn-primary">Explore Definitions</a>
-                </div>
-                <div class="start-card">
-                    <h3>Watch & Learn</h3>
-                    <p>Discover YouTube channels like Financial Bunny and Money Marx for beginner-friendly insights.</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Watch & Learn</h3>
+                    <p class="text-gray-300 text-sm mb-4">Discover YouTube channels like Financial Bunny and Money Marx for beginner-friendly insights.</p>
                     <a href="#youtube" class="btn btn-primary">Visit YouTube Page</a>
-                </div>
-                <div class="start-card">
-                    <h3>Start Investing</h3>
-                    <p>Try platforms like EasyEquities or Franc App to begin your investment journey.</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="text-xl font-semibold text-gold mb-4">Start Investing</h3>
+                    <p class="text-gray-300 text-sm mb-4">Try platforms like EasyEquities or Franc App to begin your investment journey.</p>
                     <a href="https://www.easyequities.co.za/" target="_blank" class="btn btn-primary">Learn More</a>
+                
+                    </div>
+            
                 </div>
+        
             </div>
-        </div>
     </section>
 
-    <section id="tools">
-        <div class="container">
-            <h2>Local Resources & Tools</h2>
-            <p>Access helpful tools to manage your finances:</p>
-            <ul>
-                <li><a href="https://www.wonga.co.za/media/le3jnedg/budget-planner-2.xlsx">Download Budget Template</a></li>
-                <li><a href="https://www.gbsbank.co.za/calculate/investment">Use Investment Calculator</a></li>
-                <li><a href="https://www.sars.gov.za/" target="_blank">SARS Tax Tools</a></li>
-            </ul>
-        </div>
+    <!-- Game Section -->
+    <section id="game" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Stock Market <span class="text-gold">Challenge</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Step into the world of investing! Buy and sell stocks in our virtual market to maximize your portfolio value. Now with more stocks, random events, achievements, and extended gameplay!</p>
+            <div id="game-container" class="bg-card border border-gold/20 rounded-lg p-6">
+                <p class="text-lg">Balance: $<span id="balance">10000</span></p>
+                <p class="text-lg">Portfolio Value: $<span id="portfolio">0</span></p>
+                <p class="text-lg">Total Net Worth: $<span id="net-worth">10000</span></p>
+                <p class="text-lg">Day: <span id="day">1</span>/20</p>
+                <div id="stock-chart" class="w-full h-64 my-4 border border-gold/20 rounded-lg bg-gray-800">
+
+                    </div>
+                <div id="stocks" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('TechCorp')">
+                        <strong>TechCorp</strong><br>Price: $<span id="price-TechCorp">100.00</span>
+                    
+                        </div>
+                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('GreenEnergy')">
+                        <strong>GreenEnergy</strong><br>Price: $<span id="price-GreenEnergy">80.00</span>
+                    
+                        </div>
+                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('HealthInc')">
+                        <strong>HealthInc</strong><br>Price: $<span id="price-HealthInc">120.00</span>
+                    
+                        </div>
+                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('AutoDrive')">
+                        <strong>AutoDrive</strong><br>Price: $<span id="price-AutoDrive">150.00</span>
+                    
+                        </div>
+                    <div class="stock-option bg-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-600 transition-colors" onclick="selectStock('FoodChain')">
+                        <strong>FoodChain</strong><br>Price: $<span id="price-FoodChain">90.00</span>
+                    
+                        </div>
+                
+                    </div>
+                <div id="trade-controls" class="mt-4 hidden">
+                    <h3 class="text-xl font-semibold text-gold">Trade <span id="selected-stock"></span></h3>
+                    <p>Current Price: $<span id="current-price">0</span></p>
+                    <input type="number" id="quantity" min="1" placeholder="Quantity" class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none my-2">
+                    <div class="space-x-4">
+                        <button onclick="buyStock()" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Buy</button>
+                        <button onclick="sellStock()" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Sell</button>
+                    
+                        </div>
+                
+                    </div>
+                <button id="next-day" onclick="nextDay()" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors mt-4">Next Day</button>
+                <p id="result" class="text-lg mt-4"></p>
+                <div id="portfolio-details" class="mt-4">
+                    <h4 class="text-lg font-semibold text-gold">Your Portfolio:</h4>
+                    <ul id="portfolio-list" class="text-gray-300"></ul>
+                
+                    </div>
+                <div id="events-log" class="mt-4 p-4 bg-gray-800 rounded-lg max-h-40 overflow-y-auto">
+                    <h4 class="text-lg font-semibold text-gold">Market Events:</h4>
+                    <ul id="events-list" class="text-gray-300"></ul>
+                
+                    </div>
+                <div id="achievements" class="mt-4 p-4 bg-yellow-900/20 rounded-lg">
+                    <h4 class="text-lg font-semibold text-gold">Achievements:</h4>
+                    <ul id="achievements-list" class="text-gray-300"></ul>
+                
+                    </div>
+            
+                </div>
+        
+            </div>
     </section>
 
-    <section id="definitions">
-        <div class="container">
-            <h2>Financial Definitions</h2>
-            <p>Learn essential financial terms with simple explanations and test your knowledge with a quick quiz.</p>
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Local <span class="text-gold">Resources & Tools</span></h2>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 text-center hover:border-gold/40 transition-colors">
+                    <div class="text-4xl mb-4">📊
 
-            <!-- Budgeting & Planning -->
-            <h3 class="group-title">Budgeting & Planning</h3>
-            <div class="definition-item">
-                <h3>Budgeting</h3>
-                <p>Budgeting is the process of creating a plan to manage your income and expenses. For example, using a 50/30/20 rule, you allocate 50% of your income to needs, 30% to wants, and 20% to savings or debt repayment.</p>
-                <p>Example: Budgeting for monthly groceries, transport, entertainment, and savings.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Financial Plans</h3>
-                <p>A financial plan combines your income, expenses, savings, and investments to achieve medium- and long-term financial goals. It helps you stay on track with your budget and prepares you for future events like education, retirement, or buying a home.</p>
-                <p>Example: A family saving for university contributes R2,000 monthly to a Tax-Free Savings Account (TFSA), leveraging tax-free growth for 15 years.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Emergency Fund</h3>
-                <p>An emergency fund is money set aside to cover unexpected expenses like medical bills, car repairs, or job loss. It usually covers 3–6 months of living costs.</p>
-                <p>Example: Keeping R50,000 aside for medical emergencies or job loss.</p>
-            </div>
+                        </div>
+                    <h3 class="text-xl font-semibold text-gold mb-2">Budget Template</h3>
+                    <p class="text-gray-300 text-sm mb-4">Download our budget template to plan your monthly expenses.</p>
+                    <a href="https://www.wonga.co.za/media/le3jnedg/budget-planner-2.xlsx">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Download</button></a>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 text-center hover:border-gold/40 transition-colors">
+                    <div class="text-4xl mb-4">💰
 
-            <!-- Income & Expenses -->
-            <h3 class="group-title">Income & Expenses</h3>
-            <div class="definition-item">
-                <h3>Saving</h3>
-                <p>Saving involves setting aside money for future use, like an emergency fund or a big purchase. For instance, saving R500 monthly in a high-interest account can grow over time.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Assets vs. Liabilities</h3>
-                <p>Assets are things that generate income or appreciate in value, like property, stocks, or businesses.</p>
-                <p>Liabilities are things that cost you money, like debt, loans, and expenses.</p>
-                <p>Example: Owning a home (asset) that increases in value vs. paying off a car loan (liability) that reduces your financial position.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Income vs. Expenditure</h3>
-                <p>Income is the money you earn, whether from a salary, business, or investments.</p>
-                <p>Expenditure is the money you spend on living costs, such as food, rent, utilities, and debt repayments.</p>
-                <p>Example: A monthly salary vs. monthly rent payments. Reducing unnecessary expenditure helps increase your savings.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Cash Flow</h3>
-                <p>The movement of money in and out of your account. Positive cash flow occurs when income exceeds expenses, while negative cash flow means you're spending more than you earn.</p>
-                <p>Example: You earn R10,000 per month, but your total expenses are R8,000. You have R2,000 in positive cash flow to save or invest.</p>
-            </div>
+                        </div>
+                    <h3 class="text-xl font-semibold text-gold mb-2">Investment Calculator</h3>
+                    <p class="text-gray-300 text-sm mb-4">Calculate potential investment growth over time.</p>
+                    <a href="https://www.gbsbank.co.za/calculate/investment">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Use Calculator</button></a>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 text-center hover:border-gold/40 transition-colors">
+                    <div class="text-4xl mb-4">📈
 
-            <!-- Investing -->
-            <h3 class="group-title">Investing</h3>
-            <div class="definition-item">
-                <h3>Types of Investments</h3>
-                <p>Different investments (stocks, bonds, real estate) offer varying returns and risk profiles.</p>
-                <p>Example: Use EasyEquities to buy stocks and ETFs for growth, bond ETFs for stability, and consider real estate for income and value appreciation.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Diversification</h3>
-                <p>Diversification means spreading investments across various asset classes to minimize risk. By diversifying, you can protect yourself from market fluctuations in one sector.</p>
-                <p>Example: Rather than investing all your money in one stock, you could invest in a mix of stocks, bonds, real estate, and a retirement plan to balance risk.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Asset Allocation & Diversification</h3>
-                <p>Asset allocation involves dividing your portfolio among different asset classes, while diversification spreads investments within those classes to reduce risk.</p>
-                <p>Example: Create a diversified portfolio on EasyEquities by investing in local and international ETFs and stocks from different sectors.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Compound Interest</h3>
-                <p>Compound interest is the interest on both the initial principal and the accumulated interest from previous periods, accelerating growth over time.</p>
-                <p>Example: R10,000 earning 8% annually grows to R14,693 after five years of compounding.</p>
-            </div>
-
-            <!-- Markets & Products -->
-            <h3 class="group-title">Markets & Products</h3>
-            <div class="definition-item">
-                <h3>ETF (Exchange-Traded Fund)</h3>
-                <p>An ETF is a collection of stocks or bonds that tracks an index and is traded on a stock exchange. It provides diversification and usually has low fees.</p>
-                <p>Example: Investing in a SATRIX 40 ETF to gain exposure to the JSE's top-performing companies.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Unit Trust</h3>
-                <p>A unit trust is a fund where many investors pool their money, which is then managed by professionals to invest in stocks, bonds, or property.</p>
-                <p>Example: Saving R5,000 monthly in a balanced unit trust to fund future purchases.</p>
-            </div>
-            <div class="definition-item">
-                <h3>JSE (Johannesburg Stock Exchange)</h3>
-                <p>The JSE is South Africa’s main stock market where shares of companies are bought and sold. It allows investors to buy ownership in businesses.</p>
-                <p>Example: Buying MTN shares at R130 each through an online stockbroker.</p>
-            </div>
-            <div class="definition-item">
-                <h3>JSE Hours & Days</h3>
-                <p>The JSE operates Monday to Friday, from 9:00 AM to 5:00 PM, excluding South African public holidays.</p>
-                <p>Example: Trading Sasol shares on a Tuesday afternoon during market hours.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Alternative Stocks</h3>
-                <p>Alternative stocks refer to investments outside traditional sectors, such as renewable energy, commodities, or emerging tech companies.</p>
-                <p>Example: Investing in a green energy firm listed on the JSE.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Property</h3>
-                <p>Property investment involves buying real estate to earn rental income or benefit from long-term value increases.</p>
-                <p>Example: Owning a R2 million apartment that generates R15,000 monthly in rental income.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Stocks</h3>
-                <p>Stocks are shares of ownership in a company. Investors can earn money through price increases (capital gains) and dividends.</p>
-                <p>Example: Investing in Woolworths shares for steady dividend payouts.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Dividends</h3>
-                <p>Dividends are payments made by a company to its shareholders from its profits. They provide regular income to investors.</p>
-                <p>Example: Receiving R2,000 in annual dividends for holding 1,000 shares.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Bull Market</h3>
-                <p>A bull market occurs when stock prices are rising over time, indicating strong investor confidence and economic growth.</p>
-                <p>Example: The JSE Top 40 index gains 20% over six months due to strong corporate earnings.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Bear Market</h3>
-                <p>A bear market happens when stock prices drop 20% or more, often caused by economic slowdowns or negative investor sentiment.</p>
-                <p>Example: The JSE falls sharply during a recession, leading to a bear market.</p>
-            </div>
-            <div class="definition-item">
-                <h3>S&P 500</h3>
-                <p>The S&P 500 is a U.S. stock market index that tracks the 500 largest companies. It is used to measure the overall performance of the American stock market.</p>
-                <p>Example: Investing in an ETF tracking the S&P 500 for international diversification.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Top 40</h3>
-                <p>The Top 40 refers to the 40 largest companies listed on the JSE, by market value. It provides a snapshot of South Africa’s major businesses.</p>
-                <p>Example: Investing in a Top 40 ETF for exposure to leading South African firms.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Trust Fund</h3>
-                <p>A trust fund is a legal structure that holds money or assets on behalf of someone, usually for long-term care or inheritance purposes.</p>
-                <p>Example: Parents setting up a trust fund for their children’s education.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Middle Class</h3>
-                <p>The middle class includes people or families who earn enough to afford basic needs and some extra comforts. They usually have steady jobs and savings.</p>
-                <p>Example: A family earning R20,000 monthly, affording housing, schooling, and leisure activities.</p>
-            </div>
-
-            <!-- Debt & Credit -->
-            <h3 class="group-title">Debt & Credit</h3>
-            <div class="definition-item">
-                <h3>Credit Score</h3>
-                <p>Your credit score is a number that represents how reliable you are at repaying borrowed money. Lenders use it to decide whether to approve your loan or credit application.</p>
-                <p>Example: A score above 650 increases the likelihood of securing a home loan with better terms.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Credit Card</h3>
-                <p>A credit card allows you to borrow money up to a certain limit to make purchases. If you pay off the balance each month, you avoid interest and build a good credit history.</p>
-                <p>Example: Spending R5,000 monthly on a credit card and paying it off to avoid 18% annual interest charges.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Balloon Payment</h3>
-                <p>A balloon payment is a large, final payment due at the end of a loan term. It allows for smaller monthly payments during the loan period, but requires paying a big amount at the end.</p>
-                <p>Example: Paying R90,000 as a balloon payment for a R300,000 car after five years of financing.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Qualify vs. Afford</h3>
-                <p>Qualifying means a lender agrees to lend you a certain amount based on your credit profile. Affording means whether the loan repayments comfortably fit within your monthly budget.</p>
-                <p>Example: Qualifying for a R1 million loan but only affording repayments on R700,000 due to personal expenses.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Buying First Home</h3>
-                <p>Buying your first home involves saving for a deposit, getting a home loan (bond), and understanding additional costs like transfer duties and legal fees.</p>
-                <p>Example: Buying a R1 million home with a 10% deposit (R100,000) and covering R25,000 in bond registration fees.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Buying First Car</h3>
-                <p>Buying your first car means choosing between new or used vehicles, saving for a deposit, and deciding whether to pay cash or use vehicle financing.</p>
-                <p>Example: Buying a R150,000 used car with a 10% deposit (R15,000) and financing over three years.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Financing</h3>
-                <p>Financing means borrowing money to buy something now and paying it back over time with interest. It’s common for large purchases like cars or homes.</p>
-                <p>Example: Financing a car with a R200,000 loan at 11% interest for five years.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Interest Rate</h3>
-                <p>The interest rate is the cost of borrowing money or the return earned on savings. It's shown as a percentage and can significantly affect loan repayments or investment returns.</p>
-                <p>Example: Borrowing R100,000 at a 10% interest rate costs R10,000 annually in interest.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Prime Rate</h3>
-                <p>The prime rate is the base interest rate banks use when lending to customers. It is influenced by the central bank and affects the cost of loans.</p>
-                <p>Example: If the prime rate is 11%, a home loan may be offered at 12%, reflecting the borrower's risk profile.</p>
-            </div>
-
-            <!-- Savings & Retirement -->
-            <h3 class="group-title">Savings & Retirement</h3>
-            <div class="definition-item">
-                <h3>Tax-Free Savings Account (TFSA)</h3>
-                <p>A TFSA is a savings or investment account where any interest, dividends, or capital gains earned are completely tax-free. There are annual and lifetime contribution limits, making it ideal for long-term growth.</p>
-                <p>Example: Investing in a TFSA linked to the JSE Top 40 index, earning tax-free capital gains over a decade.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Retirement</h3>
-                <p>Retirement planning involves setting aside money to cover your living expenses after you stop working. This includes estimating future needs, accounting for inflation, and investing in retirement products like pension funds or retirement annuities (RAs).</p>
-                <p>Example: Saving 15% of your income in an RA that grows at 8% annually to amass R2.5 million by age 65.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Retirement Savings</h3>
-                <p>Contributing to a retirement savings plan (such as a pension fund or retirement annuity) ensures long-term wealth and security.</p>
-                <p>Example: The South African government offers tax incentives for contributing to retirement savings plans.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Inflation & Its Impact</h3>
-                <p>Inflation reduces the purchasing power of money over time, affecting the real value of your savings and investments.</p>
-                <p>Example: Invest in stocks, REITs, or inflation-protected securities like TIPS through EasyEquities to stay ahead of inflation.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Tax Efficiency</h3>
-                <p>Tax efficiency is about minimizing tax liabilities on your investments to maximize returns.</p>
-                <p>Example: Use a Tax Free Savings Account or Retirement Annuity on EasyEquities to grow wealth while reducing tax exposure.</p>
-            </div>
-
-            <!-- Risk & Technology -->
-            <h3 class="group-title">Risk & Technology</h3>
-            <div class="definition-item">
-                <h3>Risk & Risk Tolerance</h3>
-                <p>Risk tolerance is the level of variability in investment returns you're comfortable with.</p>
-                <p>Example: If you're risk-averse, invest in bonds; if you’re risk-tolerant, consider growth stocks or crypto via EasyEquities, but always diversify.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Financial Literacy</h3>
-                <p>Financial literacy is the understanding of key financial concepts like budgeting, investing, and credit.</p>
-                <p>Example: Improve your financial literacy through Coursera or LinkedIn Learning, and track your credit with ClearScore.</p>
-            </div>
-            <div class="definition-item">
-                <h3>Financial Advisors & Technology</h3>
-                <p>Financial advisors provide expert guidance, while technology platforms simplify managing finances.</p>
-                <p>Example: Use EasyEquities, ClearScore, and TradingView to manage your investments, and consult a financial advisor for tailored advice.</p>
-            </div>
-
-            <!-- Additional Educational Modules from SA Money Savvy -->
-            <h3 class="group-title">Banking</h3>
-            <div class="definition-item">
-                <h3>Banking</h3>
-                <p>Understanding different South African banks and account types can help you manage your money effectively. Compare options like savings accounts, current accounts, and investment-linked accounts.</p>
-                <p>Example: Using Capitec for low-fee banking or FNB for integrated investment options.</p>
-            </div>
-            <h3 class="group-title">Personal Finance Goals</h3>
-            <div class="definition-item">
-                <h3>Personal Finance Goals</h3>
-                <p>Setting clear financial goals—whether saving for a car, wedding, or retirement—helps you prioritize and plan your finances.</p>
-                <p>Example: Saving R10,000 over 6 months for a wedding by cutting unnecessary expenses.</p>
-            </div>
-
-            <div class="quiz-section">
-                <h3>Test Your Knowledge</h3>
-                <form>
-                    <!-- True / False Questions -->
-                    <div class="quiz-item">
-                        <p>1. True or False: Compound interest is interest earned only on the original principal.</p>
-                        <label><input type="radio" name="q1" value="true"> True</label>
-                        <label><input type="radio" name="q1" value="false"> False</label>
+                        </div>
+                    <h3 class="text-xl font-semibold text-gold mb-2">SARS Tax Tools</h3>
+                    <p class="text-gray-300 text-sm mb-4">Access SARS tools for tax planning and compliance.</p>
+                    <a href="https://www.sars.gov.za/">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Visit SARS</button></a>
+                
                     </div>
-                    <div class="quiz-item">
-                        <p>2. True or False: A Tax-Free Savings Account (TFSA) grows your investment completely tax-free within contribution limits.</p>
-                        <label><input type="radio" name="q2" value="true"> True</label>
-                        <label><input type="radio" name="q2" value="false"> False</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>3. True or False: A balloon payment is a small, initial deposit you pay at the start of a loan.</p>
-                        <label><input type="radio" name="q3" value="true"> True</label>
-                        <label><input type="radio" name="q3" value="false"> False</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>4. True or False: Diversification can help reduce the impact of a single investment’s poor performance on your overall portfolio.</p>
-                        <label><input type="radio" name="q4" value="true"> True</label>
-                        <label><input type="radio" name="q4" value="false"> False</label>
-                    </div>
-
-                    <!-- Multiple Choice Questions -->
-                    <div class="quiz-item">
-                        <p>5. Which of the following is considered a liability?</p>
-                        <label><input type="radio" name="q5" value="a"> a) A rental property generating monthly income</label><br>
-                        <label><input type="radio" name="q5" value="b"> b) An outstanding car loan</label><br>
-                        <label><input type="radio" name="q5" value="c"> c) Shares of a JSE-listed company</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>6. According to the 50/30/20 budgeting rule, what percentage of your income should go to savings or debt repayment?</p>
-                        <label><input type="radio" name="q6" value="a"> a) 20%</label><br>
-                        <label><input type="radio" name="q6" value="b"> b) 30%</label><br>
-                        <label><input type="radio" name="q6" value="c"> c) 50%</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>7. Which product tracks an index and trades on an exchange, offering low fees and instant diversification?</p>
-                        <label><input type="radio" name="q7" value="a"> a) Unit Trust</label><br>
-                        <label><input type="radio" name="q7" value="b"> b) Certificate of Deposit</label><br>
-                        <label><input type="radio" name="q7" value="c"> c) ETF (Exchange-Traded Fund)</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>8. Which term describes the baseline rate banks use when setting loan interest rates?</p>
-                        <label><input type="radio" name="q8" value="a"> a) Prime Rate</label><br>
-                        <label><input type="radio" name="q8" value="b"> b) Inflation Rate</label><br>
-                        <label><input type="radio" name="q8" value="c"> c) Compound Rate</label>
-                    </div>
-                    <!-- Additional True / False Questions -->
-                    <div class="quiz-item">
-                        <p>9. True or False: An emergency fund should cover at least three to six months of living expenses.</p>
-                        <label><input type="radio" name="q9" value="true"> True</label>
-                        <label><input type="radio" name="q9" value="false"> False</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>10. True or False: A higher credit score can lead to lower interest rates on loans.</p>
-                        <label><input type="radio" name="q10" value="true"> True</label>
-                        <label><input type="radio" name="q10" value="false"> False</label>
-                    </div>
-
-                    <!-- Additional Multiple Choice Questions -->
-                    <div class="quiz-item">
-                        <p>11. Which account allows you to earn tax-free returns up to an annual contribution limit?</p>
-                        <label><input type="radio" name="q11" value="a"> a) Retirement Annuity</label><br>
-                        <label><input type="radio" name="q11" value="b"> b) Tax-Free Savings Account (TFSA)</label><br>
-                        <label><input type="radio" name="q11" value="c"> c) Unit Trust</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>12. What does “liability” refer to in personal finance?</p>
-                        <label><input type="radio" name="q12" value="a"> a) An asset that appreciates over time</label><br>
-                        <label><input type="radio" name="q12" value="b"> b) A legal arrangement holding assets for beneficiaries</label><br>
-                        <label><input type="radio" name="q12" value="c"> c) A debt or expense that reduces your net worth</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>13. When you reinvest dividends back into the same investment, which concept are you leveraging?</p>
-                        <label><input type="radio" name="q13" value="a"> a) Asset Allocation</label><br>
-                        <label><input type="radio" name="q13" value="b"> b) Compound Interest</label><br>
-                        <label><input type="radio" name="q13" value="c"> c) Balloon Payment</label>
-                    </div>
-                    <div class="quiz-item">
-                        <p>14. If you spend more than you earn in a month, you have:</p>
-                        <label><input type="radio" name="q14" value="a"> a) Positive cash flow</label><br>
-                        <label><input type="radio" name="q14" value="b"> b) Negative cash flow</label><br>
-                        <label><input type="radio" name="q14" value="c"> c) A bull market</label>
-                    </div>
-                </form>
+            
+                </div>
+        
             </div>
-        </div>
     </section>
 
-    <section id="youtube">
-        <div class="container">
-            <h2>YouTube Channels</h2>
-            <p>Explore these channels for financial education tailored to your level, from beginner to advanced.</p>
-            <h3>South African Channels</h3>
-            <!-- South African Channels -->
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="booking-placeholder.jpg" alt="Booking Platform" loading="lazy">
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Image <span class="text-gold">Gallery</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-4 hover:border-gold/40 transition-colors">
+                    <img src="Bitcoin breaches $100,000.jpg" alt="Bitcoin Breaches $100,000" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openLightbox('Bitcoin breaches $100,000.jpg', 'Bitcoin Breaches $100,000')">
+                    <p class="text-gray-300 text-sm">Bitcoin Breaches $100,000</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-4 hover:border-gold/40 transition-colors">
+                    <img src="G20 GDP Picture.jpg" alt="G20 GDP Picture" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openLightbox('G20 GDP Picture.jpg', 'G20 GDP Picture')">
+                    <p class="text-gray-300 text-sm">G20 GDP Picture</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-4 hover:border-gold/40 transition-colors">
+                    <img src="Parent and Subsidiaries(1).jpg" alt="Parent and Subsidiaries (1)" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openLightbox('Parent and Subsidiaries(1).jpg', 'Parent and Subsidiaries (1)')">
+                    <p class="text-gray-300 text-sm">Parent and Subsidiarie Companies</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-4 hover:border-gold/40 transition-colors">
+                    <img src="Parent and Subsidiaries(2).jpg" alt="Parent and Subsidiaries (2)" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openLightbox('Parent and Subsidiaries(2).jpg', 'Parent and Subsidiaries (2)')">
+                    <p class="text-gray-300 text-sm">Parent and Subsidiaries Companies</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-4 hover:border-gold/40 transition-colors">
+                    <img src="Parent and Subsidiaries(3).jpg" alt="Parent and Subsidiaries (3)" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openLightbox('Parent and Subsidiaries(3).jpg', 'Parent and Subsidiaries (3)')">
+                    <p class="text-gray-300 text-sm">Parent and Subsidiaries Companies</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-4 hover:border-gold/40 transition-colors">
+                    <img src="Trump Tariff rates.jpg" alt="Trump Tariff Rates" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openLightbox('Trump Tariff rates.jpg', 'Trump Tariff Rates')">
+                    <p class="text-gray-300 text-sm">Trump April Tariff Rates</p>
+                
+                    </div>
+            
+                </div>
+        
+            </div>
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+            <div class="relative max-w-4xl w-full">
+                <img id="lightbox-image" src="" alt="Lightbox Image" class="w-full h-auto rounded-lg">
+                <p id="lightbox-caption" class="text-white text-center mt-4 text-lg"></p>
+                <button onclick="closeLightbox()" class="absolute top-9 right-9 text-white text-2xl">✕</button>
+            
+                </div>
+        
+            </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">YouTube <span class="text-gold">Channels</span></h2>
+            <h4 class="text-2xl font-semibold text-gold mb-8">South African Channels</h4>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Financial Bunny</h3>
                     <p>This channel is A navigation through the Life of South African Nicolette Mashile and how she attempts to teach Financial Literacy from a South African perspective .</p>
-                    <p>Nicolette Mashile is an aspirant social entrepreneur, a budding property investor and founder of bunch of Winnaz found on www.bunchofwinnaz.co.za and FinancialBunnies.  She is a South African television personality; an actress on Africa's most popular Soapie Generations the Legacy on SABC 1 and a Talk TV host of DailyThetha on SABC1and  Presenter of a youth based talk show Assertiveness on GauTV. She is a communications graduate and has interests in people, financial literacy and development. She hopes to inspire Africa and the world through her talks and engagements on financial literacy and management.</p>
-                    <a href="https://youtube.com/@financialbunny?si=UqYJiRWAHvClagf3 " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@financialbunny?si=UqYJiRWAHvClagf3 " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="ecommerce-placeholder.jpg" alt="E-commerce Platform" loading="lazy">
+
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Money Marx</h3>
                     <p>This channel will help you achieve your personal financial goals through the things I’ve learned and researched to improve my own financial health.</p>
-                    <p>Let’s face it, school did not teach us much about managing our money properly and seeing that there are SO MANY financial traps that we are destined to step into if we are not careful, I want to make you aware of these potholes, how you can avoid them and how you can get out of them if you are already trapped.</p>
-                    <a href="https://youtube.com/@moneymarx?si=Q3kWmCA6NvrdZ6Ls" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@moneymarx?si=Q3kWmCA6NvrdZ6Ls" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="chatbot-placeholder.jpg" alt="Cybersecurity ChatBot" loading="lazy">
+
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Money with Carla</h3>
                     <p>I'm a qualified accountant and investment professional with an MBA on a mission to enable smarter money choices and talk about things we all should've learned in school. I will share my lessons on money, life, and careers and I hope to encourage you to invest your own money, manage your personal finances better, and become more confident in your own money skills.</p>
-                    <a href="https://youtube.com/@moneywithcarla?si=_HB1b9yN4Rp5ZhqM" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@moneywithcarla?si=_HB1b9yN4Rp5ZhqM" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="portfolio-placeholder.jpg" alt="Portfolio Website" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Louis Reynhardt</h3>
                     <p>My goal is to educate!</p>
                     <p>By working together, we can unlock our nation's potential and propel South Africa's economy to new heights. Join me  on this empowering journey!</p>
                     <p><strong>Stocks | Real estate | Finance</strong></p>
                     <p>Let's double South Africa's GDP</p>
-                    <a href="https://youtube.com/@louisreynhardt?si=ssHVoBJNVqJ8IYg9" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@louisreynhardt?si=ssHVoBJNVqJ8IYg9" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="snake-placeholder.jpg" alt="Snake Game" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>EasyEquities</h3>
                     <p>We upload a bunch of new videos every week including webinars, investing education, platform How To's and the latest from our own community. All our videos are design to help you take that first or next step in your investment journey.</p>
-                    <a href="https://youtube.com/@easyequities3558?si=jI5px_08e_j3yuFY" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@easyequities3558?si=jI5px_08e_j3yuFY" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="student-placeholder.jpg" alt="Student Registration System" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Financially Faboulous Females</h3>
                     <p>Financially Fabulous Females aims to empower you to take control of your money management and to secure an abundant future for yourself and your family by making wise money decisions. We provide you with ideas and strategies to manage your money and build generational wealth.</p>
-                    <a href="https://youtube.com/@financiallyfabulousfemales?si=PfichDM2qX2juk_5" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@financiallyfabulousfemales?si=PfichDM2qX2juk_5" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Talking money with Nozi</h3>
                     <p>Welcome to Talking Money with Nozi! I am here to simplify personal finance for you.</p>
                     <p>I will be covering money-related topics such as  financial literacy, how to create financial freedom, saving, budgeting, getting out of debt, setting financial goals, investing (the JSE, EasyEquities, Tax Free Favings accounts, Unit Trusts, REITS, ETFs also known as Exchange Traded Funds) and so much more.</p>
-                    <a href="https://youtube.com/@talkingmoneywithnozi?si=ap_Otf-C7uO0WTMU " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@talkingmoneywithnozi?si=ap_Otf-C7uO0WTMU " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>BizNews TV	</h3>
                     <p>BizNewsTV delivers independent, absorbing content. Join an audience of hundreds of thousands who understand the value of getting context - and knowing more.</p>
-                    <a href="https://youtube.com/@biznewstv?si=1tGtDeGwktEW9t06" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@biznewstv?si=1tGtDeGwktEW9t06" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>BusinessDay TV</h3>
                     <p>South Africa's essential business and markets channel. DStv Channel 412.</p>
-                    <a href="https://youtube.com/@businessdaytelevision?si=joc74ycWGLHm_ciG" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@businessdaytelevision?si=joc74ycWGLHm_ciG" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>IGrow Wealth Investments	</h3>
-                    <p>IGrow Wealth Investments - Property Investment South Africa</p>
-                    <p>Become Financially Independent through Property Investment situated in Cape Town, South Africa under the guidance and direction of Jacques Fouché. The Property Investors Club helps Members to financial independence by building lasting wealth through high-performing property portfolios and assists South African investors master every stage in the successful process of property investment -- Identifying, acquiring and managing top performing properties that provide above-average rental income and capital growth yields. The IGrow Property Club provides an holistic approach to wealth creation by using entry-level property as the underlying asset class and ensures the most tax efficient property and financing structures are in place providing the best property investment opportunities in South Africa.</p>
-                    <a href="https://youtube.com/@igrowwealthinvestments?si=6YEvcoFZV8MVJyqi " target="_blank" class="btn btn-primary">View Channel</a>
+                    <p> Property Investment South Africa</p>
+                    <a href="https://youtube.com/@igrowwealthinvestments?si=6YEvcoFZV8MVJyqi " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Casual Cash Club</h3>
-                    <p>Thanks for coming to this channel! Here we cover everything related to finance and personal wealth on a global scale. I'm talking about investing, finance, economy, cryptocurrency, markets, real estate, forex and just about everything else of value to your financial well-being. There are some cool news stories we cover, and real world investing and case studies to watch how the numbers grow. Lastly this channel follows my personal journey in investing and building wealth and we regularly review my own investments and full portfolio - all the profits and losses.</p>
                     <p>More than anything it's like a club of like minded people discussing money together. See you in the videos!</p>
                     <p>This content is for informational, educational, and entertainment purposes only and does not constitute financial advice.</p>
-                    <a href="https://youtube.com/@casualcash?si=Ytx4rR_RCE2JDSr2 " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@casualcash?si=Ytx4rR_RCE2JDSr2 " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>JuatOneLap</h3>
                     <p><strong>Money in action.</strong></p>
                     <p><strong>We get just one lap in life. To really make the most of it, we need to learn to be smart about money.</strong></p>
-                    <a href="https://youtube.com/@justonelapza?si=TMLLK57ZIa2BnqNc" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@justonelapza?si=TMLLK57ZIa2BnqNc" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Insider Exchange	</h3>
                     <p>Trusted - Opinions - Companies - Investments - Markets</p>
                     <p>Out weekly, on all podcasting platforms.</p>
                     <p>Be sure to subscribe and follow to keep up.</p>
-                    <a href="https://youtube.com/@insiderexchange?si=WS4tR7tFGXzeqEme" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@insiderexchange?si=WS4tR7tFGXzeqEme" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>It’s More Than Just Money	</h3>
                     <p>Welcome to the  It's More Than Just Money Movement channel, your go-to source for inspiration and education on investments, business, personal growth, property, and achieving success in life. Founded and run by Witness Mdaka, a renowned author, entrepreneur, and property developer, our channel is dedicated to empowering you with the knowledge and inspiration to excel in all areas of your life.</p>
-                    <p><strong>Our Mandate</strong></p>
-                    <p>At It's More Than Just Money Movement, we believe that success is a holistic journey that encompasses financial acumen, personal development, and impactful living. Our content is designed to provide you with practical advice, insightful interviews, and inspirational stories.</p>
-                    <a href="https://youtube.com/@itsmorethanjustmoney?si=Nm4Ci__IbqDZsjUv" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@itsmorethanjustmoney?si=Nm4Ci__IbqDZsjUv" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>FNB SA</h3>
-                    <p>While ‘help’ constitutes a core brand value within FNB, we also practice an overall ethos underpinned by the concept of ‘better business; better world’. We believe that by tapping into the innovative culture within FNB, we can provide people with the help they need to change their lives, communities and transform their businesses. Not just for their own benefit, but for the benefit of others.</p>
-                    <p>We know that South Africans want to help each other, and that positive and lasting change is possible. As individuals we have a generosity of spirit. We have what it takes to tap into this spirit, so that together we can keep changing this great country into the great nation we all know it can be.</p>
-                    <p><strong>First National bank is a division of FirstRand Bank Limited.</strong></p>
-                    <a href="https://youtube.com/@fnbtv?feature=shared" target="_blank" class="btn btn-primary">View Channel</a>
+                    <p>FNB is committed to helping people and communities by fostering innovation and a spirit of generosity. Their goal is to create positive change in South Africa through better business practices and support for individuals and businesses. First National Bank is a division of FirstRand Bank Limited.</p>
+                    <a href="https://youtube.com/@fnbtv?feature=shared" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <!-- Property Space -->
-                <h3>Property Channels</h3>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
-                    <h3>Let’s Prop’In</h3>
-                    <p>Exploring and showcasing the most extraordinary homes in and around South Africa.</p>
-                    <p><strong>Welcome to Let's Prop'In, where we take you along to see some of the most extraordinary home in and around South Africa.</p>
-                    <a href="https://youtube.com/@letspropin?si=B5L-x6abqROKD2ab " target="_blank" class="btn btn-primary">View Channel</a>
-                </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+
+            <!-- Property Space -->  
+        </div>
+            <h4 class="text-2xl font-semibold text-gold mb-8">Property Space</h4>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">  
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Steven Ndukwu</h3>
-                    <p>Steven Ndukwu is a Seasoned Filmmaker, Internet Personality, and Content Creator with over 100 Million online views about stories from around the world in his well-put-together Travel Documentaries from an African storyteller.</p>
                     <p>On this channel, you will also discover the Beauty of the world and get to see African-owned businesses/Innovations that are changing lives and creating impact.</p>
-                    <a href="https://youtube.com/@stevenndukwu?si=8KGWVe8ZpSl8e9o2 " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@stevenndukwu?si=8KGWVe8ZpSl8e9o2 " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Luxury Homes Johannesburg</h3>
                     <p><strong>Welcome! Here, you’ll find the best selection of luxury properties in Johannesburg, the City of Gold!</strong></p>
                     <p>Join me on my journey around the greater Johannesburg area to see all of the beautiful mansions it offers! A small caveat: you’ll be amazed by the value-for-money here!</p>
-                    <a href="https://youtube.com/@luxuryhomesjohannesburg?si=aBj2cForm4ili-Sc " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@luxuryhomesjohannesburg?si=aBj2cForm4ili-Sc " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Prosperity Enterprises</h3>
                     <p>Prosperity Enterprises is an education and structuring company that assists individuals to achieve financial freedom by investing in property</p>
-                    <a href="https://youtube.com/@prosperityenterprises5840?si=ox9T52f8GwdazdS6" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@prosperityenterprises5840?si=ox9T52f8GwdazdS6" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                   <!-- Other -->
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+
+                <!-- Other -->
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Mzansi Business</h3>
                     <p><strong>The main of goal of this channel is to create high quality video essays and documentaries on South African companies, South African businessmen and women as well as any business and finance topics relating to South Africa.</strong></p>
-                    <a href="https://youtube.com/@mzansibusiness?si=t-I86alyieqWZt8z " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@mzansibusiness?si=t-I86alyieqWZt8z " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Muzi Sambo</h3>
                     <p><strong>THIS IS A SOUTH AFRICAN CAR REVIEW PLATFORM. MAKE SURE YOU SUBSCRIBE FOR MORE CAR CONTENT IN A MZANSI CONTEXT.🇿🇦</strong></p>
-                    <a href="https://youtube.com/@muzisambo?si=fAxSonbU9TNMPFUj " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@muzisambo?si=fAxSonbU9TNMPFUj " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <!-- International Channels -->
-                <h3>International Channels</h3>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+        </div>
+
+                    <h4 class="text-2xl font-semibold text-gold mb-8">Specific Videos</h4>
+                        <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">              
+
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3>Beginners Guide to EasyEquities</h3>
+                    <p>A comprehensive guide by Money Marx on using the EasyEquities app.</p>
+                    <a href="https://youtube.com/@moneymarx" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                </div>
+
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3>P/E Ratio Basics</h3>
+                    <p>Learn the basics of Price-to-Earnings ratio from Charles Schwab.</p>
+                    <a href="https://youtube.com/@charlesschwab?si=5GsVNrtLxjUHlVCM" target="_blank" class="btn btn-primary"> 
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>
+    </section>
+                
+                                           <!-- International Channels -->
+    </div>
+            <h4 class="text-2xl font-semibold text-gold mb-8">International Channels</h4>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">              
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Nischa</h3>
                     <p>I’m an Investment Banker (with an accountancy qualification) and on this channel we explore all things personal finance, self development and business</p>
-                    <a href="https://youtube.com/@nischa?si=qZemDFNKeypZGoX8 " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@nischa?si=qZemDFNKeypZGoX8 " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Alux.com</h3>
-                    <p>www.Alux.com is the largest community of Luxury & Fine Living enthusiasts in the World. Alux a world-wide recognized Authority when it comes to ranking the most expensive things in the world and frequently referenced in publications such as Forbes, USAToday, Wikipedia and many more as the Go-To resource in terms of luxury content!</p>
                     <p><strong>Alux.com is more than a "magazine", it is a social platform where people passionate about what it means to live an elegant, beautiful and successful life, come to enjoy, share and discuss their own take on luxury.</strong></p>
-                    <a href=https://youtube.com/@alux?si=AiQzCLUKgdSz0JaK " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href=https://youtube.com/@alux?si=AiQzCLUKgdSz0JaK " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>The Ramsey Show</h3>
                     <p>You can win with money and take control of your life—no matter the mistakes you've made with money. Join Dave Ramsey and his team of experts for real advice that works. Subscribe and watch full episodes to start your journey toward the life you’ve dreamed of!</p>
-                    <a href="https://youtube.com/@theramseyshowepisodes?si=1qwUEsHN3KcqfQN9" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@theramseyshowepisodes?si=1qwUEsHN3KcqfQN9" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                 <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Yahoo Finance</h3>
                     <p><strong>Yahoo Finance aims to help investors of all kinds build and maintain their wealth. Yahoo Finance videos on YouTube dissect markets, data, trends, and real-life financial issues for individual investors, industry leaders, and households through insightful interviews and detailed supercuts across various themes.</strong></p>
-                    <a href="https://youtube.com/@yahoofinance?si=9F-5Nva9LW3PscNL" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@yahoofinance?si=9F-5Nva9LW3PscNL" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                 <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Professor Claudia Zeisberger</h3>
                     <p>By simplifying complexity, she helps corporate clients to ensure the resilience of their businesses or portfolios and has worked with institutional investors, Family Offices and SWF’s globally to improve their processes.</p>
                     <p>Professor Zeisberger devotes a significant amount of her time to advise early stage companies and is a mentor in the Google Startup Accelerator.</p>
-                    <a href="https://youtube.com/@claudiazeisberger?si=wGJvhpBK7_vfo8iQ" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@claudiazeisberger?si=wGJvhpBK7_vfo8iQ" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                 <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Dividend Talks</h3>
                     <p><strong>Welcome to Dividend Talks!</strong></p>
                     <p>I’ve spent years investing in the stock market - and my passion for finance and building long-term wealth has only grown.</p>
                     <p>But here’s the thing: you don’t need an Ivy League MBA or a Wall Street job to build financial freedom. Investing is simple, powerful, and accessible to anyone willing to learn - and that’s what this channel is all about.</p>
                     <p>Whether you’re just starting out or looking to level up your investing game, you’ll find value here.</p>
-                    <a href="https://youtube.com/@dividendtalks?si=ePihGlHTAoRTpWup" target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@dividendtalks?si=ePihGlHTAoRTpWup" target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
                 </div>
-                 <div class="project-card">
-                    <img src="quiz-placeholder.jpg" alt="Quiz App" loading="lazy">
+                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>The Swedish Investor</h3>
                     <p>Thank you for checking out The Swedish Investor. My name is Erik Abrahamsson, and on this channel, I will share with you the most successful strategies for taking your finances to the next level in (well, hopefully) a simple and enjoyable way. Here, you will find time-tested investing advice from our time's most successful money managers and investors.</p>
-                    <a href="https://youtube.com/@theswedishinvestor?si=SdSP-JIT_LO9lsy1 " target="_blank" class="btn btn-primary">View Channel</a>
+                    <a href="https://youtube.com/@theswedishinvestor?si=SdSP-JIT_LO9lsy1 " target="_blank" class="btn btn-primary">
+                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                </div>     
                 </div>
-        </div>
-
-            <h3>Specific Videos</h3>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Beginners Guide to EasyEquities</h3>
-                    <p>A comprehensive guide by Money Marx on using the EasyEquities app.</p>
-                    <a href="https://youtube.com/@moneymarx" target="_blank" class="btn btn-primary">Watch Video</a>
-                </div>
-                <div class="project-card">
-                    <h3>P/E Ratio Basics</h3>
-                    <p>Learn the basics of Price-to-Earnings ratio from Charles Schwab.</p>
-                    <a href="https://youtube.com/@charlesschwab?si=5GsVNrtLxjUHlVCM" target="_blank" class="btn btn-primary">Watch Video</a>
-                </div>
+        
             </div>
-        </div>
     </section>
 
-    <section id="podcasts">
-        <div class="container">
-            <h2>Podcasts</h2>
-            <p>Listen to financial podcasts for on-the-go learning. Perfect for deepening your understanding.</p>
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="honest-money.jpg" alt="Honest Money Podcast" loading="lazy">
-                    <h3>Honest Money Podcast</h3>
-                    <p>Offers practical advice on personal finance and investing for South Africans.</p>
-                    <a href="https://honestmoney.co.za/podcast/" target="_blank" class="btn btn-primary">Listen Now</a>
+    <!-- Podcasts Section -->
+    <section id="podcasts" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Financial <span class="text-gold">Podcasts</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Listen to financial podcasts for on-the-go learning. Perfect for deepening your understanding.</p>
+            <div class="start-grid grid md:grid-cols-2 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Honest Money Podcast</h3>
+                    <p class="text-gray-300 text-sm mb-4">Offers practical advice on personal finance and investing for South Africans.</p>
+                    <a href="https://honestmoney.co.za/podcast/" target="_blank" class="btn btn-primary">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Listen Now</button></a>
+                
+                    </div>
+            
                 </div>
+        
             </div>
-        </div>
     </section>
 
-    <section id="articles">
-        <div class="container">
-            <h2>Articles</h2>
-            <p>Read insightful articles from trusted sources to expand your financial knowledge.</p>
-            <div class="Article_Page-grid">
-                <!-- MoneyWeb -->
-                <div class="project-card">
-                    <h3>MoneyWeb</h3>
+    <!-- Articles Section -->
+    <section id="articles" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Financial <span class="text-gold">Articles</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Read insightful articles from trusted sources to expand your financial knowledge.</p>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                                <!-- MoneyWeb -->
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">MoneyWeb</h3>
                     <p>Moneyweb is a financial media group and a wholly-owned subsidiary of AME. We focus on producing independent, high-quality investment information across internet, radio, print, newsletters and event activations.</p>
-                    <a href="https://www.moneyweb.co.za/" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://www.moneyweb.co.za/" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
+
                 <!-- Investopedia -->
-                <div class="project-card">
-                    <img src="investopedia-logo.png" alt="Investopedia" loading="lazy">
-                    <h3>Investopedia</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Investopedia</h3>
                     <p>The ultimate financial education site, offering definitions, tutorials, market news, and simulator tools to help you learn key concepts from budgeting to derivatives.</p>
-                    <p><strong>URL:</strong> <a href="https://www.investopedia.com" target="_blank">investopedia.com</a></p>
+                    <a href="https://www.investopedia.com" target="_blank">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Fin24 -->
-                <div class="project-card">
-                    <img src="fin24-logo.png" alt="Fin24" loading="lazy">
-                    <h3>Fin24</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Fin24</h3>
                     <p>South Africa’s leading business news portal—covering markets, personal finance, and investing insights tailored to the local economy.</p>
-                    <p><strong>URL:</strong> <a href="https://www.fin24.com" target="_blank">fin24.com</a></p>
+                    <a href="https://www.fin24.com" target="_blank">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- BusinessTech -->
-                <div class="project-card">
-                    <img src="businesstech-logo.png" alt="BusinessTech" loading="lazy">
-                    <h3>BusinessTech</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">BusinessTech</h3>
                     <p>South Africa’s largest technology and business news site—covering fintech, banking tech, and personal finance innovations.</p>
-                    <p><strong>URL:</strong> <a href="https://businesstech.co.za" target="_blank">businesstech.co.za</a></p>
+                    <a href="https://businesstech.co.za" target="_blank">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- NerdWallet -->
-                <div class="project-card">
-                    <img src="nerdwallet-logo.png" alt="NerdWallet" loading="lazy">
-                    <h3>NerdWallet</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">NerdWallet</h3>
                     <p>Comprehensive US-based resource for comparing credit cards, loans, insurance products, and creating personalized money-management plans.</p>
-                    <p><strong>URL:</strong> <a href="https://www.nerdwallet.com" target="_blank">nerdwallet.com</a></p>
+                    <a href="https://www.nerdwallet.com" target="_blank">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Yahoo Finance -->
-                <div class="project-card">
-                    <h3>Yahoo Finance</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Yahoo Finance</h3>
                     <p>Yahoo Finance provides financial news, data and commentary including stock quotes, press releases, financial reports, and original content.</p>
-                    <a href="https://finance.yahoo.com/" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://finance.yahoo.com/" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Financial Times Market News -->
-                <div class="project-card">
-                    <h3>Financial Times Market News</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Financial Times Market News</h3>
                     <p>The Financial Times is a leading international business newspaper providing global market news, in-depth analysis, and expert commentary.</p>
-                    <a href="https://www.ft.com/markets" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://www.ft.com/markets" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Daily Investor -->
-                <div class="project-card">
-                    <h3>Daily Investor</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Daily Investor</h3>
                     <p>Daily Investor provides financial and investing news, market data, and in-depth company analysis tailored for South African investors.</p>
-                    <a href="https://dailyinvestor.com/" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://dailyinvestor.com/" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Old Mutual Financial Education -->
-                <div class="project-card">
-                    <h3>Old Mutual Financial Education</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Old Mutual Financial Education</h3>
                     <p>Old Mutual offers free online financial education resources—articles, videos, courses and tools—to help you manage your finances with confidence.</p>
-                    <a href="https://www.oldmutual.co.za/personal/solutions/financial-education/" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://www.oldmutual.co.za/personal/solutions/financial-education/" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- MoneyUp Academy -->
-                <div class="project-card">
-                    <h3>MoneyUp Academy</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">MoneyUp Academy</h3>
                     <p>The MoneyUp Academy is a free, web-based financial education platform that offers a fun and easy way to build your money knowledge and skills.</p>
-                    <a href="https://moneyup.co.za/" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://moneyup.co.za/" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- QuickBooks -->
-                <div class="project-card">
-                    <h3>QuickBooks</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">QuickBooks</h3>
                     <p>QuickBooks is accounting software for small and medium-sized businesses developed by Intuit, offering cloud-based and desktop solutions for invoicing, expense tracking, payroll and reporting.</p>
-                    <a href="https://quickbooks.intuit.com/za/" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://quickbooks.intuit.com/za/" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Wonga Money Academy -->
-                <div class="project-card">
-                    <h3>Wonga Money Academy</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Wonga Money Academy</h3>
                     <p>Wonga’s Money Academy offers free video lessons and quizzes on the four pillars of financial literacy—debt, savings, budgeting, and investing.</p>
-                    <a href="https://www.wonga.co.za/blog/free-financial-literacy-resources" target="_blank" class="btn btn-primary">View Site</a>
+                    <a href="https://www.wonga.co.za/blog/free-financial-literacy-resources" target="_blank" class="btn btn-primary">                    
+                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
                 </div>
                 <!-- Biblical Money Wisdom -->
-                <div class="project-card">
-                    <h3>Biblical Money Wisdom for College Students</h3>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Biblical Money Wisdom for College Students</h3>
                     <p>Navigate the financial challenges of college life with timeless biblical principles. This 3-day plan offers practical advice for managing money, avoiding debt, and cultivating generosity during your academic journey.</p>
                     <a href="https://www.bible.com/reading-plans/52750-biblical-money-wisdom-for-college-students" target="_blank" class="btn btn-primary">View Plan</a>
                 </div>
@@ -772,173 +619,499 @@
         </div>
     </section>
 
-    <section id="news">
-        <div class="container">
-            <h2>News</h2>
-            <p>Stay updated with the latest financial news from trusted sources via RSS feeds.</p>
-            <h3>News & Key Statistics</h3>
-            <p>Stay informed on South Africa’s economic and financial landscape with these key metrics and trusted sources.</p>
-            <div class="project-grid">
-                <!-- Inflation -->
-                <div class="project-card">
-                    <h3>Inflation Rate</h3>
-                    <p>Headline CPI inflation for April 2025 was 2.8%, up slightly from 2.7% in March. Food & non-alcoholic beverage inflation rose to 4.0%, the highest since September 2024.</p>
-                    <a href="https://www.statssa.gov.za/?p=18421" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <!-- Consumer Sentiment -->
-                <div class="project-card">
-                    <h3>Consumer Confidence</h3>
-                    <p>South Africa’s consumer confidence index fell to -20 points in Q1 2025, down from -6 in Q4 2024, reflecting growing pessimism about the economic outlook.</p>
-                    <a href="https://tradingeconomics.com/south-africa/consumer-confidence" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <!-- Unemployment -->
-                <div class="project-card">
-                    <h3>Unemployment Rate</h3>
-                    <p>The official unemployment rate rose to 32.9% in Q1 2025, with 8.228 million South Africans unemployed. Including discouraged job-seekers, the expanded rate hit 43.1%.</p>
-                    <a href="https://www.reuters.com/world/africa/south-africas-unemployment-rate-rises-329-first-quarter-2025-05-13/" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <!-- Financial Education -->
-                <div class="project-card">
-                    <h3>Financial Literacy</h3>
-                    <p>Only around 51% of adult South Africans are considered financially literate, highlighting the need for improved education and outreach.</p>
-                    <a href="https://trialogueknowledgehub.co.za/financial-literacy-in-south-africa-impact-and-solutions/" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <!-- Retirement Coverage -->
-                <div class="project-card">
-                    <h3>Retirement Coverage</h3>
-                    <p>For 75% of South Africa’s elderly, the government’s old-age grant is their main retirement income—implying only about 25% rely primarily on funded pension benefits.</p>
-                    <a href="https://www.pensionfundsonline.co.uk/content/country-profiles/south-africa" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <!-- Repo Rate -->
-                <div class="project-card">
-                    <h3>SARB Repo Rate</h3>
-                    <p>After a 25 basis point cut on 29 May 2025, the South African Reserve Bank’s repo rate stands at 7.25%, aiming to support growth while keeping inflation within the 3–6% target range.</p>
-                    <a href="https://www.reuters.com/world/africa/south-africa-gdp-growth-outlook-gets-biggest-cut-since-early-2023-sarb-trim-2025-05-27/" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <!-- GDP Growth Forecast -->
-                <div class="project-card">
-                    <h3>GDP Growth Forecast</h3>
-                    <p>Economists have downgraded South Africa’s 2025 GDP growth forecast to 1.2%, a 0.3 percentage point cut due to global trade uncertainties and ongoing power constraints.</p>
-                    <a href="https://www.reuters.com/world/africa/south-africa-gdp-growth-outlook-gets-biggest-cut-since-early-2023-sarb-trim-2025-05-27/" target="_blank" class="btn btn-primary">Read More</a>
-                </div>
-                <div class="project-card">
-                    <h3>Mag 7 VS Terrific 10</h3>
-                    <p>We have heard of the Mag 7, but have you heard of the Terrific 10</p>
-                    <p>The Terrific 10 (and their closest U.S. counterparts) include: Alibaba (Amazon, Microsoft); Tencent (Amazon, Microsoft); Meituan (Amazon); Xiaomi (Apple); JD.com (Amazon); NetEase (Microsoft); Baidu (Google); BYD (Tesla); Geely (Tesla); and SMIC (Nvidia)</p>
-                    <p>The Magnificent Seven include Apple, Microsoft, Amazon, Alphabet (parent of Google), Tesla, Nvidia, and Meta Platforms</p>
-                    <a href="https://finance.yahoo.com/video/mag-7-vs-terrific-10-233000127.html" target="_blank" class="btn btn-primary">Read More</a>            
-                </div>        
-                <div class="project-card">
-                    <h3>Zero-Rated Items</h3>
-                    <p>Zero-rated items are taxable for VAT purposes but are taxed at a 0% rate. This allows businesses to claim input tax credits on expenses incurred in producing these goods or services. </p>
-                    <p>Basic Foodstuffs: A list of 19 essential food items is zero-rated to promote affordability.</p>
-                    <ul>
-                        <li>Brown bread</li>
-                        <li>Maize meal</li>
-                        <li>Samp</li>
-                        <li>Dried mealies</li>
-                        <li>Lentils</li>
-                        <li>Pilchards/sardinella in tins</li>
-                        <li>Milk powder</li>
-                        <li>Dairy powder blend</li>
-                        <li>Rice</li>
-                        <li>Vegetables</li>
-                        <li>Fruit</li>
-                        <li>Vegetable oil</li>
-                        <li>Milk</li>
-                        <li>Cultured milk</li>
-                        <li>Brown wheaten meal</li>
-                        <li>Eggs</li>
-                        <li>Edible legumes and pulses of leguminous plants</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="courses">
-        <div class="container">
-            <h2>Courses & Workshops</h2>
-            <p>Enhance your financial knowledge with our free courses and workshops:</p>
-            <ul>
-                <li><strong>Free Email Course on Budgeting:</strong> Learn how to create and stick to a budget. <a href="#">Sign up</a></li>
-                <li><strong>Investing 101 Webinar:</strong> Understand the basics of investing in South Africa. <a href="#">Register</a></li>
-                <li><strong>FIRE in SA - Online Guide:</strong> Discover how to achieve financial independence and retire early. <a href="#">Access Guide</a></li>
-            </ul>
-        </div>
-    </section>
+    <!-- News Section -->
+    <section id="news" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Latest Financial <span class="text-gold">News</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Stay updated with the latest financial news from trusted sources via RSS feeds.</p>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">📈 Inflation Rate • April 2025
 
-    <section id="community">
-        <div class="container">
-            <h2>Join Our Community</h2>
-            <p>Connect with others to ask questions, share tips, and read real testimonials.</p>
-            <ul>
-                <li><a href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M ">Join our WhatsApp Group</a></li>
-                <li><a href="#">Join our Telegram Group</a></li>
-            </ul>
-            <a href="#" class="btn btn-primary">Join the Forum</a>
-        </div>
-    </section>
-
-    <section id="faq">
-        <div class="container">
-            <h2>FAQs</h2>
-            <dl>
-                <dt>How do I get a free credit report?</dt>
-                <dd>You can request a free credit report once a year from credit bureaus like Experian or TransUnion. Visit their websites for more information.</dd>
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Inflation Rate</h3>
+                    <p class="text-gray-300 text-sm mb-4">Headline CPI inflation for April 2025 was 2.8%, up slightly from 2.7% in March.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
                 
-                <dt>Is EasyEquities safe?</dt>
-                <dd>EasyEquities is a regulated platform in South Africa, and your investments are held in a nominee account for security. Always ensure you understand the risks before investing.</dd>
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">📊 Consumer Confidence • Q1 2025
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Consumer Confidence</h3>
+                    <p class="text-gray-300 text-sm mb-4">South Africa’s consumer confidence index fell to -20 points in Q1 2025.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
                 
-                <dt>What is a Tax-Free Savings Account?</dt>
-                <dd>A TFSA allows you to save or invest up to R36,000 per year without paying tax on the growth or returns. It's a great way to save for long-term goals.</dd>
-            </dl>
-        </div>
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">💼 Unemployment Rate • Q1 2025
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Unemployment Rate</h3>
+                    <p class="text-gray-300 text-sm mb-4">The official unemployment rate rose to 32.9% in Q1 2025.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">📚 Financial Literacy
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Financial Literacy</h3>
+                    <p class="text-gray-300 text-sm mb-4">Only around 51% of adult South Africans are considered financially literate.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">👴 Retirement Coverage
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Retirement Coverage</h3>
+                    <p class="text-gray-300 text-sm mb-4">75% of South Africa’s elderly rely on government grants for retirement income.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">🏦 SARB Repo Rate • May 2025
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">SARB Repo Rate</h3>
+                    <p class="text-gray-300 text-sm mb-4">The repo rate stands at 7.25% after a 25 basis point cut on 29 May 2025.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">📈 GDP Growth Forecast • 2025
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">GDP Growth Forecast</h3>
+                    <p class="text-gray-300 text-sm mb-4">South Africa’s 2025 GDP growth forecast downgraded to 1.2%.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">🌍 Mag 7 VS Terrific 10
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Mag 7 VS Terrific 10</h3>
+                    <p class="text-gray-300 text-sm mb-4">Compare the Magnificent Seven (Apple, Microsoft, etc.) with the Terrific 10 (Alibaba, Tencent, etc.).</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <div class="text-gold text-sm mb-2">🛒 Zero-Rated Items
+
+                        </div>
+                    <h3 class="font-semibold text-gold mb-2">Zero-Rated Items</h3>
+                    <p class="text-gray-300 text-sm mb-4">List of 19 essential food items taxed at 0% VAT to promote affordability.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button>
+                
+                    </div>
+            
+                </div>
+        
+            </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <p><strong>Location:</strong> Cape Town, 7708</p>
-                <p><strong>Phone:</strong> <a href="tel:+27664207144">+27 664 207 144</a></p>
-                <p><strong>Email:</strong> <a href="mailto:Tlhogikgatshe@gmail.com">Tlhogikgatshe@gmail.com</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/letlhogonolo-kgatshe-69aa2a2b7/" target="_blank">Letlhogonolo Kgatshe</a></p>
+    <!-- Courses Section -->
+    <section id="courses" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Courses & <span class="text-gold">Workshops</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Enhance your financial knowledge with our free courses and workshops.</p>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Free Email Course on Budgeting</h3>
+                    <p class="text-gray-300 text-sm mb-4">Learn how to create and stick to a budget.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Sign Up</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Investing 101 Webinar</h3>
+                    <p class="text-gray-300 text-sm mb-4">Understand the basics of investing in South Africa.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Register</button>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">FIRE in SA - Online Guide</h3>
+                    <p class="text-gray-300 text-sm mb-4">Discover how to achieve financial independence and retire early.</p>
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Access Guide</button>
+                
+                    </div>
+            
+                </div>
+        
             </div>
-            <div class="contact-form">
-                <h3>Get in Touch</h3>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
-                    <input type="hidden" name="_subject" value="New Contact Form Submission from SAFE">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required aria-required="true" aria-label="Your Name">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required aria-required="true" aria-label="Your Email">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required aria-required="true" aria-label="Your Message"></textarea>
-                    <input type="submit" value="Send" class="btn btn-primary">
-                </form>
-                <div id="form-message" class="form-message"></div>
-            </div>
-            <div class="newsletter-signup">
-                <h2>Newsletter Signup</h2>
-                <p>Get free templates, investment tips, and more every month.</p>
-                <form action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>© 2025 SAFE. All rights reserved.</p>
-            <p>This website provides educational information only and is not financial advice. POPIA-compliant. Terms & Conditions apply.</p>
-        </div>
+    <!-- Community Section -->
+    <section id="community" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Join Our <span class="text-gold">Community</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Connect with others to ask questions, share tips, and read real testimonials.</p>
+            <div class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">WhatsApp Group</h3>
+                    <p class="text-gray-300 text-sm mb-4">Join our WhatsApp group for real-time discussions.</p>
+                    <a href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M ">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Join our WhatsApp Group</button></a>
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Telegram Group</h3>
+                    <p class="text-gray-300 text-sm mb-4">Join our Telegram group for community updates.</p>
+                    <a href="#">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Join our Telegram Group</button></a>                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Forum</h3>
+                    <p class="text-gray-300 text-sm mb-4">Participate in our online forum for in-depth discussions.</p>
+                    <a href="#">
+                    <button class="btn text-gold hover:text-white text-sm font-medium">Join our Online Forum</button></a>                
+                    </div>
+            
+                </div>
+        
+            </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked <span class="text-gold">Questions</span></h2>
+            <div class="start-grid grid md:grid-cols-2 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">How do I get a free credit report?</h3>
+                    <p class="text-gray-300 text-sm mb-4">You can request a free credit report once a year from credit bureaus like Experian or TransUnion. Visit their websites for more information.</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Is EasyEquities safe?</h3>
+                    <p class="text-gray-300 text-sm mb-4">EasyEquities is a regulated platform in South Africa, and your investments are held in a nominee account for security. Always ensure you understand the risks before investing.</p>
+                
+                    </div>
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">What is a Tax-Free Savings Account?</h3>
+                    <p class="text-gray-300 text-sm mb-4">A TFSA allows you to save or invest up to R36,000 per year without paying tax on the growth or returns. It's a great way to save for long-term goals.</p>
+                
+                    </div>
+            
+                </div>
+        
+            </div>
+    </section>
+
+    <!-- Definitions Section -->
+    <section id="definitions" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Financial <span class="text-gold">Definitions</span></h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-8">Learn essential financial terms with simple explanations.</p>
+            <div class="relative max-w-2xl mx-auto mb-12">
+                <input type="text" id="searchTerm" placeholder="Search financial terms..." class="w-full bg-gray-900 border border-gold/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                <button onclick="searchTerms()" class="absolute right-3 top-3 text-gold hover:text-white">🔍</button>
+            
+                </div>
+            <div id="dictionaryTerms" class="start-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Budgeting & Planning -->
+                         
+                                     <p class="text-gray-300 max-w-3xl mx-auto mb-8">Budgeting & Planning</p>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Budgeting</h3>
+                <p>Budgeting is the process of creating a plan to manage your income and expenses. For example, using a 50/30/20 rule, you allocate 50% of your income to needs, 30% to wants, and 20% to savings or debt repayment.</p>
+                <p>Example: Budgeting for monthly groceries, transport, entertainment, and savings.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Financial Plans</h3>
+                <p>A financial plan combines your income, expenses, savings, and investments to achieve medium- and long-term financial goals. It helps you stay on track with your budget and prepares you for future events like education, retirement, or buying a home.</p>
+                <p>Example: A family saving for university contributes R2,000 monthly to a Tax-Free Savings Account (TFSA), leveraging tax-free growth for 15 years.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Emergency Fund</h3>
+                <p>An emergency fund is money set aside to cover unexpected expenses like medical bills, car repairs, or job loss. It usually covers 3–6 months of living costs.</p>
+                <p>Example: Keeping R50,000 aside for medical emergencies or job loss.</p>
+            </div>
+
+            <!-- Income & Expenses -->
+            <h3 class="group-title">Income & Expenses</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Saving</h3>
+                <p>Saving involves setting aside money for future use, like an emergency fund or a big purchase. For instance, saving R500 monthly in a high-interest account can grow over time.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Assets vs. Liabilities</h3>
+                <p>Assets are things that generate income or appreciate in value, like property, stocks, or businesses.</p>
+                <p>Liabilities are things that cost you money, like debt, loans, and expenses.</p>
+                <p>Example: Owning a home (asset) that increases in value vs. paying off a car loan (liability) that reduces your financial position.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Income vs. Expenditure</h3>
+                <p>Income is the money you earn, whether from a salary, business, or investments.</p>
+                <p>Expenditure is the money you spend on living costs, such as food, rent, utilities, and debt repayments.</p>
+                <p>Example: A monthly salary vs. monthly rent payments. Reducing unnecessary expenditure helps increase your savings.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Cash Flow</h3>
+                <p>The movement of money in and out of your account. Positive cash flow occurs when income exceeds expenses, while negative cash flow means you're spending more than you earn.</p>
+                <p>Example: You earn R10,000 per month, but your total expenses are R8,000. You have R2,000 in positive cash flow to save or invest.</p>
+            </div>
+
+            <!-- Investing -->
+            <h3 class="group-title">Investing</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Types of Investments</h3>
+                <p>Different investments (stocks, bonds, real estate) offer varying returns and risk profiles.</p>
+                <p>Example: Use EasyEquities to buy stocks and ETFs for growth, bond ETFs for stability, and consider real estate for income and value appreciation.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Diversification</h3>
+                <p>Diversification means spreading investments across various asset classes to minimize risk. By diversifying, you can protect yourself from market fluctuations in one sector.</p>
+                <p>Example: Rather than investing all your money in one stock, you could invest in a mix of stocks, bonds, real estate, and a retirement plan to balance risk.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Asset Allocation & Diversification</h3>
+                <p>Asset allocation involves dividing your portfolio among different asset classes, while diversification spreads investments within those classes to reduce risk.</p>
+                <p>Example: Create a diversified portfolio on EasyEquities by investing in local and international ETFs and stocks from different sectors.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Compound Interest</h3>
+                <p>Compound interest is the interest on both the initial principal and the accumulated interest from previous periods, accelerating growth over time.</p>
+                <p>Example: R10,000 earning 8% annually grows to R14,693 after five years of compounding.</p>
+            </div>
+
+            <!-- Markets & Products -->
+            <h3 class="group-title">Markets & Products</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>ETF (Exchange-Traded Fund)</h3>
+                <p>An ETF is a collection of stocks or bonds that tracks an index and is traded on a stock exchange. It provides diversification and usually has low fees.</p>
+                <p>Example: Investing in a SATRIX 40 ETF to gain exposure to the JSE's top-performing companies.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Unit Trust</h3>
+                <p>A unit trust is a fund where many investors pool their money, which is then managed by professionals to invest in stocks, bonds, or property.</p>
+                <p>Example: Saving R5,000 monthly in a balanced unit trust to fund future purchases.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>JSE (Johannesburg Stock Exchange)</h3>
+                <p>The JSE is South Africa’s main stock market where shares of companies are bought and sold. It allows investors to buy ownership in businesses.</p>
+                <p>Example: Buying MTN shares at R130 each through an online stockbroker.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>JSE Hours & Days</h3>
+                <p>The JSE operates Monday to Friday, from 9:00 AM to 5:00 PM, excluding South African public holidays.</p>
+                <p>Example: Trading Sasol shares on a Tuesday afternoon during market hours.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Alternative Stocks</h3>
+                <p>Alternative stocks refer to investments outside traditional sectors, such as renewable energy, commodities, or emerging tech companies.</p>
+                <p>Example: Investing in a green energy firm listed on the JSE.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Property</h3>
+                <p>Property investment involves buying real estate to earn rental income or benefit from long-term value increases.</p>
+                <p>Example: Owning a R2 million apartment that generates R15,000 monthly in rental income.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Stocks</h3>
+                <p>Stocks are shares of ownership in a company. Investors can earn money through price increases (capital gains) and dividends.</p>
+                <p>Example: Investing in Woolworths shares for steady dividend payouts.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Dividends</h3>
+                <p>Dividends are payments made by a company to its shareholders from its profits. They provide regular income to investors.</p>
+                <p>Example: Receiving R2,000 in annual dividends for holding 1,000 shares.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Bull Market</h3>
+                <p>A bull market occurs when stock prices are rising over time, indicating strong investor confidence and economic growth.</p>
+                <p>Example: The JSE Top 40 index gains 20% over six months due to strong corporate earnings.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Bear Market</h3>
+                <p>A bear market happens when stock prices drop 20% or more, often caused by economic slowdowns or negative investor sentiment.</p>
+                <p>Example: The JSE falls sharply during a recession, leading to a bear market.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>S&P 500</h3>
+                <p>The S&P 500 is a U.S. stock market index that tracks the 500 largest companies. It is used to measure the overall performance of the American stock market.</p>
+                <p>Example: Investing in an ETF tracking the S&P 500 for international diversification.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Top 40</h3>
+                <p>The Top 40 refers to the 40 largest companies listed on the JSE, by market value. It provides a snapshot of South Africa’s major businesses.</p>
+                <p>Example: Investing in a Top 40 ETF for exposure to leading South African firms.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Trust Fund</h3>
+                <p>A trust fund is a legal structure that holds money or assets on behalf of someone, usually for long-term care or inheritance purposes.</p>
+                <p>Example: Parents setting up a trust fund for their children’s education.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Middle Class</h3>
+                <p>The middle class includes people or families who earn enough to afford basic needs and some extra comforts. They usually have steady jobs and savings.</p>
+                <p>Example: A family earning R20,000 monthly, affording housing, schooling, and leisure activities.</p>
+            </div>
+
+            <!-- Debt & Credit -->
+            <h3 class="group-title">Debt & Credit</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Credit Score</h3>
+                <p>Your credit score is a number that represents how reliable you are at repaying borrowed money. Lenders use it to decide whether to approve your loan or credit application.</p>
+                <p>Example: A score above 650 increases the likelihood of securing a home loan with better terms.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Credit Card</h3>
+                <p>A credit card allows you to borrow money up to a certain limit to make purchases. If you pay off the balance each month, you avoid interest and build a good credit history.</p>
+                <p>Example: Spending R5,000 monthly on a credit card and paying it off to avoid 18% annual interest charges.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Balloon Payment</h3>
+                <p>A balloon payment is a large, final payment due at the end of a loan term. It allows for smaller monthly payments during the loan period, but requires paying a big amount at the end.</p>
+                <p>Example: Paying R90,000 as a balloon payment for a R300,000 car after five years of financing.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Qualify vs. Afford</h3>
+                <p>Qualifying means a lender agrees to lend you a certain amount based on your credit profile. Affording means whether the loan repayments comfortably fit within your monthly budget.</p>
+                <p>Example: Qualifying for a R1 million loan but only affording repayments on R700,000 due to personal expenses.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Buying First Home</h3>
+                <p>Buying your first home involves saving for a deposit, getting a home loan (bond), and understanding additional costs like transfer duties and legal fees.</p>
+                <p>Example: Buying a R1 million home with a 10% deposit (R100,000) and covering R25,000 in bond registration fees.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Buying First Car</h3>
+                <p>Buying your first car means choosing between new or used vehicles, saving for a deposit, and deciding whether to pay cash or use vehicle financing.</p>
+                <p>Example: Buying a R150,000 used car with a 10% deposit (R15,000) and financing over three years.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Financing</h3>
+                <p>Financing means borrowing money to buy something now and paying it back over time with interest. It’s common for large purchases like cars or homes.</p>
+                <p>Example: Financing a car with a R200,000 loan at 11% interest for five years.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Interest Rate</h3>
+                <p>The interest rate is the cost of borrowing money or the return earned on savings. It's shown as a percentage and can significantly affect loan repayments or investment returns.</p>
+                <p>Example: Borrowing R100,000 at a 10% interest rate costs R10,000 annually in interest.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Prime Rate</h3>
+                <p>The prime rate is the base interest rate banks use when lending to customers. It is influenced by the central bank and affects the cost of loans.</p>
+                <p>Example: If the prime rate is 11%, a home loan may be offered at 12%, reflecting the borrower's risk profile.</p>
+            </div>
+
+            <!-- Savings & Retirement -->
+            <h3 class="group-title">Savings & Retirement</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Tax-Free Savings Account (TFSA)</h3>
+                <p>A TFSA is a savings or investment account where any interest, dividends, or capital gains earned are completely tax-free. There are annual and lifetime contribution limits, making it ideal for long-term growth.</p>
+                <p>Example: Investing in a TFSA linked to the JSE Top 40 index, earning tax-free capital gains over a decade.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Retirement</h3>
+                <p>Retirement planning involves setting aside money to cover your living expenses after you stop working. This includes estimating future needs, accounting for inflation, and investing in retirement products like pension funds or retirement annuities (RAs).</p>
+                <p>Example: Saving 15% of your income in an RA that grows at 8% annually to amass R2.5 million by age 65.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Retirement Savings</h3>
+                <p>Contributing to a retirement savings plan (such as a pension fund or retirement annuity) ensures long-term wealth and security.</p>
+                <p>Example: The South African government offers tax incentives for contributing to retirement savings plans.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Inflation & Its Impact</h3>
+                <p>Inflation reduces the purchasing power of money over time, affecting the real value of your savings and investments.</p>
+                <p>Example: Invest in stocks, REITs, or inflation-protected securities like TIPS through EasyEquities to stay ahead of inflation.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Tax Efficiency</h3>
+                <p>Tax efficiency is about minimizing tax liabilities on your investments to maximize returns.</p>
+                <p>Example: Use a Tax Free Savings Account or Retirement Annuity on EasyEquities to grow wealth while reducing tax exposure.</p>
+            </div>
+
+            <!-- Risk & Technology -->
+            <h3 class="group-title">Risk & Technology</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Risk & Risk Tolerance</h3>
+                <p>Risk tolerance is the level of variability in investment returns you're comfortable with.</p>
+                <p>Example: If you're risk-averse, invest in bonds; if you’re risk-tolerant, consider growth stocks or crypto via EasyEquities, but always diversify.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Financial Literacy</h3>
+                <p>Financial literacy is the understanding of key financial concepts like budgeting, investing, and credit.</p>
+                <p>Example: Improve your financial literacy through Coursera or LinkedIn Learning, and track your credit with ClearScore.</p>
+            </div>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Financial Advisors & Technology</h3>
+                <p>Financial advisors provide expert guidance, while technology platforms simplify managing finances.</p>
+                <p>Example: Use EasyEquities, ClearScore, and TradingView to manage your investments, and consult a financial advisor for tailored advice.</p>
+            </div>
+
+            <!-- Additional Educational Modules from SA Money Savvy -->
+            <h3 class="group-title">Banking</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Banking</h3>
+                <p>Understanding different South African banks and account types can help you manage your money effectively. Compare options like savings accounts, current accounts, and investment-linked accounts.</p>
+                <p>Example: Using Capitec for low-fee banking or FNB for integrated investment options.</p>
+            </div>
+            <h3 class="group-title">Personal Finance Goals</h3>
+ <div class="definition-item bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                <h3>Personal Finance Goals</h3>
+                <p>Setting clear financial goals—whether saving for a car, wedding, or retirement—helps you prioritize and plan your finances.</p>
+                <p>Example: Saving R10,000 over 6 months for a wedding by cutting unnecessary expenses.</p>
+            </div>  
+            </div>
+        
+            </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact <span class="text-gold">Us</span></h2>
+            <div class="start-grid grid md:grid-cols-2 gap-6">
+                <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Contact Information</h3>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Location:</strong> Cape Town, 7708</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Phone:</strong> +27 664 207 144</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Email:</strong> Tlhogikgatshe@gmail.com</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>LinkedIn:</strong> Letlhogonolo Kgatshe</p>
+                
+                    </div>
+                <div class="contact-form bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Get in Touch</h3>
+                    <form id="contact-form" class="flex flex-col gap-4">
+                        <input type="text" name="name" placeholder="Name" required class="bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        <input type="email" name="email" placeholder="Email" required class="bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        <textarea name="message" placeholder="Message" rows="4" required class="bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none"></textarea>
+                        <input type="submit" value="Send Message" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">
+                    </form>
+                
+                    </div>
+                <div class="newsletter-signup bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
+                    <h3 class="font-semibold text-gold mb-2">Newsletter Signup</h3>
+                    <p class="text-gray-300 text-sm mb-4">Get free templates, investment tips, and more every month.</p>
+                    <form class="flex flex-col gap-4">
+                        <input type="email" name="email" placeholder="Enter your email" required class="bg-gray-900 border border-gold/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:border-gold focus:outline-none">
+                        <button type="submit" class="btn bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Subscribe</button>
+                    </form>
+                
+                    </div>
+            
+                </div>
+        
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-gold/20 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h4 class="text-2xl font-bold text-gold mb-4">💰 SAFE</h4>
+            <p class="text-gray-400 mb-6">This website provides educational information only and is not financial advice. POPIA-compliant. Terms & Conditions apply.</p>
+            <p class="text-xs text-gray-500">© 2025 SAFE. All rights reserved.</p>
+        
+            </div>
     </footer>
 
-    <button id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="bg-gold text-black rounded-full w-12 h-12 flex items-center justify-center fixed bottom-5 right-5 hidden">↑</button>
 
-    <script src="script.js"></script>
+    <script src="scrpt.js"></script>
 </body>
 </html>
