@@ -6,20 +6,20 @@
 
 ## ⚒️ Team Name Arctic
 ``` c
-// TODO: Fill-in the name of your team.
+Arctic
 ```
 
 ## 👥 Members
 | Name                       | Role                | Institution         | Discord Handle    | Email                     |
 |----------------------------|---------------------|---------------------| ------------------|---------------------------|
-| **Letlhogonolo Kgatshe**   | Backend Developer   | IIE Varsity College | name1             | <Tlhogikgatshe@gmail.com> |
-| **Letlhogonolo Kgatshe**   | Frontend Developer  | IIE Varsity College | name2             | <Tlhogikgatshe@gmail.com> |
-| **Letlhogonolo Kgatshe**   | Designer            | IIE Varsity College | name3             | <Tlhogikgatshe@gmail.com> |
-| **Letlhogonolo Kgatshe**   | Q.A Tester          | IIE Varsity College | name4             | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Backend Developer   | IIE Varsity College | arctic2680        | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Frontend Developer  | IIE Varsity College | arctic2680        | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Designer            | IIE Varsity College | arctic2680        | <Tlhogikgatshe@gmail.com> |
+| **Letlhogonolo Kgatshe**   | Q.A Tester          | IIE Varsity College | arctic2680        | <Tlhogikgatshe@gmail.com> |
 
 ## 🏫 Institution
 ``` c
-// TODO: IIE Varsity College
+IIE Varsity College
 // team is competing under IIE Varsity College
 ```
 
