@@ -32,8 +32,8 @@ PowerPoint: Letlhogonolo Kgathe SAFE.pptx
 ```
 Check out the Demos: 
 - Demo Video Youtube Link: https://youtu.be/ledxUcPlAKA 
-- [Demo Video] (C:\Users\tlhog\source\repos\2025\SAFE\demo\Screen-Recording (1).mp4)
-- [Demo Presentation](C:\Users\tlhog\source\repos\2025\SAFE\demo\Letlhogonolo Kgathe SAFE.pptx)
+- [Demo Video] (\demo\Screen-Recording (1).mp4)
+- [Demo Presentation](\demo\Letlhogonolo Kgathe SAFE.pptx)
 
 ## 📌 Notes
 
