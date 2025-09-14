@@ -26,11 +26,13 @@ See Results: Outputs like calculator results or embedded media (e.g., YouTube vi
 
 ## 🎥 Demo
 ``` c
-Demo video:   
+Demo video link: https://youtu.be/ledxUcPlAKA 
+Demo video: Screen-Recording.mp4
 PowerPoint: Letlhogonolo Kgathe SAFE.pptx
 ```
 Check out the Demos: 
-- [Demo Video](../demo/demo.mp4)
+- Demo Video Youtube Link: https://youtu.be/ledxUcPlAKA 
+- [Demo Video] (C:\Users\tlhog\source\repos\2025\SAFE\demo\Screen-Recording.mp4)
 - [Demo Presentation](C:\Users\tlhog\source\repos\2025\SAFE\demo\Letlhogonolo Kgathe SAFE.pptx)
 
 ## 📌 Notes
