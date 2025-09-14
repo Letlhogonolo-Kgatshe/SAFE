@@ -46,7 +46,7 @@ Run Locally:
 Open index.html in a browser directly, or use a local server for better testing:npx http-server
 
 
-Navigate to http://localhost:8080 in your browser.
+Navigate to http://localhost:5501 in your browser.
 
 
 Formspree Configuration:
