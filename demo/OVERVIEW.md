@@ -4,13 +4,13 @@
 
 ## 🎯 Project Name
 ``` c
-// TODO: SAFE - South African Financial Education
+SAFE - South African Financial Education
 ```
 
 ## 🚀 Summary
 ``` c
-// TODO: Write a short, high-level description of your
-// project (2–3 sentences).
+// TODO: Write a short, high-level description of your project (2–3 sentences).
+SAFE is a one stop shop for everything financial literacy related for all( Beginner to Expert). It is built to help you start and continue youe financial journey without needing to scour the internet for resources
 ```
 
 ## ✨ Key Features
@@ -25,9 +25,9 @@ FAQs: Comprehensive answers to common finance questions (e.g., budgeting, credit
 
 ## 💡 Inspiration
 ``` c
-// TODO: My personal journey to learning about Finance
-// My goal was to create the application/website I wish I had when I was starting on this journey, so I gathered all the resources that I used when starting and put them all in the project so that anyone who is starting does not have to go running around like I had to 
-// It is your one stop shop for all your finance needs along with more resources most of which I still use  till this day
+My personal journey to learning about Finance
+My goal was to create the application/website I wish I had when I was starting on this journey, so I gathered all the resources that I used when starting and put them all in the project so that anyone who is starting does not have to go running around like I had to 
+It is your one stop shop for all your finance needs along with more resources most of which I still use  till this day
 ```
 
 ## 📌 Future Improvements
