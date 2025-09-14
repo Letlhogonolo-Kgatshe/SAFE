@@ -25,7 +25,12 @@ This document lists all **third-party repositories, modules, libraries, framewor
 
 ---
 
-## 📊 Datasets
-| Name          | Source                              | Usage                             |
-|---------------|-------------------------------------|-----------------------------------|
-|               |                                     |                                   |
+## References 
+| Name          | Source                                                      | Usage                                                     |
+|---------------|-------------------------------------------------------------|-----------------------------------------------------------|
+| Chatgpt        | https://chatgpt.com/c/68c63b1e-4240-832c-b98a-de2527bfbac0   | Used to generate FAQ Questions for my FAQ section          |
+| GBS Bank       | https://www.gbsbank.co.za                                    | Used as inperation for Resourse Section ( Calculator(s) )  |
+| YouTube        | https://www.youtube.com/watch?v=zRkHk2WZwjc                  | Used to learn how to connect GitHub to VS Code             |
+
+
+
