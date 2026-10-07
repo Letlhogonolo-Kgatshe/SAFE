@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFE - Empowering Wealth Creation</title>
+    <title>SAFE | South African Financial Education</title>
+    <meta name="description" content="SAFE: free, beginner-friendly financial education for South Africans, with plain-language definitions, a risk-free stock market game, investment and loan calculators, and curated local resources.">
+    <meta property="og:title" content="SAFE | South African Financial Education">
+    <meta property="og:description" content="Learn the basics, practise investing risk-free and run the numbers. Built for the South African Intervarsity Hackathon 2025.">
+    <meta property="og:image" content="https://letlhogonolo-kgatshe.github.io/SAFE/SAFE.jpg">
+    <meta property="og:url" content="https://letlhogonolo-kgatshe.github.io/SAFE/">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="SAFE.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -24,57 +34,104 @@
     </script>
 </head>
 <body class="bg-primary text-white font-sans">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-gold text-black px-4 py-2 rounded z-[60]">Skip to content</a>
+
     <!-- Navigation -->
-    <header class="bg-primary border-b border-gold/20 sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <img src="SAFE.jpg" alt="SAFE Logo" class="logo w-12 h-12 mr-4">
-                    <h1 class="text-2xl font-bold text-gold">💰 SAFE</h1>
-                
-                    </div>
-                <div class="hidden md:block">
-                    <nav id="nav-links" class="flex items-baseline space-x-4">
-                        <a href="#hero" class="nav-link text-gold hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-                        <a href="#about" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                        <a href="#game" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Game</a>
-                        <a href="#resources" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Resources</a>
-                        <a href="#gallery" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
-                        <a href="#youtube" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">YouTube</a>
-                        <a href="#podcasts" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Podcasts</a>
-                        <a href="#articles" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Articles</a>
-                        <a href="#news" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">News</a>
-                        <a href="#courses" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Courses</a>
-                        <a href="#community" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Community</a>
-                        <a href="#faq" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
-                        <a href="#definitions" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Definitions</a>
-                        <a href="#contact" class="nav-link text-white hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
-                    </nav>
-                
-                    </div>
-                <div class="md:hidden">
-                    <button id="hamburger" class="hamburger text-gold text-2xl" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-                
-                    </div>
-            
-                </div>
-        
+    <header class="bg-black/90 backdrop-blur border-b border-gold/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero" class="flex items-center gap-3 shrink-0" aria-label="SAFE home">
+                    <img src="SAFE.jpg" alt="" class="w-10 h-10 rounded-md object-cover">
+                    <span class="leading-tight">
+                        <span class="block text-lg font-bold text-gold tracking-wide">SAFE</span>
+                        <span class="hidden sm:block text-[11px] text-gray-400">South African Financial Education</span>
+                    </span>
+                </a>
+
+                <!-- Desktop navigation: primary links plus a "More" menu so it never overflows -->
+                <nav id="nav-links" class="hidden lg:flex items-center gap-1 text-sm font-medium" aria-label="Main">
+                    <a href="#how-to-start" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold transition-colors">Start here</a>
+                    <a href="#game" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold transition-colors">Game</a>
+                    <a href="#resources" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold transition-colors">Calculators</a>
+                    <a href="#definitions" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold transition-colors">Definitions</a>
+                    <a href="#faq" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold transition-colors">FAQ</a>
+                    <details class="relative" id="more-menu">
+                        <summary class="list-none cursor-pointer px-3 py-2 rounded-md text-gray-200 hover:text-gold transition-colors select-none">More ▾</summary>
+                        <div class="absolute right-0 mt-2 w-48 bg-card border border-gold/20 rounded-lg shadow-xl py-2 flex flex-col">
+                            <a href="#about" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">About</a>
+                            <a href="#youtube" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">YouTube</a>
+                            <a href="#podcasts" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">Podcasts</a>
+                            <a href="#articles" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">Articles</a>
+                            <a href="#news" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">News</a>
+                            <a href="#courses" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">Courses</a>
+                            <a href="#gallery" class="nav-link px-4 py-2 text-gray-200 hover:text-gold hover:bg-white/5">Gallery</a>
+                        </div>
+                    </details>
+                    <a href="#community" class="ml-2 bg-gold text-black px-4 py-2 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Join the community</a>
+                </nav>
+
+                <button id="hamburger" class="lg:hidden text-gold text-2xl w-10 h-10 grid place-items-center rounded-md hover:bg-white/5" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
             </div>
+        </div>
+
+        <!-- Mobile navigation -->
+        <nav id="mobile-menu" class="hidden lg:hidden border-t border-gold/20 bg-black" aria-label="Mobile">
+            <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-1 text-sm">
+                <a href="#how-to-start" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Start here</a>
+                <a href="#game" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Game</a>
+                <a href="#resources" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Calculators</a>
+                <a href="#definitions" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Definitions</a>
+                <a href="#youtube" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">YouTube</a>
+                <a href="#podcasts" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Podcasts</a>
+                <a href="#articles" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Articles</a>
+                <a href="#news" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">News</a>
+                <a href="#courses" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Courses</a>
+                <a href="#gallery" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">Gallery</a>
+                <a href="#faq" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">FAQ</a>
+                <a href="#about" class="nav-link px-3 py-2 rounded-md text-gray-200 hover:text-gold hover:bg-white/5">About</a>
+                <a href="#community" class="nav-link col-span-2 mt-2 text-center bg-gold text-black px-3 py-2 rounded-lg font-semibold">Join the community</a>
+            </div>
+        </nav>
     </header>
 
+    <main id="main">
     <!-- Hero Section -->
-    <section id="hero" class="bg-gradient-to-br from-primary via-gray-900 to-primary py-20">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl font-bold mb-6">Welcome to <span class="text-gold">SAFE</span></h1>
-            <p class="tagline text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Empowering Wealth Creation Through Financial Literacy</p>
-            <p class="disclaimer text-sm text-red-400 italic mb-8">Disclaimer: None of the information provided here constitutes financial advice. For personalized financial advice, please consult a professional registered and certified with the FSCA. This is financial information only.</p>
-            <div class="space-x-4">
-                <a href="#how-to-start" class="btn bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Get Started</button></a>
-                <a href="#community" class="btn bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Join Our Community</button></a>
-            
-                </div>
-        
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black py-20 md:py-28">
+        <div class="absolute inset-0 opacity-[0.07] pointer-events-none" style="background-image: radial-gradient(#FFD700 1px, transparent 1px); background-size: 22px 22px;" aria-hidden="true"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="inline-block text-xs font-semibold tracking-widest uppercase text-gold/90 border border-gold/30 rounded-full px-4 py-1 mb-6">South African Intervarsity Hackathon 2025</p>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">Money conversations, <span class="text-gold">made simple.</span></h1>
+            <p class="tagline text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Free, beginner-friendly financial education for South Africans. Learn the basics, practise investing risk-free, and run the numbers before you make a decision.</p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="#how-to-start" class="btn bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">Get started</a>
+                <a href="#game" class="btn border border-gold/50 text-gold px-8 py-3 rounded-lg font-semibold hover:bg-gold/10 transition-colors">Try the stock market game</a>
             </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-14 text-left">
+                <a href="#definitions" class="block bg-card/80 border border-gold/15 rounded-xl p-4 hover:border-gold/50 transition-colors">
+                    <span class="text-2xl" aria-hidden="true">📘</span>
+                    <span class="block font-semibold mt-2">Learn the terms</span>
+                    <span class="block text-xs text-gray-400 mt-1">Plain-language definitions and quizzes</span>
+                </a>
+                <a href="#game" class="block bg-card/80 border border-gold/15 rounded-xl p-4 hover:border-gold/50 transition-colors">
+                    <span class="text-2xl" aria-hidden="true">📈</span>
+                    <span class="block font-semibold mt-2">Practise investing</span>
+                    <span class="block text-xs text-gray-400 mt-1">Trade virtual stocks with $10,000</span>
+                </a>
+                <a href="#resources" class="block bg-card/80 border border-gold/15 rounded-xl p-4 hover:border-gold/50 transition-colors">
+                    <span class="text-2xl" aria-hidden="true">🧮</span>
+                    <span class="block font-semibold mt-2">Run the numbers</span>
+                    <span class="block text-xs text-gray-400 mt-1">Investment, loan, transfer and FX calculators</span>
+                </a>
+                <a href="#youtube" class="block bg-card/80 border border-gold/15 rounded-xl p-4 hover:border-gold/50 transition-colors">
+                    <span class="text-2xl" aria-hidden="true">🎧</span>
+                    <span class="block font-semibold mt-2">Keep learning</span>
+                    <span class="block text-xs text-gray-400 mt-1">Curated SA videos, podcasts and articles</span>
+                </a>
+            </div>
+
+            <p class="disclaimer mt-10 text-xs text-gray-400 max-w-3xl mx-auto border border-white/10 rounded-lg px-4 py-3 bg-white/[0.03]"><strong class="text-gray-300">Disclaimer:</strong> Nothing on SAFE is financial advice. For personalised advice, consult a professional registered with the FSCA. This is financial information only.</p>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -356,21 +413,21 @@
                     <h3>Financial Bunny</h3>
                     <p>This channel is A navigation through the Life of South African Nicolette Mashile and how she attempts to teach Financial Literacy from a South African perspective .</p>
                     <a href="https://youtube.com/@financialbunny?si=UqYJiRWAHvClagf3 " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Money Marx</h3>
                     <p>This channel will help you achieve your personal financial goals through the things I’ve learned and researched to improve my own financial health.</p>
                     <a href="https://youtube.com/@moneymarx?si=Q3kWmCA6NvrdZ6Ls" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Money with Carla</h3>
                     <p>I'm a qualified accountant and investment professional with an MBA on a mission to enable smarter money choices and talk about things we all should've learned in school. I will share my lessons on money, life, and careers and I hope to encourage you to invest your own money, manage your personal finances better, and become more confident in your own money skills.</p>
                     <a href="https://youtube.com/@moneywithcarla?si=_HB1b9yN4Rp5ZhqM" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Louis Reynhardt</h3>
@@ -379,58 +436,58 @@
                     <p><strong>Stocks | Real estate | Finance</strong></p>
                     <p>Let's double South Africa's GDP</p>
                     <a href="https://youtube.com/@louisreynhardt?si=ssHVoBJNVqJ8IYg9" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>EasyEquities</h3>
                     <p>We upload a bunch of new videos every week including webinars, investing education, platform How To's and the latest from our own community. All our videos are design to help you take that first or next step in your investment journey.</p>
                     <a href="https://youtube.com/@easyequities3558?si=jI5px_08e_j3yuFY" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Financially Faboulous Females</h3>
                     <p>Financially Fabulous Females aims to empower you to take control of your money management and to secure an abundant future for yourself and your family by making wise money decisions. We provide you with ideas and strategies to manage your money and build generational wealth.</p>
                     <a href="https://youtube.com/@financiallyfabulousfemales?si=PfichDM2qX2juk_5" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Talking money with Nozi</h3>
                     <p>Welcome to Talking Money with Nozi! I am here to simplify personal finance for you.</p>
                     <p>I will be covering money-related topics such as  financial literacy, how to create financial freedom, saving, budgeting, getting out of debt, setting financial goals, investing (the JSE, EasyEquities, Tax Free Favings accounts, Unit Trusts, REITS, ETFs also known as Exchange Traded Funds) and so much more.</p>
                     <a href="https://youtube.com/@talkingmoneywithnozi?si=ap_Otf-C7uO0WTMU " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>BizNews TV	</h3>
                     <p>BizNewsTV delivers independent, absorbing content. Join an audience of hundreds of thousands who understand the value of getting context - and knowing more.</p>
                     <a href="https://youtube.com/@biznewstv?si=1tGtDeGwktEW9t06" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>BusinessDay TV</h3>
                     <p>South Africa's essential business and markets channel. DStv Channel 412.</p>
                     <a href="https://youtube.com/@businessdaytelevision?si=joc74ycWGLHm_ciG" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>IGrow Wealth Investments	</h3>
                     <p> Property Investment South Africa</p>
                     <a href="https://youtube.com/@igrowwealthinvestments?si=6YEvcoFZV8MVJyqi " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Casual Cash Club</h3>
                     <p>More than anything it's like a club of like minded people discussing money together. See you in the videos!</p>
                     <p>This content is for informational, educational, and entertainment purposes only and does not constitute financial advice.</p>
                     <a href="https://youtube.com/@casualcash?si=Ytx4rR_RCE2JDSr2 " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>JuatOneLap</h3>
                     <p><strong>Money in action.</strong></p>
                     <p><strong>We get just one lap in life. To really make the most of it, we need to learn to be smart about money.</strong></p>
                     <a href="https://youtube.com/@justonelapza?si=TMLLK57ZIa2BnqNc" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Insider Exchange	</h3>
@@ -438,19 +495,19 @@
                     <p>Out weekly, on all podcasting platforms.</p>
                     <p>Be sure to subscribe and follow to keep up.</p>
                     <a href="https://youtube.com/@insiderexchange?si=WS4tR7tFGXzeqEme" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>It’s More Than Just Money	</h3>
                     <p>Welcome to the  It's More Than Just Money Movement channel, your go-to source for inspiration and education on investments, business, personal growth, property, and achieving success in life. Founded and run by Witness Mdaka, a renowned author, entrepreneur, and property developer, our channel is dedicated to empowering you with the knowledge and inspiration to excel in all areas of your life.</p>
                     <a href="https://youtube.com/@itsmorethanjustmoney?si=Nm4Ci__IbqDZsjUv" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>FNB SA</h3>
                     <p>FNB is committed to helping people and communities by fostering innovation and a spirit of generosity. Their goal is to create positive change in South Africa through better business practices and support for individuals and businesses. First National Bank is a division of FirstRand Bank Limited.</p>
                     <a href="https://youtube.com/@fnbtv?feature=shared" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
 
             <!-- Property Space -->  
@@ -461,20 +518,20 @@
                     <h3>Steven Ndukwu</h3>
                     <p>On this channel, you will also discover the Beauty of the world and get to see African-owned businesses/Innovations that are changing lives and creating impact.</p>
                     <a href="https://youtube.com/@stevenndukwu?si=8KGWVe8ZpSl8e9o2 " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Luxury Homes Johannesburg</h3>
                     <p><strong>Welcome! Here, you’ll find the best selection of luxury properties in Johannesburg, the City of Gold!</strong></p>
                     <p>Join me on my journey around the greater Johannesburg area to see all of the beautiful mansions it offers! A small caveat: you’ll be amazed by the value-for-money here!</p>
                     <a href="https://youtube.com/@luxuryhomesjohannesburg?si=aBj2cForm4ili-Sc " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Prosperity Enterprises</h3>
                     <p>Prosperity Enterprises is an education and structuring company that assists individuals to achieve financial freedom by investing in property</p>
                     <a href="https://youtube.com/@prosperityenterprises5840?si=ox9T52f8GwdazdS6" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
 
                 <!-- Other -->
@@ -482,13 +539,13 @@
                     <h3>Mzansi Business</h3>
                     <p><strong>The main of goal of this channel is to create high quality video essays and documentaries on South African companies, South African businessmen and women as well as any business and finance topics relating to South Africa.</strong></p>
                     <a href="https://youtube.com/@mzansibusiness?si=t-I86alyieqWZt8z " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Muzi Sambo</h3>
                     <p><strong>THIS IS A SOUTH AFRICAN CAR REVIEW PLATFORM. MAKE SURE YOU SUBSCRIBE FOR MORE CAR CONTENT IN A MZANSI CONTEXT.🇿🇦</strong></p>
                     <a href="https://youtube.com/@muzisambo?si=fAxSonbU9TNMPFUj " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
         </div>
 
@@ -499,14 +556,14 @@
                     <h3>Beginners Guide to EasyEquities</h3>
                     <p>A comprehensive guide by Money Marx on using the EasyEquities app.</p>
                     <a href="https://youtube.com/@moneymarx" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>P/E Ratio Basics</h3>
                     <p>Learn the basics of Price-to-Earnings ratio from Charles Schwab.</p>
                     <a href="https://youtube.com/@charlesschwab?si=5GsVNrtLxjUHlVCM" target="_blank" class="btn btn-primary"> 
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>
     </section>
                 
                                            <!-- International Channels -->
@@ -517,32 +574,32 @@
                     <h3>Nischa</h3>
                     <p>I’m an Investment Banker (with an accountancy qualification) and on this channel we explore all things personal finance, self development and business</p>
                     <a href="https://youtube.com/@nischa?si=qZemDFNKeypZGoX8 " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Alux.com</h3>
                     <p><strong>Alux.com is more than a "magazine", it is a social platform where people passionate about what it means to live an elegant, beautiful and successful life, come to enjoy, share and discuss their own take on luxury.</strong></p>
                     <a href=https://youtube.com/@alux?si=AiQzCLUKgdSz0JaK " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>The Ramsey Show</h3>
                     <p>You can win with money and take control of your life—no matter the mistakes you've made with money. Join Dave Ramsey and his team of experts for real advice that works. Subscribe and watch full episodes to start your journey toward the life you’ve dreamed of!</p>
                     <a href="https://youtube.com/@theramseyshowepisodes?si=1qwUEsHN3KcqfQN9" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                  <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Yahoo Finance</h3>
                     <p><strong>Yahoo Finance aims to help investors of all kinds build and maintain their wealth. Yahoo Finance videos on YouTube dissect markets, data, trends, and real-life financial issues for individual investors, industry leaders, and households through insightful interviews and detailed supercuts across various themes.</strong></p>
                     <a href="https://youtube.com/@yahoofinance?si=9F-5Nva9LW3PscNL" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                  <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Professor Claudia Zeisberger</h3>
                     <p>By simplifying complexity, she helps corporate clients to ensure the resilience of their businesses or portfolios and has worked with institutional investors, Family Offices and SWF’s globally to improve their processes.</p>
                     <p>Professor Zeisberger devotes a significant amount of her time to advise early stage companies and is a mentor in the Google Startup Accelerator.</p>
                     <a href="https://youtube.com/@claudiazeisberger?si=wGJvhpBK7_vfo8iQ" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                  <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>Dividend Talks</h3>
@@ -551,13 +608,13 @@
                     <p>But here’s the thing: you don’t need an Ivy League MBA or a Wall Street job to build financial freedom. Investing is simple, powerful, and accessible to anyone willing to learn - and that’s what this channel is all about.</p>
                     <p>Whether you’re just starting out or looking to level up your investing game, you’ll find value here.</p>
                     <a href="https://youtube.com/@dividendtalks?si=ePihGlHTAoRTpWup" target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>
                  <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3>The Swedish Investor</h3>
                     <p>Thank you for checking out The Swedish Investor. My name is Erik Abrahamsson, and on this channel, I will share with you the most successful strategies for taking your finances to the next level in (well, hopefully) a simple and enjoyable way. Here, you will find time-tested investing advice from our time's most successful money managers and investors.</p>
                     <a href="https://youtube.com/@theswedishinvestor?si=SdSP-JIT_LO9lsy1 " target="_blank" class="btn btn-primary">
-                <button class="btn text-gold hover:text-white text-sm font-medium">View Channel</button></a>   
+                <span class="btn text-gold hover:text-white text-sm font-medium">View Channel</span></a>   
                 </div>     
                 </div>
         
@@ -575,28 +632,28 @@
                     <h3 class="font-semibold text-gold mb-2">Honest Money Podcast</h3>
                     <p class="text-gray-300 text-sm mb-4">Offers practical advice on personal finance and investing for South Africans.</p>
                     <a href="https://honestmoney.co.za/podcast/" target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Listen Now</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Listen Now</span></a>
                 </div>
             
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Ditch the Suits</h3>
                     <p class="text-gray-300 text-sm mb-4">This finance podcast is hosted by Steve Campbell and Travis Maus. They take their listeners into the stuff that no one wants them to know about in the financial world.</p>
                     <a href="https://open.spotify.com/show/4tVWSbhT5gYcXIwjUQklgw?si=8858fccc43044823" target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Listen Now</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Listen Now</span></a>
                 </div>
 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">The Dave Ramsey Show</h3>
                     <p class="text-gray-300 text-sm mb-4">Hosted by personal finance expert Dave Ramsey, this podcast offers practical advice on getting out of debt, building wealth, and achieving financial peace.</p>
                     <a href="https://open.spotify.com/show/5exfRPDNCBHmntEkJrlLmX?si=ba2e2f3d2d314916" target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Listen Now</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Listen Now</span></a>
                 </div>
 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Bloomberg Masters in Business Podcast</h3>
                     <p class="text-gray-300 text-sm mb-4">Barry Ritholtz speaks with the people that shapr markets, investing and business</p>
                     <a href="https://podcasts.apple.com/us/podcast/masters-in-business/id730188152" target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Listen Now</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Listen Now</span></a>
                 </div>
                 </div>
         
@@ -615,7 +672,7 @@
                     <h3 class="font-semibold text-gold mb-2">MoneyWeb</h3>
                     <p>Moneyweb is a financial media group and a wholly-owned subsidiary of AME. We focus on producing independent, high-quality investment information across internet, radio, print, newsletters and event activations.</p>
                     <a href="https://www.moneyweb.co.za/" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
 
                 <!-- Investopedia -->
@@ -623,77 +680,77 @@
                     <h3 class="font-semibold text-gold mb-2">Investopedia</h3>
                     <p>The ultimate financial education site, offering definitions, tutorials, market news, and simulator tools to help you learn key concepts from budgeting to derivatives.</p>
                     <a href="https://www.investopedia.com" target="_blank">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Fin24 -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Fin24</h3>
                     <p>South Africa’s leading business news portal—covering markets, personal finance, and investing insights tailored to the local economy.</p>
                     <a href="https://www.fin24.com" target="_blank">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- BusinessTech -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">BusinessTech</h3>
                     <p>South Africa’s largest technology and business news site—covering fintech, banking tech, and personal finance innovations.</p>
                     <a href="https://businesstech.co.za" target="_blank">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- NerdWallet -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">NerdWallet</h3>
                     <p>Comprehensive US-based resource for comparing credit cards, loans, insurance products, and creating personalized money-management plans.</p>
                     <a href="https://www.nerdwallet.com" target="_blank">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Yahoo Finance -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Yahoo Finance</h3>
                     <p>Yahoo Finance provides financial news, data and commentary including stock quotes, press releases, financial reports, and original content.</p>
                     <a href="https://finance.yahoo.com/" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Financial Times Market News -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Financial Times Market News</h3>
                     <p>The Financial Times is a leading international business newspaper providing global market news, in-depth analysis, and expert commentary.</p>
                     <a href="https://www.ft.com/markets" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Daily Investor -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Daily Investor</h3>
                     <p>Daily Investor provides financial and investing news, market data, and in-depth company analysis tailored for South African investors.</p>
                     <a href="https://dailyinvestor.com/" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Old Mutual Financial Education -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Old Mutual Financial Education</h3>
                     <p>Old Mutual offers free online financial education resources—articles, videos, courses and tools—to help you manage your finances with confidence.</p>
                     <a href="https://www.oldmutual.co.za/personal/solutions/financial-education/" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- MoneyUp Academy -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">MoneyUp Academy</h3>
                     <p>The MoneyUp Academy is a free, web-based financial education platform that offers a fun and easy way to build your money knowledge and skills.</p>
                     <a href="https://moneyup.co.za/" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- QuickBooks -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">QuickBooks</h3>
                     <p>QuickBooks is accounting software for small and medium-sized businesses developed by Intuit, offering cloud-based and desktop solutions for invoicing, expense tracking, payroll and reporting.</p>
                     <a href="https://quickbooks.intuit.com/za/" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Wonga Money Academy -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Wonga Money Academy</h3>
                     <p>Wonga’s Money Academy offers free video lessons and quizzes on the four pillars of financial literacy—debt, savings, budgeting, and investing.</p>
                     <a href="https://www.wonga.co.za/blog/free-financial-literacy-resources" target="_blank" class="btn btn-primary">                    
-                    <button class="btn text-gold hover:text-white text-sm font-medium">View Site</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">View Site</span></a>
                 </div>
                 <!-- Biblical Money Wisdom -->
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
@@ -764,7 +821,7 @@
                     <h3 class="font-semibold text-gold mb-2">Zero-Rated Items</h3>
                     <p class="text-gray-300 text-sm mb-4">List of 19 essential food items taxed at 0% VAT to promote affordability.</p>
                     <a href="https://www.evergreen-accounting.co.za/16-zero-rated-vat-supplies-sars-south-africa/#:~:text=Basic%20Foodstuffs,animal%20protein%20and%20calcium%20sources." target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Read More</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Read More</span></a>
                 
                     </div>
             
@@ -784,14 +841,14 @@
                     <h3 class="font-semibold text-gold mb-2">Free Email Course on Budgeting</h3>
                     <p class="text-gray-300 text-sm mb-4">Learn how to create and stick to a budget.</p>
                     <a href="https://blog.wealthbit.co/budgeting-email-course-build-a-plan-that-funds-your-goals/" target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Sign Up</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Sign Up</span></a>
                 </div>
                 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Investing 101 Webinar</h3>
                     <p class="text-gray-300 text-sm mb-4">Understand the basics of investing in South Africa.</p>
                     <a href="https://www.10x.co.za/webinar" target="_blank" class="btn btn-primary">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Register</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Register</span></a>
                 </div>
 
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
@@ -816,19 +873,19 @@
                     <h3 class="font-semibold text-gold mb-2">WhatsApp Group</h3>
                     <p class="text-gray-300 text-sm mb-4">Join our WhatsApp group for real-time discussions.</p>
                     <a href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M ">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Join our WhatsApp Group</button></a>
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Join our WhatsApp Group</span></a>
                     </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Telegram Group</h3>
                     <p class="text-gray-300 text-sm mb-4">Join our Telegram group for community updates.</p>
                     <a href="#">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Join our Telegram Group</button></a>                
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Join our Telegram Group</span></a>                
                     </div>
                 <div class="start-card bg-card border border-gold/20 rounded-lg p-6 hover:border-gold/40 transition-colors">
                     <h3 class="font-semibold text-gold mb-2">Forum</h3>
                     <p class="text-gray-300 text-sm mb-4">Participate in our online forum for in-depth discussions.</p>
                     <a href="#">
-                    <button class="btn text-gold hover:text-white text-sm font-medium">Join our Online Forum</button></a>                
+                    <span class="btn text-gold hover:text-white text-sm font-medium">Join our Online Forum</span></a>                
                     </div>
             
                 </div>
@@ -1213,6 +1270,8 @@
     </section>
 
     <!-- Footer -->
+    </main>
+
     <footer class="bg-primary border-t border-gold/20 py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h4 class="text-2xl font-bold text-gold mb-4">💰 SAFE</h4>

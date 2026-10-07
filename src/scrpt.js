@@ -1,23 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Hamburger Menu Toggle
+    // Hamburger Menu Toggle (mobile menu is a separate panel; the desktop nav is hidden below lg)
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const moreMenu = document.getElementById('more-menu');
+
+    function setMobileMenu(open) {
+        mobileMenu.classList.toggle('hidden', !open);
+        hamburger.setAttribute('aria-expanded', open);
+        hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        hamburger.textContent = open ? '✕' : '☰';
+    }
 
     hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        setMobileMenu(mobileMenu.classList.contains('hidden'));
+    });
+
+    // Close the desktop "More" dropdown when clicking outside it
+    document.addEventListener('click', (e) => {
+        if (moreMenu && moreMenu.open && !moreMenu.contains(e.target)) moreMenu.open = false;
     });
 
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
-            e.preventDefault();
             const target = document.querySelector(anchor.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
+            setMobileMenu(false);
+            if (moreMenu) moreMenu.open = false;
         });
     });
 

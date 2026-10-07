@@ -66,3 +66,8 @@ section { animation: fadeIn 1s; }
     border-radius: 0.5rem;
     border: 1px solid var(--secondary);
 }
+/* Keep section headings clear of the sticky header when jumping via the nav */
+html { scroll-padding-top: 72px; }
+body { font-family: 'Inter', system-ui, sans-serif; }
+h1, h2, h3 { font-family: 'Poppins', 'Inter', sans-serif; }
+details > summary::-webkit-details-marker { display: none; }
