@@ -71,3 +71,16 @@ html { scroll-padding-top: 72px; }
 body { font-family: 'Inter', system-ui, sans-serif; }
 h1, h2, h3 { font-family: 'Poppins', 'Inter', sans-serif; }
 details > summary::-webkit-details-marker { display: none; }
+
+/* Stock market game */
+.game-stat { display: flex; flex-direction: column; gap: 2px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,215,0,.12); border-radius: .75rem; padding: .75rem 1rem; }
+.game-stat-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: #9ca3af; }
+.game-stat-value { font-size: 1.25rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.game-panel { background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.06); border-radius: 1rem; padding: 1rem 1.25rem; }
+.game-panel-title { font-weight: 600; color: #FFD700; }
+.g-chart-mode { padding: .3rem .7rem; border-radius: 999px; border: 1px solid rgba(255,215,0,.25); color: #d1d5db; }
+.g-chart-mode.active { background: #FFD700; color: #000; border-color: #FFD700; }
+.g-qty-btn { background: rgba(255,215,0,.12); border: 1px solid rgba(255,215,0,.2); color: #FFD700; padding: 0 .9rem; font-weight: 600; }
+.g-qty-btn:hover { background: rgba(255,215,0,.22); }
+#g-qty::-webkit-outer-spin-button, #g-qty::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+#g-qty { -moz-appearance: textfield; }
