@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning library | SAFE</title>
+    <meta name="description" content="Hand-picked South African and global YouTube channels, podcasts, websites and free courses for learning about money, investing, property and tax.">
+    <link rel="icon" href="SAFE.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tw.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <main id="main">
+        <section class="page-head">
+            <div class="wrap">
+                <p class="eyebrow">Learning library</p>
+                <h1 class="mt-2 text-3xl md:text-5xl font-bold">Learn from people who've <span class="text-gold">done it</span></h1>
+                <p class="mt-4 text-gray-300 max-w-2xl">Hand-picked YouTube channels, podcasts, websites and free courses, described in the creators' own words. Filter by format, topic or South African focus.</p>
+            </div>
+        </section>
+
+        <section class="section !pt-8">
+            <div class="wrap">
+                <div class="flex flex-col lg:flex-row gap-4 lg:items-center justify-between">
+                    <div class="flex gap-1 scroll-x no-scrollbar bg-white/5 p-1 rounded-xl" role="tablist" aria-label="Format" id="lib-types"></div>
+                    <div class="flex gap-3 items-center">
+                        <label class="relative flex-1 lg:w-72">
+                            <span class="sr-only">Search the library</span>
+                            <input id="lib-search" type="search" class="field !pl-9" placeholder="Search channels, topics…">
+                            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" aria-hidden="true">⌕</span>
+                        </label>
+                        <div class="flex bg-white/5 rounded-xl p-1 text-sm" role="group" aria-label="Region">
+                            <button class="chip !border-0" data-region="all" aria-pressed="true">All</button>
+                            <button class="chip !border-0" data-region="SA" aria-pressed="false">🇿🇦 SA</button>
+                            <button class="chip !border-0" data-region="Global" aria-pressed="false">🌍 Global</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2 scroll-x no-scrollbar pb-1" id="lib-topics" role="group" aria-label="Topic"></div>
+                <p class="mt-4 text-sm text-gray-400" id="lib-count" aria-live="polite"></p>
+                <div id="lib-grid" class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+                <p id="lib-empty" class="hidden text-center text-gray-400 py-16">Nothing matches that search. Try another topic or clear the filters.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+    <script src="data/library.js"></script>
+    <script>
+    (function () {
+        const { esc } = window.SAFE;
+        const ITEMS = window.SAFE_LIBRARY;
+        const TYPES = [
+            { id: 'all', label: 'Everything' }, { id: 'video', label: '▶ YouTube' }, { id: 'podcast', label: '🎧 Podcasts' },
+            { id: 'read', label: '📰 Read' }, { id: 'course', label: '🎓 Courses' },
+        ];
+        const params = new URLSearchParams(location.search);
+        const state = { type: params.get('type') || 'all', region: 'all', topic: 'All', q: '' };
+        const topics = ['All', ...new Set(ITEMS.map((i) => i.topic))];
+        const typeLabel = { video: 'YouTube', podcast: 'Podcast', read: 'Website', course: 'Course' };
+
+        document.getElementById('lib-types').innerHTML = TYPES.map((t) =>
+            `<button class="tab" role="tab" data-type="${t.id}" aria-selected="${t.id === state.type}">${t.label}</button>`).join('');
+        document.getElementById('lib-topics').innerHTML = topics.map((t) =>
+            `<button class="chip" data-topic="${esc(t)}" aria-pressed="${t === 'All'}">${esc(t)}</button>`).join('');
+
+        function render() {
+            const q = state.q.toLowerCase();
+            const rows = ITEMS.filter((i) =>
+                (state.type === 'all' || i.type === state.type) &&
+                (state.region === 'all' || i.region === state.region) &&
+                (state.topic === 'All' || i.topic === state.topic) &&
+                (!q || `${i.title} ${i.desc} ${i.topic}`.toLowerCase().includes(q)));
+            document.getElementById('lib-count').textContent = `${rows.length} resource${rows.length === 1 ? '' : 's'}`;
+            document.getElementById('lib-empty').classList.toggle('hidden', rows.length > 0);
+            document.getElementById('lib-grid').innerHTML = rows.map((i) => `
+                <a href="${esc(i.url)}" target="_blank" rel="noopener" class="card card-hover overflow-hidden flex flex-row sm:flex-col group">
+                    <div class="w-28 shrink-0 sm:w-auto aspect-square sm:aspect-[16/10] bg-ink-700 overflow-hidden">
+                        <img src="img/library/${i.id}.jpg" alt="Screenshot of ${esc(i.title)}" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition duration-300" onerror="this.parentElement.innerHTML='<div class=&quot;w-full h-full grid place-items-center text-4xl&quot;>${i.type === 'video' ? '▶' : i.type === 'podcast' ? '🎧' : i.type === 'course' ? '🎓' : '📰'}</div>'">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col gap-1.5 sm:gap-2 flex-1 min-w-0">
+                        <div class="flex items-center gap-2 text-[11px]">
+                            <span class="badge bg-white/10 text-gray-300">${typeLabel[i.type]}</span>
+                            <span class="badge bg-white/10 text-gray-300">${i.region === 'SA' ? '🇿🇦 South Africa' : '🌍 Global'}</span>
+                        </div>
+                        <h3 class="font-semibold text-white group-hover:text-gold transition">${esc(i.title)}</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed flex-1 line-clamp-3 sm:line-clamp-4" title="${esc(i.desc)}">${esc(i.desc)}</p>
+                        <span class="text-sm text-gold font-medium mt-1">${i.type === 'video' ? 'Watch channel' : i.type === 'podcast' ? 'Listen' : i.type === 'course' ? 'Start learning' : 'Visit site'} ↗</span>
+                    </div>
+                </a>`).join('');
+        }
+
+        document.getElementById('lib-types').addEventListener('click', (e) => {
+            const b = e.target.closest('[data-type]'); if (!b) return;
+            state.type = b.dataset.type;
+            document.querySelectorAll('#lib-types .tab').forEach((t) => t.setAttribute('aria-selected', t === b));
+            render();
+        });
+        document.querySelectorAll('[data-region]').forEach((b) => b.addEventListener('click', () => {
+            state.region = b.dataset.region;
+            document.querySelectorAll('[data-region]').forEach((x) => x.setAttribute('aria-pressed', x === b));
+            render();
+        }));
+        document.getElementById('lib-topics').addEventListener('click', (e) => {
+            const b = e.target.closest('[data-topic]'); if (!b) return;
+            state.topic = b.dataset.topic;
+            document.querySelectorAll('#lib-topics .chip').forEach((x) => x.setAttribute('aria-pressed', x === b));
+            render();
+        });
+        document.getElementById('lib-search').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+        render();
+    })();
+    </script>
+</body>
+</html>
