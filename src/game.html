@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock market game | SAFE</title>
+    <meta name="description" content="Practise investing risk-free: start with $10,000 of virtual cash, trade five fictional companies over 20 days, react to market news and unlock achievements.">
+    <link rel="icon" href="SAFE.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <main id="main">
+        <section class="page-head">
+            <div class="wrap">
+                <p class="eyebrow">Stock market game</p>
+                <h1 class="mt-2 text-3xl md:text-5xl font-bold">Practise investing, <span class="text-gold">risk-free</span></h1>
+                <p class="mt-4 text-gray-300 max-w-2xl">Start with $10,000 of virtual cash and trade five fictional companies over 20 trading days. News moves prices, so diversify, watch the headlines and grow your net worth. No real money involved.</p>
+            </div>
+        </section>
+        <section class="section !pt-8">
+            <div class="wrap">
+                <div id="game-root" class="bg-card border border-gold/20 rounded-2xl p-4 sm:p-6 shadow-2xl">
+            <!-- Stats bar -->
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+                <div class="game-stat"><span class="game-stat-label">Cash</span><span class="game-stat-value" id="g-cash">$10,000.00</span></div>
+                <div class="game-stat"><span class="game-stat-label">Holdings</span><span class="game-stat-value" id="g-holdings">$0.00</span></div>
+                <div class="game-stat"><span class="game-stat-label">Net worth</span><span class="game-stat-value text-gold" id="g-networth">$10,000.00</span></div>
+                <div class="game-stat"><span class="game-stat-label">Total return</span><span class="game-stat-value" id="g-return">0.00%</span></div>
+                <div class="game-stat col-span-2 lg:col-span-1">
+                    <span class="game-stat-label">Day <span id="g-day">1</span> of <span id="g-maxday">20</span></span>
+                    <div class="h-2 bg-black/60 rounded-full mt-3 overflow-hidden"><div id="g-progress" class="h-full bg-gold rounded-full transition-all duration-500" style="width:5%"></div></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mt-6">
+                <!-- Market + chart -->
+                <div class="lg:col-span-3 space-y-6 min-w-0">
+                    <div class="game-panel">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="game-panel-title">Market</h3>
+                            <span class="text-xs text-gray-500">Click a company to trade it</span>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="text-left text-xs uppercase tracking-wider text-gray-500 border-b border-white/10">
+                                        <th class="py-2 pr-3 font-medium">Company</th>
+                                        <th class="py-2 px-2 sm:px-3 font-medium text-right">Price</th>
+                                        <th class="py-2 px-2 sm:px-3 font-medium text-right hidden sm:table-cell">Today</th>
+                                        <th class="py-2 pl-2 sm:pl-3 font-medium text-right">Owned</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="g-market"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="game-panel">
+                        <div class="flex items-center justify-between mb-3 gap-3 flex-wrap">
+                            <h3 class="game-panel-title">Price history</h3>
+                            <div class="flex gap-1 text-xs" role="group" aria-label="Chart view">
+                                <button type="button" class="g-chart-mode active" data-mode="all">All stocks</button>
+                                <button type="button" class="g-chart-mode" data-mode="selected">Selected only</button>
+                            </div>
+                        </div>
+                        <div class="relative h-64"><canvas id="g-chart" aria-label="Stock price history chart" role="img"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Trade + holdings -->
+                <div class="lg:col-span-2 space-y-6 min-w-0">
+                    <div class="game-panel">
+                        <h3 class="game-panel-title mb-3">Trade</h3>
+                        <div id="g-trade-empty" class="text-sm text-gray-400 py-6 text-center border border-dashed border-white/10 rounded-lg">Select a company in the market to buy or sell.</div>
+                        <div id="g-trade" class="hidden space-y-4">
+                            <div class="flex items-baseline justify-between">
+                                <div>
+                                    <p class="text-lg font-semibold" id="g-sel-name"></p>
+                                    <p class="text-xs text-gray-500" id="g-sel-sector"></p>
+                                </div>
+                                <p class="text-2xl font-bold text-gold" id="g-sel-price"></p>
+                            </div>
+                            <div>
+                                <label for="g-qty" class="text-xs text-gray-400">Quantity</label>
+                                <div class="flex mt-1">
+                                    <button type="button" id="g-qty-dec" class="g-qty-btn rounded-l-lg" aria-label="Decrease quantity">−</button>
+                                    <input type="number" id="g-qty" min="1" value="1" inputmode="numeric" class="w-full bg-black/60 border-y border-gold/20 px-3 py-2 text-center text-white focus:outline-none focus:border-gold">
+                                    <button type="button" id="g-qty-inc" class="g-qty-btn" aria-label="Increase quantity">+</button>
+                                    <button type="button" id="g-qty-max" class="g-qty-btn rounded-r-lg text-xs px-3">Max</button>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2">Estimated total: <span id="g-estimate" class="text-white font-medium">$0.00</span> · You own <span id="g-owned" class="text-white font-medium">0</span></p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" id="g-buy" class="py-2.5 rounded-lg font-semibold bg-emerald-500 text-black hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed transition">Buy</button>
+                                <button type="button" id="g-sell" class="py-2.5 rounded-lg font-semibold bg-rose-500 text-black hover:bg-rose-400 disabled:opacity-40 disabled:cursor-not-allowed transition">Sell</button>
+                            </div>
+                        </div>
+                        <p id="g-feedback" class="text-sm mt-3 min-h-[1.25rem]" role="status" aria-live="polite"></p>
+                    </div>
+
+                    <div class="game-panel">
+                        <h3 class="game-panel-title mb-3">Your holdings</h3>
+                        <div id="g-holdings-list" class="space-y-2 text-sm"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="game-panel">
+                    <h3 class="game-panel-title mb-3">Market news</h3>
+                    <ul id="g-news" class="space-y-2 text-sm max-h-56 overflow-y-auto pr-1"></ul>
+                </div>
+                <div class="game-panel">
+                    <h3 class="game-panel-title mb-3">Achievements</h3>
+                    <ul id="g-achievements" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm"></ul>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
+                <p class="text-xs text-gray-500 max-w-md" id="g-tip"></p>
+                <div class="flex gap-3">
+                    <button type="button" id="g-reset" class="px-5 py-3 rounded-lg font-semibold bg-gray-800 text-white hover:bg-gray-700 transition">New game</button>
+                    <button type="button" id="g-next" class="px-6 py-3 rounded-lg font-semibold bg-gold text-black hover:bg-dark-gold transition">Next day →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- End-of-game summary -->
+        <div id="g-summary" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-labelledby="g-summary-title">
+            <div class="bg-card border border-gold/30 rounded-2xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl">
+                <p class="text-5xl" id="g-summary-emoji" aria-hidden="true">🏁</p>
+                <h3 id="g-summary-title" class="text-2xl font-bold mt-3">Market closed</h3>
+                <p class="text-gray-400 mt-1">20 trading days complete</p>
+                <div class="grid grid-cols-2 gap-3 mt-6 text-left">
+                    <div class="game-stat"><span class="game-stat-label">Final net worth</span><span class="game-stat-value text-gold" id="g-sum-networth"></span></div>
+                    <div class="game-stat"><span class="game-stat-label">Total return</span><span class="game-stat-value" id="g-sum-return"></span></div>
+                    <div class="game-stat"><span class="game-stat-label">Trades made</span><span class="game-stat-value" id="g-sum-trades"></span></div>
+                    <div class="game-stat"><span class="game-stat-label">Best stock</span><span class="game-stat-value text-base" id="g-sum-best"></span></div>
+                </div>
+                <p class="text-sm text-gray-300 mt-5" id="g-sum-verdict"></p>
+                <button type="button" id="g-play-again" class="mt-6 w-full py-3 rounded-lg font-semibold bg-gold text-black hover:bg-dark-gold transition">Play again</button>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div id="g-toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-[80] hidden bg-card border border-gold/40 text-white px-5 py-3 rounded-xl shadow-2xl text-sm" role="status" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/site.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
