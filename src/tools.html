@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money tools | SAFE</title>
+    <meta name="description" content="Free South African money calculators: budget planner, debt payoff (snowball vs avalanche), savings goals, net worth, investment growth, bond repayments, property transfer costs and a live currency converter.">
+    <link rel="icon" href="SAFE.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <main id="main">
+        <section class="page-head">
+            <div class="wrap">
+                <p class="eyebrow">Money tools</p>
+                <h1 class="mt-2 text-3xl md:text-5xl font-bold">Run the numbers <span class="text-gold">before you decide</span></h1>
+                <p class="mt-4 text-gray-300 max-w-2xl">Free calculators built around South African rules and rand amounts. Your figures stay on your device; nothing is sent anywhere.</p>
+            </div>
+        </section>
+
+        <section class="section !pt-6">
+            <div class="wrap grid grid-cols-1 lg:grid-cols-[230px_1fr] gap-6">
+                <nav class="lg:sticky lg:top-20 self-start flex lg:flex-col gap-1 scroll-x no-scrollbar bg-white/5 p-1 rounded-2xl" role="tablist" aria-label="Tools" id="tool-tabs"></nav>
+                <div id="tool-panel" class="card p-5 sm:p-7 min-h-[28rem]" role="tabpanel" tabindex="0"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+    <script src="assets/tools.js"></script>
+</body>
+</html>
