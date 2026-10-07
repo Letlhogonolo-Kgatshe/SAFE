@@ -1,150 +1,53 @@
-# South African Intervarsity Hackathon Submission Template - 2025
+# SAFE: South African Financial Education
 
-Welcome to the official **Hackathon Submission Template** for the **South African Intervarsity Hackathon 2025**! This repository is designed to help participants organize their project submissions in a **consistent, judge-friendly structure** while supporting any tech stack.
+![HTML](https://img.shields.io/badge/HTML5-E34F26) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E) ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384) ![Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-222)
 
----
+**Free, beginner-friendly financial education for South Africans**, in one place. It was my solo entry (Team Arctic) to the **South African Intervarsity Hackathon 2025**.
 
-## 📂 Repository Structure
+**Live site:** https://letlhogonolo-kgatshe.github.io/SAFE/
+
+![SAFE homepage](assets/screenshot.jpg)
+
+## Why I built it
+
+When I started learning about money, the useful resources were scattered across dozens of sites, channels and podcasts. SAFE is the site I wish I'd had: the basics explained simply, tools to try ideas risk-free, and the local resources I still use, all on one page.
+
+## Features
+
+| Feature | What it does |
+|---|---|
+| **Stock market game** | Start with $10,000 of virtual cash and trade 5 fictional stocks day by day. Prices move with random market events, a Chart.js price chart and achievements. |
+| **Financial calculators** | Investment growth (compound interest), loan repayments, property purchase costs using South African transfer duty rates, and a currency converter. |
+| **Definitions** | Plain-language explanations of financial terms, with examples, diagrams and a quiz to check understanding. |
+| **Curated learning** | South African and international YouTube channels, podcasts, articles, news and courses for beginners. |
+| **Community & FAQ** | A community section and answers to common questions on budgeting, credit scores and investing. |
+| **Responsive** | Works on phones and desktops, with a dedicated mobile menu. |
+
+> **Disclaimer:** SAFE provides financial *information*, not financial advice. For personalised advice, consult a professional registered with the FSCA.
+
+## Tech
+
+A static site: **HTML**, **Tailwind CSS** (CDN), vanilla **JavaScript** (`src/scrpt.js`) and **Chart.js**. It has no build step and is deployed to GitHub Pages with GitHub Actions (`.github/workflows/static.yml` publishes `src/`).
+
+## Running locally
+
+```bash
+npx http-server src -p 5501
 ```
-├── assets/
-│   └── README.md
-├── demo/
-│   ├── OVERVIEW.md
-│   └── README.md
-├── docs/
-│   ├── ACKNOWLEDGEMENTS.md
-│   ├── SETUP.md
-│   ├── TEAM.md
-│   └── USAGE.md
-├── scripts/
-│   └── README.md
-├── src/
-│   └── README.md
-├── vendor/
-│   └── README.md
-├── .dockerignore
-├── .editorconfig
-├── .gitattributes
-├── .gitignore
-├── Dockerfile
-├── LICENSE
-└── README.md
+
+Then open http://localhost:5501. You can also open `src/index.html` directly in a browser.
+
+## Repository layout
+
 ```
----
+src/        The website: index.html, style.css, scrpt.js, images
+demo/       Hackathon presentation (.pptx), screen recording and overview
+docs/       Setup, usage, team and acknowledgements
+assets/     Screenshot and sponsor artwork
+```
 
-### 🔹 Description of Each Folder/File
+## Author
 
-- **assets/**  
-    All assets used by your project such as **images**, **audio files**, **3D models**, **datasets** and so-on, should be placed in this folder.
+Built by **Letlhogonolo Kgatshe**, Computer Science student at IIE Varsity College, Cape Town. [Portfolio](https://letlhogonolo-kgatshe.github.io/) · [LinkedIn](https://www.linkedin.com/in/letlhogonolo-kgatshe-69aa2a2b7/)
 
-- **demo/**  
-    Your **demo video**, **PowerPoint presentation**, **Overview readme doc** and or any **examples** should be placed in this folder.
-
-- **docs/**  
-    Contains essential documentation about your team and project (these must be written by you):
-    - `ACKNOWLEDGEMENTS.md` → References all third-party libraries and sources used
-    - `SETUP.md` → Instructions for installing dependencies and running the project  
-    - `TEAM.md` → Team member names, roles, and contact info  
-    - `USAGE.md` → Instructions for using or testing the project 
-
-- **scripts/**  
-    All **utility**, **automation** and **project-management** scripts should be placed in this folder.
-
-- **src/**  
-    All source code files should be placed in this folder. You may organize this folder as needed (e.g., `backend/`, `frontend/`, `lib/`, `source/` and or `include/` folders and so on).
-
-- **vendor/**  
-    All third-party libraries, code and or submodules should be placed in this folder along **with the appropriate licensing and or references**. If you are not able to link the modules from this folder to your codebase properly, you may put the third-party modules inside the `src/` folder with the rest of your code however, it **must be made clear** which modules are **third-party**, along with their **licensing**.
-    Since many tech-stacks already use package managers, this `vendor/` folder is for self-included libraries, dependencies and submodules. **Auto-generated** dependency folders like `node_modules/` or `nuget/` should ideally be ignored by `.gitignore`.
-
-- **.dockerignore**  
-    Excludes build artifacts and other non-essential files from the Docker image. *You may delete this file if you do not plan on using Docker.*
-
-- **.editorconfig**  
-    Standardizes indentation, line endings, and character encoding across editors and platforms. It is **highly recommended** that you use a text editor/IDE that supports **.editorconfig**.
-
-- **.gitattributes**  
-    Ensures consistent handling of line endings, text, and binary files across different operating systems.
-
-- **.gitignore**  
-    Ignores build artifacts, OS files, IDE configs, and other non-essential files to keep the repository clean.
-
-- **Dockerfile**  
-    A "quick start" template **Dockerfile** to serve as a blueprint for containerizing your project in a **Docker image**. *You may delete this file if you do not plan on using Docker.*
-
-- **LICENSE**  
-    Default license template for your submission (MIT recommended).
-    *You must add the names of your team members to this template.*
-
-- **README.md**  
-    Hey wait, that's me!
-
----
-
-## ✅ Submission Guidelines
-
-1. Create your project's repo off of this template (click the `Use this template` button).  
-2. Fill in the `TEAM.md` file with your team members’ information. 
-3. Start hacking!
-4. Fill in `ACKNOWLEDGEMENTS.md`, `OVERVIEW.md`, `SETUP.md`, `USAGE.md` and `LICENSE`. 
-5. Link or include your demo video & PowerPoint in the `demo/` folder.  
-6. **Optional:** Include additional documentation and design notes in `docs/`.
-7. **Optional:** Include unit tests in `tests/`.
-8. Submit the link to your **public GitHub repository**.
-
----
-
-## 📑 Documentation Checklist
-
-| File                  | Required? | Notes                                                          |
-| --------------------- | --------- | -------------------------------------------------------------- |
-| `TEAM.md`             | ✅         | Must list all team members, their roles, and institutions      |
-| `OVERVIEW.md`         | ✅         | High-level description of your project and its purpose         |
-| `SETUP.md`            | ✅         | Instructions to install dependencies and run the project       |
-| `USAGE.md`            | ✅         | How to use/test the project after setup                        |
-| `ACKNOWLEDGEMENTS.md` | ✅         | Credit all third-party libraries, datasets, and resources used |
-| `LICENSE`             | ✅         | Include license type and add your team members’ names          |
-| `tests/`              | Optional  | Add test scripts or instructions if relevant                   |
-| `Dockerfile`          | Optional  | Only if you choose to containerize your project                |
-| Extra docs            | Optional  | Additional guides, design notes, or API references             |
-
----
-
-## 📌 Tips & Other Remarks
-
-- Keep your code and assets organized within the `src/` and `assets/` directories.  
-- Use `.editorconfig` and `.gitattributes` to avoid formatting and line-ending issues.  
-- Follow the folder structure strictly — it will make judging smoother and faster.  
-- It is highly recommended that you use **Docker** for your submission however, it is **not required**. If you opt to **not** use **Docker**, please ensure that your setup instructions in `SETUP.md` are **straightforward**, **correct**, **comprehensive** and **cross-platform** (if applicable) to ensure that your submission will be graded properly.
-- It is also recommended that you work with a **tech-stack** or **build-system** that is **platform-agnostic**. For example: if your project is written in `C++` - which is **platform-dependent**, you may need to ensure that it compiles correctly accross multiple toolchains/compilers for different platforms, thereby creating the added-complexity of having to maintain multiple build-targets - such as having to support both **MSVC for Windows** (using `WIN32` for OS-calls) and **GCC for Linux** (using `POSIX` for OS-calls). However, using a language like `Java` may work much better, since `Java` code is inherently **platform-agnostic** as it runs on a *virtual machine* which abstracts away the lower-level OS-calls.
----
-
-### 💡 Note for First-Time Hackathon Participants
-If this is your **first hackathon** or you’re **new to GitHub**, don’t stress — just:  
-1. Use this template repo as-is.  
-2. Fill in the required documentation files (`TEAM.md`, `OVERVIEW.md`, `SETUP.md`, `USAGE.md`, `ACKNOWLEDGEMENTS.md`, `LICENSE`).  
-3. Put your code in the `src/` folder and assets in `assets/`.  
-
-That’s enough for a complete and valid submission 🚀 — the rest (like Docker, tests, extra docs) is **optional polish**.
-
----
-
-## 🧩 Example Submission
-Check out a very basic example submission repository [here](https://github.com/DnA-IntRicate/SAIntervarsityHackathonExampleSubmission2025).
-
-We've also created a **demo video** showcasing the **example submission** and how to get started with this **template repository**, check it out [here](https://youtu.be/e2R9APyatU4).
-
----
-
-## 🙌 Brought to you by
-- [UCT Developer Society](https://www.linkedin.com/company/uct-developers-society)
-- [UCT AI Society](https://www.linkedin.com/company/uctaisociety/)
-- Stellenbosch AI Society
-- [Wits Developer Society](https://www.linkedin.com/company/wits-developer-society/)
-- [UJ Developer Society](https://www.linkedin.com/company/uj-developerss-society/)
-- [UWC IT Society](https://www.linkedin.com/company/uwc-it-society/)
-- [UNISA Developer Society](https://www.linkedin.com/company/unisa-developer-society/)
-
-![Sponsored by](assets/Sponsors.jpg)
-
-### **Good luck and happy hacking!** 🚀
+Licensed under the [MIT License](LICENSE).
