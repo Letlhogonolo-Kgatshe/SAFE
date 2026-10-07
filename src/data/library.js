@@ -98,8 +98,8 @@ window.SAFE_LIBRARY = [
       desc: 'A free, web-based financial education platform that offers a fun and easy way to build your money knowledge and skills.' },
     { id: '10x', type: 'course', region: 'SA', topic: 'Investing', title: '10X Investing webinars', url: 'https://www.10x.co.za/webinar',
       desc: 'Free webinars on investing and retirement in South Africa, focusing on low fees and long-term performance.' },
-    { id: 'wealthbit-budgeting', type: 'course', region: 'Global', topic: 'Personal finance', title: 'Budgeting email course', url: 'https://blog.wealthbit.co/budgeting-email-course-build-a-plan-that-funds-your-goals/',
-      desc: 'Learn how to create, and stick to, a budget that funds your goals, one email at a time.' },
+    { id: 'khan-budgeting', type: 'course', region: 'Global', topic: 'Personal finance', title: 'Khan Academy: Saving and budgeting', url: 'https://www.khanacademy.org/college-careers-more/personal-finance/pf-saving-and-budgeting',
+      desc: 'What are your financial priorities? Sal shares some basic strategies for creating a budget and saving money each month.' },
     { id: 'fire-guides', type: 'course', region: 'Global', topic: 'Retirement', title: 'FIRE blogs & guides', url: 'https://smartasset.com/retirement/fire-blogs-and-websites-you-need-to-know',
       desc: 'The "FIRE" movement is designed to help you reach financial independence and retire early. These are the websites and blogs to learn from.' },
 ];

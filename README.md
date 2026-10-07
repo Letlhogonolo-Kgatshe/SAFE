@@ -39,13 +39,16 @@ npx http-server src -p 5501
 
 Then open http://localhost:5501. You can also open `src/index.html` directly in a browser.
 
+Library screenshots are retaken every Monday by the **Refresh library screenshots** workflow. A capture only replaces the old image if it is usable: bot checks, error pages and blank renders are skipped. To refresh locally with your installed Edge: `cd scripts && npm install && BROWSER_CHANNEL=msedge node refresh-screenshots.mjs` (add item ids to refresh only those).
+
 ## Repository layout
 
 ```
 src/              The website: index, learn, glossary, tools, game and faq pages
 src/assets/       Shared layout (site.js), styles (site.css), Tailwind theme, money tools
 src/data/         Glossary terms and learning library (edit these to add content)
-src/img/library/  Screenshots of library channels and sites
+src/img/library/  Screenshots of library channels and sites (refreshed weekly)
+scripts/          refresh-screenshots.mjs, run every Monday by GitHub Actions
 demo/       Hackathon presentation (.pptx), screen recording and overview
 docs/       Setup, usage, team and acknowledgements
 assets/     Screenshot and sponsor artwork

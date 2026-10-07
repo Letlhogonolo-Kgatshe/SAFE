@@ -1,0 +1,13 @@
+{
+  "name": "safe-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Maintenance scripts for the SAFE site (not needed to run the site itself).",
+  "scripts": {
+    "screenshots": "node refresh-screenshots.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.48.0",
+    "sharp": "^0.33.5"
+  }
+}
