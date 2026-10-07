@@ -14,20 +14,22 @@ When I started learning about money, the useful resources were scattered across 
 
 ## Features
 
-| Feature | What it does |
+| Page | What it offers |
 |---|---|
-| **Stock market game** | Start with $10,000 of virtual cash and trade 5 fictional stocks day by day. Prices move with random market events, a Chart.js price chart and achievements. |
-| **Financial calculators** | Investment growth (compound interest), loan repayments, property purchase costs using South African transfer duty rates, and a currency converter. |
-| **Definitions** | Plain-language explanations of financial terms, with examples, diagrams and a quiz to check understanding. |
-| **Curated learning** | South African and international YouTube channels, podcasts, articles, news and courses for beginners. |
-| **Community & FAQ** | A community section and answers to common questions on budgeting, credit scores and investing. |
-| **Responsive** | Works on phones and desktops, with a dedicated mobile menu. |
+| **Home** | A 12-step learning path from first budget to first investment (progress saved), a live rand snapshot, a term of the day and featured SA creators |
+| **Learn** | 47 curated YouTube channels, podcasts, sites and courses, with screenshots and the creators' own descriptions, filterable by format, topic and SA/Global |
+| **Glossary** | 88 South African money terms with rand examples, levels, related terms, search, saved terms, shareable links and a flashcard quiz |
+| **Money tools** | Budget planner, debt payoff (snowball vs avalanche), savings goal, net worth tracker, investment growth, loan & bond, property costs (SARS transfer duty) and a live currency converter |
+| **Stock game** | Trade 5 fictional companies over 20 days with $10,000 of virtual cash: news-driven prices, P/L, achievements and an end-of-game summary |
+| **FAQ & contact** | 24 searchable answers (TFSA, two-pot, credit, debt review, offshore, property, crypto tax), the WhatsApp community and a contact form |
+
+Everything works on phones, and all personal inputs (budgets, saved terms, game progress) stay in the visitor's browser.
 
 > **Disclaimer:** SAFE provides financial *information*, not financial advice. For personalised advice, consult a professional registered with the FSCA.
 
 ## Tech
 
-A static site: **HTML**, **Tailwind CSS** (CDN), vanilla **JavaScript** (`src/scrpt.js`) and **Chart.js**. It has no build step and is deployed to GitHub Pages with GitHub Actions (`.github/workflows/static.yml` publishes `src/`).
+A static site: **HTML**, **Tailwind CSS** (CDN), vanilla **JavaScript** and **Chart.js**. Live rates come from the free currency-api. It has no build step and is deployed to GitHub Pages with GitHub Actions (`.github/workflows/static.yml` publishes `src/`).
 
 ## Running locally
 
@@ -40,7 +42,10 @@ Then open http://localhost:5501. You can also open `src/index.html` directly in 
 ## Repository layout
 
 ```
-src/        The website: index.html, style.css, scrpt.js, images
+src/              The website: index, learn, glossary, tools, game and faq pages
+src/assets/       Shared layout (site.js), styles (site.css), Tailwind theme, money tools
+src/data/         Glossary terms and learning library (edit these to add content)
+src/img/library/  Screenshots of library channels and sites
 demo/       Hackathon presentation (.pptx), screen recording and overview
 docs/       Setup, usage, team and acknowledgements
 assets/     Screenshot and sponsor artwork

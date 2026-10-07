@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & contact | SAFE</title>
+    <meta name="description" content="Straight answers to common South African money questions: TFSA limits, two-pot retirement, credit scores, debt review, offshore investing, crypto tax, buying property, and how to contact SAFE.">
+    <link rel="icon" href="SAFE.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tw.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <main id="main">
+        <section class="page-head">
+            <div class="wrap">
+                <p class="eyebrow">FAQ & contact</p>
+                <h1 class="mt-2 text-3xl md:text-5xl font-bold">Straight answers to <span class="text-gold">real money questions</span></h1>
+                <p class="mt-4 text-gray-300 max-w-2xl">Short, South African answers with links to tools and terms that go deeper. Can't find yours? Ask us below.</p>
+                <label class="relative block mt-6 max-w-xl">
+                    <span class="sr-only">Search questions</span>
+                    <input id="f-search" type="search" class="field !pl-9 !py-3" placeholder="Search, e.g. TFSA, credit score, two-pot…">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" aria-hidden="true">⌕</span>
+                </label>
+            </div>
+        </section>
+
+        <section class="section !pt-6">
+            <div class="wrap grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8">
+                <nav class="lg:sticky lg:top-20 self-start flex lg:flex-col gap-1 scroll-x no-scrollbar" id="f-cats" aria-label="FAQ topics"></nav>
+                <div>
+                    <div id="f-list" class="space-y-3"></div>
+                    <p id="f-empty" class="hidden text-gray-400 py-10 text-center">No questions match. <a href="#contact" class="text-gold underline">Ask us instead</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section border-t border-white/10" id="about">
+            <div class="wrap grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="eyebrow">About SAFE</p>
+                    <h2 class="mt-2 text-3xl font-bold">Money conversations, as casual as the weather</h2>
+                    <p class="mt-4 text-gray-300">SAFE helps novice investors grow and learn. Financial literacy should be as common as talking about the weather, so we package essential information in one place, tailored for beginners and beyond.</p>
+                    <p class="mt-3 text-gray-300">We're not reinventing the wheel, just delivering clear, practical knowledge. Our vision: to make money conversations as casual as asking "How's your portfolio looking?" or "Seen any new listings?"</p>
+                    <p class="mt-3 text-sm text-gray-500">Built by Letlhogonolo Kgatshe as a solo entry (Team Arctic) for the South African Intervarsity Hackathon 2025.</p>
+                </div>
+                <div class="card p-6" id="community">
+                    <p class="text-4xl" aria-hidden="true">💬</p>
+                    <h3 class="text-xl font-semibold mt-3">Join the SAFE community on WhatsApp</h3>
+                    <p class="text-gray-400 mt-2">Get new tools, money tips and market updates, and keep the conversation going with other South Africans learning about money.</p>
+                    <a href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M" target="_blank" rel="noopener" class="btn-gold mt-5">Follow the WhatsApp channel ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section border-t border-white/10" id="contact">
+            <div class="wrap grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-2">
+                    <p class="eyebrow">Contact</p>
+                    <h2 class="mt-2 text-3xl font-bold">Ask a question or suggest a topic</h2>
+                    <p class="mt-3 text-gray-400">Spotted a mistake, want a term added, or have feedback? We read everything.</p>
+                    <ul class="mt-6 space-y-3 text-sm">
+                        <li>📍 Cape Town, South Africa</li>
+                        <li>✉️ <a class="text-gold hover:underline" href="mailto:Tlhogikgatshe@gmail.com">Tlhogikgatshe@gmail.com</a></li>
+                        <li>💼 <a class="text-gold hover:underline" href="https://www.linkedin.com/in/letlhogonolo-kgatshe-69aa2a2b7/" target="_blank" rel="noopener">Letlhogonolo Kgatshe on LinkedIn</a></li>
+                    </ul>
+                </div>
+                <form id="c-form" class="lg:col-span-3 card p-6 grid grid-cols-1 sm:grid-cols-2 gap-4" novalidate>
+                    <label><span class="label">Name</span><input id="c-name" class="field" autocomplete="name" required></label>
+                    <label><span class="label">Email</span><input id="c-email" type="email" class="field" autocomplete="email" required></label>
+                    <label class="sm:col-span-2"><span class="label">Topic</span>
+                        <select id="c-topic" class="field"><option>Question</option><option>Suggest a glossary term</option><option>Report a mistake</option><option>Feedback</option><option>Partnership</option></select></label>
+                    <label class="sm:col-span-2"><span class="label">Message</span><textarea id="c-msg" rows="5" class="field" required></textarea></label>
+                    <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="text-xs text-gray-500">Opens your email app with your message ready. Your details are only used to reply (POPIA).</p>
+                        <button class="btn-gold" type="submit">Send message</button>
+                    </div>
+                    <p id="c-status" class="sm:col-span-2 hidden text-sm rounded-xl px-4 py-3" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+    <script>
+    (function () {
+        const { esc } = window.SAFE;
+        // Figures that change each tax year are labelled; link out to official sources.
+        const FAQ = [
+            ['Getting started', 'Where do I start if I know nothing about money?', 'Start with three steps: (1) make a simple <a href="tools.html#budget">budget</a> so you know where your money goes; (2) build a small emergency fund, even R5,000 helps; (3) clear expensive debt like store cards. Then start investing small amounts monthly. Follow the <a href="index.html#path">learning path</a> on the home page.'],
+            ['Getting started', 'How much should I keep in an emergency fund?', 'Aim for 3–6 months of essential expenses, or more if your income is irregular. Keep it in a money-market or notice account, so it is easy to reach but separate from your spending account. Use the <a href="tools.html#goal">savings goal planner</a> to plan it.'],
+            ['Getting started', 'What is the 50/30/20 rule?', 'A simple budget guide: roughly 50% of take-home pay for needs, 30% for wants and 20% for saving, investing and extra debt payments. Treat it as a starting point; the <a href="tools.html#budget">budget planner</a> shows how your spending compares.'],
+            ['Saving & tax', 'How does a Tax-Free Savings Account (TFSA) work?', 'Growth, interest and dividends inside a TFSA are completely tax-free. For 2025/26 you can contribute up to R36,000 a year and R500,000 in your lifetime. Contributions above the limit are taxed at 40%, and withdrawals don\'t free up your limit. Check current limits on <a href="https://www.sars.gov.za/types-of-tax/personal-income-tax/tax-free-investments/" target="_blank" rel="noopener">SARS</a>.'],
+            ['Saving & tax', 'Should I use a TFSA or a retirement annuity (RA)?', 'Ideally both. An RA gives you a tax deduction now (up to 27.5% of income, capped at R350,000 a year) but you can\'t access it until 55. A TFSA gives no deduction but is tax-free and accessible. Higher earners often benefit more from an RA first.'],
+            ['Saving & tax', 'Do I pay tax on interest from my savings account?', 'Only above the annual interest exemption: R23,800 if you\'re under 65 and R34,500 if you\'re 65 or older. Interest inside a TFSA is always tax-free.'],
+            ['Saving & tax', 'Do I have to pay tax on crypto?', 'Yes. SARS treats crypto as an asset, so gains are taxed either as income (frequent trading) or capital gains (long-term holding), and must be declared on your tax return. Only use FSCA-licensed crypto platforms.'],
+            ['Debt & credit', 'How do I check my credit score for free?', 'You\'re entitled to one free credit report a year from each major credit bureau (e.g. TransUnion, Experian, XDS), and many banks and apps show your score for free. Check for mistakes and dispute them with the bureau.'],
+            ['Debt & credit', 'How do I improve my credit score?', 'Pay every account on time, keep credit card use under about 30% of your limit, avoid applying for lots of credit at once, and keep older accounts open. Improvements show within months.'],
+            ['Debt & credit', 'What\'s the fastest way to pay off debt?', 'List your debts, pay the minimums on all of them, and throw every extra rand at one target: the highest interest rate (avalanche, cheapest) or the smallest balance (snowball, most motivating). Compare both in the <a href="tools.html#debt">debt payoff planner</a>.'],
+            ['Debt & credit', 'What is debt review, and should I use it?', 'Debt review (debt counselling) is a legal process under the National Credit Act. A registered counsellor restructures your debts into one affordable payment, and creditors can\'t take legal action while you comply. You can\'t take new credit while under review. Use only <a href="https://www.ncr.org.za/" target="_blank" rel="noopener">NCR-registered</a> counsellors.'],
+            ['Debt & credit', 'Is it better to rent or buy a car on finance?', 'Most cars lose value quickly. Keep total car costs (instalment, insurance, fuel, maintenance) under about 15–20% of take-home pay, avoid large balloon payments, and consider a good used car. Watch <a href="learn.html">car review channels</a> before you sign.'],
+            ['Investing', 'How do I start investing with little money?', 'Platforms like EasyEquities let you buy fractional shares and ETFs from small amounts. A low-cost global or Top 40 ETF in a TFSA, plus a monthly debit order, is a common beginner approach. Start with money you won\'t need for 5+ years.'],
+            ['Investing', 'What\'s the difference between an ETF and a unit trust?', 'Both pool investors\' money. ETFs usually track an index, trade on the JSE like shares and tend to have lower fees. Unit trusts are bought from fund managers, are often actively managed, and allow easy debit orders. Compare fees using the Effective Annual Cost (EAC).'],
+            ['Investing', 'How can I invest offshore?', 'The simplest way is through JSE-listed ETFs that hold global shares, with no need to move money. You can also send money abroad: up to R1 million a year with the single discretionary allowance, and up to R10 million more with SARS approval.'],
+            ['Investing', 'How do I avoid investment scams?', 'Red flags: "guaranteed" high returns, pressure to recruit others or to act fast, and unlicensed providers. Always check the provider\'s FSP number on the <a href="https://www.fsca.co.za/" target="_blank" rel="noopener">FSCA</a> website. If it sounds too good to be true, it is.'],
+            ['Property', 'Should I rent or buy a home?', 'Buy if you plan to stay 5+ years and can afford the deposit, transfer costs, rates, levies and maintenance. Rent if you value flexibility or might move soon, and invest the difference. Run the <a href="tools.html#property">property costs</a> and <a href="tools.html#loan">bond</a> calculators first.'],
+            ['Property', 'How much does it cost to buy a house in South Africa?', 'On top of the deposit, budget for transfer duty (none up to R1,210,000, then a sliding scale), transfer and bond attorney fees, and moving costs. The <a href="tools.html#property">property costs calculator</a> estimates these for your price.'],
+            ['Property', 'How much bond can I afford?', 'Banks usually limit the repayment to about 30% of your gross monthly income, and look at your credit record and expenses. The <a href="tools.html#loan">loan & bond calculator</a> shows a rough maximum for your income.'],
+            ['Retirement', 'How does the two-pot retirement system work?', 'Since 1 September 2024, new contributions are split: one-third goes into a savings pot you can withdraw from once per tax year (minimum R2,000, taxed at your marginal rate) and two-thirds into a retirement pot locked until retirement. Withdraw only for genuine emergencies; it permanently shrinks your retirement savings.'],
+            ['Retirement', 'How much should I save for retirement?', 'A common guideline is 15% of your gross income, including employer contributions, from your 20s. Starting later means saving more. Use the <a href="tools.html#invest">investment growth tool</a> to see the effect of starting early.'],
+            ['Retirement', 'What happens to my pension when I change jobs?', 'Preserve it. Move it into your new employer\'s fund or a preservation fund, so it keeps growing tax-free. Cashing out means tax and losing years of compound growth.'],
+            ['About SAFE', 'Is SAFE giving me financial advice?', 'No. SAFE provides general financial information and education. For personalised advice, consult a professional registered with the FSCA.'],
+            ['About SAFE', 'Is my data saved anywhere?', 'Your calculator inputs, saved glossary terms and game progress are stored only in your own browser (localStorage), never on a server. Clearing your browser data removes them.'],
+        ];
+        const cats = ['All', ...new Set(FAQ.map((f) => f[0]))];
+        let cat = 'All', q = '';
+        const $ = (id) => document.getElementById(id);
+        $('f-cats').innerHTML = cats.map((c) => `<button class="tab lg:w-full justify-between" data-cat="${esc(c)}" aria-selected="${c === 'All'}">${esc(c)} <span class="text-xs opacity-60">${c === 'All' ? FAQ.length : FAQ.filter((f) => f[0] === c).length}</span></button>`).join('');
+        function render() {
+            const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+            const rows = FAQ.filter(([c, qq, a]) => (cat === 'All' || c === cat) && words.every((w) => (qq + ' ' + a).toLowerCase().includes(w)));
+            $('f-empty').classList.toggle('hidden', rows.length > 0);
+            $('f-list').innerHTML = rows.map(([c, qq, a], i) => `
+                <details class="card px-5 py-4 group" ${words.length || i === 0 ? 'open' : ''}>
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+                        <span>${esc(qq)}${cat === 'All' ? `<span class="block text-xs font-normal text-gray-500 mt-0.5">${esc(c)}</span>` : ''}</span>
+                        <span class="shrink-0 w-7 h-7 rounded-full bg-gold/10 text-gold grid place-items-center transition group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="mt-3 text-gray-300 leading-relaxed [&_a]:text-gold [&_a]:underline">${a}</p>
+                </details>`).join('');
+        }
+        $('f-cats').addEventListener('click', (e) => {
+            const b = e.target.closest('[data-cat]'); if (!b) return;
+            cat = b.dataset.cat;
+            document.querySelectorAll('#f-cats .tab').forEach((t) => t.setAttribute('aria-selected', t === b));
+            render();
+        });
+        $('f-search').addEventListener('input', (e) => { q = e.target.value; render(); });
+        render();
+
+        $('c-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = $('c-name').value.trim(), email = $('c-email').value.trim(), msg = $('c-msg').value.trim();
+            const st = $('c-status');
+            st.classList.remove('hidden');
+            if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || msg.length < 5) {
+                st.className = 'sm:col-span-2 text-sm rounded-xl px-4 py-3 bg-rose-500/10 text-rose-300';
+                st.textContent = 'Please add your name, a valid email address and a short message.';
+                return;
+            }
+            const body = `${msg}\n\nFrom: ${name} <${email}>`;
+            location.href = `mailto:Tlhogikgatshe@gmail.com?subject=${encodeURIComponent('SAFE: ' + $('c-topic').value)}&body=${encodeURIComponent(body)}`;
+            st.className = 'sm:col-span-2 text-sm rounded-xl px-4 py-3 bg-emerald-500/10 text-emerald-300';
+            st.textContent = 'Your email app should open with the message ready to send. If not, email Tlhogikgatshe@gmail.com directly.';
+        });
+    })();
+    </script>
+</body>
+</html>
