@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-style="showcase">
 <head>
     <meta charset="UTF-8">
+    <script>(function(){var s='showcase';try{var v=localStorage.getItem('site-style');if(v==='quiet'||v==='showcase'||v==='midnight')s=v;}catch(e){}document.documentElement.setAttribute('data-style',s);})();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAFE | South African Financial Education</title>
     <meta name="description" content="SAFE: free, beginner-friendly financial education for South Africans. A step-by-step learning path, plain-language glossary, money calculators, a risk-free stock market game and curated local resources.">
@@ -21,11 +22,11 @@
     <main id="main">
         <!-- Hero -->
         <section class="border-b border-ink/10">
-            <div class="wrap pt-14 md:pt-20 pb-14 md:pb-20 flex flex-col items-center text-center">
+            <div class="hero-c wrap pt-14 md:pt-20 pb-14 md:pb-20 flex flex-col items-center text-center">
                 <p class="text-xs md:text-sm px-3 py-1 rounded-full border border-accent/20 bg-gold/10 text-accent-deep">SA Intervarsity Hackathon 2025 · free for everyone</p>
                 <h1 class="mt-5 text-4xl md:text-6xl font-semibold leading-[1.04] max-w-4xl">Learn money the South African way, then practise without risking a cent.</h1>
                 <p class="mt-5 text-lg text-ink-2 max-w-2xl">Plain-language lessons with rand examples, calculators built on SA rules, and nothing you type ever leaves your phone.</p>
-                <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center w-full sm:w-auto">
+                <div class="hero-actions mt-8 flex flex-col sm:flex-row gap-3 justify-center w-full sm:w-auto">
                     <a href="#path" class="btn-gold !px-6 !py-3">Start step 1 of 12</a>
                     <a href="game.html" class="btn-ghost !px-6 !py-3">Try the stock game</a>
                 </div>
@@ -49,9 +50,9 @@
                         <span class="font-semibold text-lg">TFSA</span>
                         <span class="text-sm text-ink-2">Tax-free savings account: up to R36 000 a year and R500 000 for life (2025/26).</span>
                     </a>
-                    <a href="glossary.html" class="bento-count card card-hover !bg-ink !border-ink text-white p-5 flex flex-col justify-between">
+                    <a href="glossary.html" class="bento-count card card-hover !bg-ink !border-ink text-on-accent p-5 flex flex-col justify-between">
                         <span class="text-4xl font-semibold tnum">88</span>
-                        <span class="text-xs text-white/75">terms with quizzes</span>
+                        <span class="text-xs text-on-accent/75">terms with quizzes</span>
                     </a>
                 </div>
             </div>
@@ -127,6 +128,7 @@
     </main>
 
     <script src="assets/site.js"></script>
+    <script src="assets/style-switch.js"></script>
     <script src="data/glossary.js"></script>
     <script src="data/library.js"></script>
     <script>

@@ -11,7 +11,7 @@
     const drawChart = (canvas, config) => {
         if (chart) chart.destroy();
         if (!window.Chart) return;
-        Chart.defaults.color = '#5f5a50';
+        Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--chart-tick').trim() || '#5f5a50';
         Chart.defaults.font.family = 'Inter, system-ui, sans-serif';
         chart = new Chart(canvas, config);
     };

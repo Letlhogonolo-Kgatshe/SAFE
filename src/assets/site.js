@@ -51,11 +51,13 @@
                 <span class="hidden sm:block text-[11px] text-ink-2">South African Financial Education</span></span>
             </a>
             <nav class="hidden lg:flex items-center gap-1" aria-label="Main">${links}</nav>
-            <a href="tools.html" class="hidden lg:inline-flex btn-gold !py-2 text-sm">Open money tools</a>
+            <div class="hidden xl:flex items-center gap-3 shrink-0"><div data-style-switch></div><a href="tools.html" class="btn-gold !py-2 text-sm">Open money tools</a></div>
+            <a href="tools.html" class="hidden lg:inline-flex xl:hidden btn-gold !py-2 text-sm">Open money tools</a>
             <button id="menu-btn" class="lg:hidden text-accent text-2xl w-10 h-10 grid place-items-center rounded-lg hover:bg-ink/5" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
         </div>
         <nav id="mobile-menu" class="hidden lg:hidden border-t border-ink/10 bg-paper" aria-label="Mobile">
             <div class="wrap py-3 grid grid-cols-2 gap-1">${PAGES.map((p) => `<a href="${p.href}" class="nav-link !py-3"${p.href === here ? ' aria-current="page"' : ''}>${p.label}</a>`).join('')}</div>
+            <div class="wrap pb-4 flex items-center gap-3"><span class="text-sm text-ink-3">Style</span><div data-style-switch></div></div>
         </nav>`;
     document.body.prepend(header);
     const menuBtn = header.querySelector('#menu-btn'), menu = header.querySelector('#mobile-menu');
@@ -83,6 +85,7 @@
                 <li><a class="hover:text-accent" href="faq.html">FAQ</a></li><li><a class="hover:text-accent" href="faq.html#contact">Contact</a></li>
                 <li><a class="hover:text-accent" href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M" target="_blank" rel="noopener">WhatsApp channel</a></li></ul></div>
         </div>
+        <div class="wrap pb-8 flex items-center gap-3 text-sm"><span class="text-ink-3">Style</span><div data-style-switch></div></div>
         <div class="border-t border-ink/10"><div class="wrap py-6 text-xs text-ink-3 flex flex-col sm:flex-row gap-2 justify-between">
             <p>© ${new Date().getFullYear()} SAFE. Educational information only, not financial advice. For personalised advice, consult an FSCA-registered financial advisor.</p>
             <p>Built by <a class="hover:text-accent" href="https://letlhogonolo-kgatshe.github.io/" target="_blank" rel="noopener">Letlhogonolo Kgatshe</a></p>

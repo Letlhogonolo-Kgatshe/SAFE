@@ -359,12 +359,12 @@
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { labels: { color: '#3f3d38', boxWidth: 10, usePointStyle: true } },
+                        legend: { labels: { boxWidth: 10, usePointStyle: true } },
                         tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${money(ctx.parsed.y)}` } },
                     },
                     scales: {
-                        x: { ticks: { color: '#5f5a50', maxTicksLimit: 10 }, grid: { color: 'rgba(0,0,0,0.06)' } },
-                        y: { ticks: { color: '#5f5a50', callback: (v) => '$' + v }, grid: { color: 'rgba(0,0,0,0.06)' } },
+                        x: { ticks: { maxTicksLimit: 10 } },
+                        y: { ticks: { callback: (v) => '$' + v } },
                     },
                 },
             });
