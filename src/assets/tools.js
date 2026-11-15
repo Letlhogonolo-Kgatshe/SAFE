@@ -67,10 +67,10 @@
             };
             $('#b-bars').innerHTML = bar('Needs', need, 50, 'bg-sky-400') + bar('Wants', want, 30, 'bg-fuchsia-400') + bar('Saving & debt', save, 20, 'bg-ink');
             const savePct = d.income ? (save / d.income) * 100 : 0;
-            $('#b-tip').innerHTML = left < 0 ? `⚠️ You've planned <strong>${rand(-left)}</strong> more than you earn. Trim wants first, then needs.`
-                : savePct < 10 ? `💡 You're saving ${savePct.toFixed(0)}%. Even moving <strong>${rand(Math.max(left, d.income * 0.05))}</strong> into saving makes a real difference over time.`
-                : left > 0 ? `✅ Good plan. Give the unallocated <strong>${rand(left)}</strong> a job, e.g. your emergency fund or TFSA.`
-                : '✅ Every rand has a job. Nice work!';
+            $('#b-tip').innerHTML = left < 0 ? `<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-rose-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>You've planned <strong>${rand(-left)}</strong> more than you earn. Trim wants first, then needs.`
+                : savePct < 10 ? `<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg>You're saving ${savePct.toFixed(0)}%. Even moving <strong>${rand(Math.max(left, d.income * 0.05))}</strong> into saving makes a real difference over time.`
+                : left > 0 ? `<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Good plan. Give the unallocated <strong>${rand(left)}</strong> a job, e.g. your emergency fund or TFSA.`
+                : '<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Every rand has a job. Nice work!';
         };
         panel.oninput = calc;
         panel.onchange = calc;
@@ -134,7 +134,7 @@
                     <ol class="mt-3 text-sm text-ink-2 space-y-1 list-decimal list-inside">${r.cleared.map((c) => `<li>${esc(c.name)} cleared in month ${c.month}</li>`).join('')}</ol>`}
                 </div>`;
             const avBest = aval.interest <= snow.interest;
-            $('#d-out').innerHTML = card('🏔️ Avalanche', 'Highest interest rate first', aval, avBest) + card('⛄ Snowball', 'Smallest balance first: quick wins', snow, !avBest);
+            $('#d-out').innerHTML = card('Avalanche', 'Highest interest rate first', aval, avBest) + card('Snowball', 'Smallest balance first: quick wins', snow, !avBest);
             $('#d-note').innerHTML = base.stuck || aval.stuck ? '' : `Paying an extra <strong>${rand(d.extra)}</strong>/month saves about <strong>${rand(base.interest - aval.interest)}</strong> in interest and makes you debt-free <strong>${base.month - aval.month} months</strong> sooner than paying only the minimums. In serious difficulty? Speak to an <a class="text-accent underline" href="https://www.ncr.org.za/" target="_blank" rel="noopener">NCR-registered debt counsellor</a>.`;
         };
         panel.oninput = calc;
@@ -190,7 +190,7 @@
                 <div><p class="font-semibold text-rose-700 mb-2">Liabilities</p><div class="space-y-2" id="nw-l">${rows(s.liabs, 'l')}</div><button class="btn-ghost !py-1.5 text-sm mt-2" data-add="l">+ Liability</button></div>
             </div>
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3" id="nw-stats"></div>
-            <div class="mt-4 flex items-center gap-3"><button class="btn-gold !py-2 text-sm" id="nw-snap">📸 Save this month's snapshot</button><span class="text-xs text-ink-3">Stored only in this browser.</span></div>
+            <div class="mt-4 flex items-center gap-3"><button class="btn-gold !py-2 text-sm" id="nw-snap">Save this month's snapshot</button><span class="text-xs text-ink-3">Stored only in this browser.</span></div>
             <div class="mt-4 h-48 ${s.history.length > 1 ? '' : 'hidden'}"><canvas id="nw-chart" aria-label="Net worth history"></canvas></div>`;
         const read = () => ({ assets: $$('[data-a]').map((r) => [$('[data-k=n]', r).value, num($('[data-k=v]', r).value)]), liabs: $$('[data-l]').map((r) => [$('[data-k=n]', r).value, num($('[data-k=v]', r).value)]), history: store.get('networth', NW_DEFAULT).history || [] });
         const calc = () => {

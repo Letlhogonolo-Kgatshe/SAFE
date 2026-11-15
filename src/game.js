@@ -43,12 +43,12 @@
     ];
 
     const ACHIEVEMENTS = [
-        { id: 'first-trade', icon: '🥇', name: 'First Trade',          desc: 'Make your first trade' },
-        { id: 'diversified', icon: '🧺', name: 'Diversified Investor', desc: 'Own 3 different companies at once' },
-        { id: 'all-in',      icon: '🌍', name: 'Whole Market',         desc: 'Own all 5 companies at once' },
-        { id: 'profit',      icon: '📈', name: 'Profitable Trader',    desc: 'Reach a net worth of $15,000' },
-        { id: 'take-profit', icon: '💰', name: 'Take Profit',          desc: 'Sell shares for more than you paid' },
-        { id: 'survivor',    icon: '🏁', name: 'Market Survivor',      desc: 'Finish all 20 days' },
+        { id: 'first-trade', icon: '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M8.5 10 6 3h4l2 4 2-4h4l-2.5 7"/></svg>', name: 'First Trade',          desc: 'Make your first trade' },
+        { id: 'diversified', icon: '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18l-2 10H5z"/><path d="m8 10 4-6 4 6M9 14v3M15 14v3M12 14v3"/></svg>', name: 'Diversified Investor', desc: 'Own 3 different companies at once' },
+        { id: 'all-in',      icon: '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>', name: 'Whole Market',         desc: 'Own all 5 companies at once' },
+        { id: 'profit',      icon: '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>', name: 'Profitable Trader',    desc: 'Reach a net worth of $15,000' },
+        { id: 'take-profit', icon: '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M15.5 9.5a6 6 0 1 1-6 6"/></svg>', name: 'Take Profit',          desc: 'Sell shares for more than you paid' },
+        { id: 'survivor',    icon: '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>', name: 'Market Survivor',      desc: 'Finish all 20 days' },
     ];
 
     const $ = (id) => document.getElementById(id);
@@ -130,7 +130,7 @@
         setTip();
 
         if (state.day === MAX_DAYS) {
-            $('g-next').textContent = 'Close market 🏁';
+            $('g-next').textContent = 'Close market';
             toast('Final trading day. Make your last moves, then close the market.');
         }
     }
@@ -209,7 +209,7 @@
         if (state.achievements.includes(id)) return;
         state.achievements.push(id);
         const a = ACHIEVEMENTS.find((x) => x.id === id);
-        toast(`${a.icon} Achievement unlocked: ${a.name}`);
+        toast(`Achievement unlocked: ${a.name}`);
     }
 
     function checkAchievements() {
@@ -320,7 +320,7 @@
     function renderNews() {
         $('g-news').innerHTML = state.news.map((n) => {
             const tone = n.change > 0 ? 'border-emerald-500/60' : n.change < 0 ? 'border-rose-500/60' : 'border-accent/40';
-            const icon = n.change > 0 ? '📈' : n.change < 0 ? '📉' : '🔔';
+            const icon = n.change > 0 ? '<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>' : n.change < 0 ? '<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-rose-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M15 17h6v-6"/></svg>' : '<svg class="inline-block w-4 h-4 -mt-0.5 mr-1.5 text-ink-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21h4"/></svg>';
             return `<li class="border-l-2 ${tone} pl-3 py-1"><span class="text-xs text-ink-3">Day ${n.day}</span><p class="text-ink">${icon} ${n.text}</p></li>`;
         }).join('');
     }
@@ -329,7 +329,7 @@
         $('g-achievements').innerHTML = ACHIEVEMENTS.map((a) => {
             const done = state.achievements.includes(a.id);
             return `<li class="flex items-center gap-3 rounded-lg px-3 py-2 ${done ? 'bg-ink/10 border border-accent/30' : 'bg-paper/30 border border-ink/5 opacity-60'}">
-                <span class="text-xl ${done ? '' : 'grayscale'}" aria-hidden="true">${done ? a.icon : '🔒'}</span>
+                <span class="text-xl ${done ? '' : 'grayscale'}" aria-hidden="true">${done ? a.icon : '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>'}</span>
                 <div><p class="font-medium ${done ? 'text-accent' : 'text-ink-2'}">${a.name}</p><p class="text-xs text-ink-3">${a.desc}</p></div>
             </li>`;
         }).join('');
@@ -410,13 +410,13 @@
         $('g-sum-trades').textContent = state.trades;
         $('g-sum-best').textContent = `${best.c.name} (${pct(best.gain)})`;
 
-        let emoji = '🏁', verdict;
-        if (state.trades === 0) { emoji = '🛌'; verdict = 'You held cash the whole time. Safe, but your money didn\'t grow. Try investing next round!'; }
-        else if (ret >= 25) { emoji = '🏆'; verdict = 'Outstanding! You beat the market. Remember that real markets also reward patience.'; }
-        else if (ret >= 5) { emoji = '📈'; verdict = 'Nice work: a solid positive return. Diversification and timing paid off.'; }
-        else if (ret >= 0) { emoji = '🙂'; verdict = 'You protected your capital. Could more diversification have helped you grow it?'; }
-        else { emoji = '📉'; verdict = 'A loss this time, and that\'s how everyone learns. Look at which headlines hurt you most.'; }
-        $('g-summary-emoji').textContent = emoji;
+        let emoji = '<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>', verdict;
+        if (state.trades === 0) { emoji = '<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>'; verdict = 'You held cash the whole time. Safe, but your money didn\'t grow. Try investing next round!'; }
+        else if (ret >= 25) { emoji = '<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>'; verdict = 'Outstanding! You beat the market. Remember that real markets also reward patience.'; }
+        else if (ret >= 5) { emoji = '<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>'; verdict = 'Nice work: a solid positive return. Diversification and timing paid off.'; }
+        else if (ret >= 0) { emoji = '<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4 4 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></svg>'; verdict = 'You protected your capital. Could more diversification have helped you grow it?'; }
+        else { emoji = '<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M15 17h6v-6"/></svg>'; verdict = 'A loss this time, and that\'s how everyone learns. Look at which headlines hurt you most.'; }
+        $('g-summary-emoji').innerHTML = emoji;
         $('g-sum-verdict').textContent = verdict;
 
         const modal = $('g-summary');
@@ -496,5 +496,5 @@
     state = load() || newState();
     setTip();
     render();
-    if (state.day === MAX_DAYS && !state.finished) $('g-next').textContent = 'Close market 🏁';
+    if (state.day === MAX_DAYS && !state.finished) $('g-next').textContent = 'Close market';
 })();
