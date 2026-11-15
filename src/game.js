@@ -10,11 +10,11 @@
     const STORAGE_KEY = 'safe-stock-game-v2';
 
     const COMPANIES = [
-        { id: 'TechCorp',    name: 'TechCorp',    sector: 'Technology', start: 100, color: '#FFD700', vol: 0.035 },
-        { id: 'GreenEnergy', name: 'GreenEnergy', sector: 'Renewables', start: 80,  color: '#34d399', vol: 0.04  },
-        { id: 'HealthInc',   name: 'HealthInc',   sector: 'Healthcare', start: 120, color: '#f472b6', vol: 0.03  },
-        { id: 'AutoDrive',   name: 'AutoDrive',   sector: 'Automotive', start: 150, color: '#60a5fa', vol: 0.045 },
-        { id: 'FoodChain',   name: 'FoodChain',   sector: 'Consumer',   start: 90,  color: '#fb923c', vol: 0.02  },
+        { id: 'TechCorp',    name: 'TechCorp',    sector: 'Technology', start: 100, color: '#b58100', vol: 0.035 },
+        { id: 'GreenEnergy', name: 'GreenEnergy', sector: 'Renewables', start: 80,  color: '#059669', vol: 0.04  },
+        { id: 'HealthInc',   name: 'HealthInc',   sector: 'Healthcare', start: 120, color: '#db2777', vol: 0.03  },
+        { id: 'AutoDrive',   name: 'AutoDrive',   sector: 'Automotive', start: 150, color: '#2563eb', vol: 0.045 },
+        { id: 'FoodChain',   name: 'FoodChain',   sector: 'Consumer',   start: 90,  color: '#ea580c', vol: 0.02  },
     ];
 
     const NEWS = [
@@ -230,7 +230,7 @@
         $('g-networth').textContent = money(nw);
         const r = $('g-return');
         r.textContent = pct(ret);
-        r.className = 'game-stat-value ' + (ret > 0 ? 'text-emerald-400' : ret < 0 ? 'text-rose-400' : '');
+        r.className = 'game-stat-value ' + (ret > 0 ? 'text-emerald-700' : ret < 0 ? 'text-rose-700' : '');
         $('g-day').textContent = state.day;
         $('g-maxday').textContent = MAX_DAYS;
         $('g-progress').style.width = (state.day / MAX_DAYS) * 100 + '%';
@@ -250,7 +250,7 @@
     }
 
     function changeBadge(change) {
-        const cls = change > 0 ? 'text-emerald-400' : change < 0 ? 'text-rose-400' : 'text-gray-400';
+        const cls = change > 0 ? 'text-emerald-700' : change < 0 ? 'text-rose-700' : 'text-ink-2';
         const arrow = change > 0 ? '▲' : change < 0 ? '▼' : '•';
         return `<span class="${cls}">${arrow} ${Math.abs(change).toFixed(2)}%</span>`;
     }
@@ -262,16 +262,16 @@
             const owned = state.holdings[c.id] ? state.holdings[c.id].shares : 0;
             const active = selected === c.id;
             return `
-                <tr class="g-row border-b border-white/5 cursor-pointer transition ${active ? 'bg-gold/10' : 'hover:bg-white/5'}" data-id="${c.id}" tabindex="0" aria-selected="${active}">
+                <tr class="g-row border-b border-ink/5 cursor-pointer transition ${active ? 'bg-ink/10' : 'hover:bg-ink/5'}" data-id="${c.id}" tabindex="0" aria-selected="${active}">
                     <td class="py-2.5 pr-3">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${c.color}"></span>
-                            <div><p class="font-semibold ${active ? 'text-gold' : ''}">${c.name}</p><p class="text-xs text-gray-500 hidden sm:block">${c.sector}</p></div>
+                            <div><p class="font-semibold ${active ? 'text-accent' : ''}">${c.name}</p><p class="text-xs text-ink-3 hidden sm:block">${c.sector}</p></div>
                         </div>
                     </td>
                     <td class="py-2.5 px-2 sm:px-3 text-right font-medium tabular-nums whitespace-nowrap">${money(price)}<div class="sm:hidden text-xs font-normal">${changeBadge(change)}</div></td>
                     <td class="py-2.5 px-2 sm:px-3 text-right tabular-nums whitespace-nowrap hidden sm:table-cell">${changeBadge(change)}</td>
-                    <td class="py-2.5 pl-2 sm:pl-3 text-right tabular-nums ${owned ? 'text-white' : 'text-gray-600'}">${owned}</td>
+                    <td class="py-2.5 pl-2 sm:pl-3 text-right tabular-nums ${owned ? 'text-ink' : 'text-ink-3'}">${owned}</td>
                 </tr>`;
         }).join('');
     }
@@ -299,7 +299,7 @@
     function renderHoldings() {
         const entries = Object.entries(state.holdings);
         if (!entries.length) {
-            $('g-holdings-list').innerHTML = '<p class="text-gray-500">No shares yet. Your cash is safe, but it isn\'t growing.</p>';
+            $('g-holdings-list').innerHTML = '<p class="text-ink-3">No shares yet. Your cash is safe, but it isn\'t growing.</p>';
             return;
         }
         $('g-holdings-list').innerHTML = entries.map(([id, h]) => {
@@ -308,10 +308,10 @@
             const avg = h.cost / h.shares;
             const pl = value - h.cost;
             const plPct = (price / avg - 1) * 100;
-            const cls = pl >= 0 ? 'text-emerald-400' : 'text-rose-400';
+            const cls = pl >= 0 ? 'text-emerald-700' : 'text-rose-700';
             return `
-                <button type="button" class="g-holding w-full text-left flex items-center justify-between gap-3 bg-black/40 hover:bg-black/60 rounded-lg px-3 py-2 transition" data-id="${id}">
-                    <div><p class="font-semibold">${id} <span class="text-gray-500 font-normal">× ${h.shares}</span></p><p class="text-xs text-gray-500">Avg cost ${money(avg)}</p></div>
+                <button type="button" class="g-holding w-full text-left flex items-center justify-between gap-3 bg-paper/40 hover:bg-paper/60 rounded-lg px-3 py-2 transition" data-id="${id}">
+                    <div><p class="font-semibold">${id} <span class="text-ink-3 font-normal">× ${h.shares}</span></p><p class="text-xs text-ink-3">Avg cost ${money(avg)}</p></div>
                     <div class="text-right"><p class="font-medium tabular-nums">${money(value)}</p><p class="text-xs tabular-nums ${cls}">${pl >= 0 ? '+' : '−'}${money(Math.abs(pl))} (${pct(plPct)})</p></div>
                 </button>`;
         }).join('');
@@ -319,18 +319,18 @@
 
     function renderNews() {
         $('g-news').innerHTML = state.news.map((n) => {
-            const tone = n.change > 0 ? 'border-emerald-500/60' : n.change < 0 ? 'border-rose-500/60' : 'border-gold/40';
+            const tone = n.change > 0 ? 'border-emerald-500/60' : n.change < 0 ? 'border-rose-500/60' : 'border-accent/40';
             const icon = n.change > 0 ? '📈' : n.change < 0 ? '📉' : '🔔';
-            return `<li class="border-l-2 ${tone} pl-3 py-1"><span class="text-xs text-gray-500">Day ${n.day}</span><p class="text-gray-200">${icon} ${n.text}</p></li>`;
+            return `<li class="border-l-2 ${tone} pl-3 py-1"><span class="text-xs text-ink-3">Day ${n.day}</span><p class="text-ink">${icon} ${n.text}</p></li>`;
         }).join('');
     }
 
     function renderAchievements() {
         $('g-achievements').innerHTML = ACHIEVEMENTS.map((a) => {
             const done = state.achievements.includes(a.id);
-            return `<li class="flex items-center gap-3 rounded-lg px-3 py-2 ${done ? 'bg-gold/10 border border-gold/30' : 'bg-black/30 border border-white/5 opacity-60'}">
+            return `<li class="flex items-center gap-3 rounded-lg px-3 py-2 ${done ? 'bg-ink/10 border border-accent/30' : 'bg-paper/30 border border-ink/5 opacity-60'}">
                 <span class="text-xl ${done ? '' : 'grayscale'}" aria-hidden="true">${done ? a.icon : '🔒'}</span>
-                <div><p class="font-medium ${done ? 'text-gold' : 'text-gray-300'}">${a.name}</p><p class="text-xs text-gray-500">${a.desc}</p></div>
+                <div><p class="font-medium ${done ? 'text-accent' : 'text-ink-2'}">${a.name}</p><p class="text-xs text-ink-3">${a.desc}</p></div>
             </li>`;
         }).join('');
     }
@@ -359,12 +359,12 @@
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { labels: { color: '#d1d5db', boxWidth: 10, usePointStyle: true } },
+                        legend: { labels: { color: '#3f3d38', boxWidth: 10, usePointStyle: true } },
                         tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${money(ctx.parsed.y)}` } },
                     },
                     scales: {
-                        x: { ticks: { color: '#9ca3af', maxTicksLimit: 10 }, grid: { color: 'rgba(255,255,255,0.05)' } },
-                        y: { ticks: { color: '#9ca3af', callback: (v) => '$' + v }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { ticks: { color: '#5f5a50', maxTicksLimit: 10 }, grid: { color: 'rgba(0,0,0,0.06)' } },
+                        y: { ticks: { color: '#5f5a50', callback: (v) => '$' + v }, grid: { color: 'rgba(0,0,0,0.06)' } },
                     },
                 },
             });
@@ -380,7 +380,7 @@
     function feedback(text, kind) {
         const el = $('g-feedback');
         el.textContent = text;
-        el.className = 'text-sm mt-3 min-h-[1.25rem] ' + (kind === 'error' ? 'text-rose-400' : 'text-emerald-400');
+        el.className = 'text-sm mt-3 min-h-[1.25rem] ' + (kind === 'error' ? 'text-rose-700' : 'text-emerald-700');
     }
 
     let toastTimer;
@@ -406,7 +406,7 @@
         $('g-sum-networth').textContent = money(nw);
         const r = $('g-sum-return');
         r.textContent = pct(ret);
-        r.className = 'game-stat-value ' + (ret >= 0 ? 'text-emerald-400' : 'text-rose-400');
+        r.className = 'game-stat-value ' + (ret >= 0 ? 'text-emerald-700' : 'text-rose-700');
         $('g-sum-trades').textContent = state.trades;
         $('g-sum-best').textContent = `${best.c.name} (${pct(best.gain)})`;
 

@@ -28,7 +28,7 @@
             el = document.createElement('div');
             el.id = 'safe-toast';
             el.setAttribute('role', 'status');
-            el.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 z-[90] bg-card border border-gold/40 text-white px-5 py-3 rounded-xl shadow-2xl text-sm hidden';
+            el.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 z-[90] bg-surface border border-accent/40 text-ink px-5 py-3 rounded-xl shadow-2xl text-sm hidden';
             document.body.appendChild(el);
         }
         el.textContent = msg;
@@ -41,20 +41,20 @@
     // ── Header ──────────────────────────────────────────────────────────
     const links = PAGES.map((p) => `<a href="${p.href}" class="nav-link"${p.href === here ? ' aria-current="page"' : ''}>${p.label}</a>`).join('');
     const header = document.createElement('header');
-    header.className = 'bg-black/90 backdrop-blur border-b border-white/10 sticky top-0 z-50';
+    header.className = 'bg-paper/90 backdrop-blur border-b border-ink/10 sticky top-0 z-50';
     header.innerHTML = `
-        <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-gold text-black px-4 py-2 rounded z-[60]">Skip to content</a>
+        <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-ink text-on-accent px-4 py-2 rounded z-[60]">Skip to content</a>
         <div class="wrap flex items-center justify-between h-16 gap-4">
             <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="SAFE home">
                 <img src="SAFE.jpg" alt="" class="w-9 h-9 rounded-lg object-cover">
-                <span class="leading-tight"><span class="block font-display text-lg font-bold text-gold tracking-wide">SAFE</span>
-                <span class="hidden sm:block text-[11px] text-gray-400">South African Financial Education</span></span>
+                <span class="leading-tight"><span class="block font-display text-lg font-bold text-accent tracking-wide">SAFE</span>
+                <span class="hidden sm:block text-[11px] text-ink-2">South African Financial Education</span></span>
             </a>
             <nav class="hidden lg:flex items-center gap-1" aria-label="Main">${links}</nav>
             <a href="tools.html" class="hidden lg:inline-flex btn-gold !py-2 text-sm">Open money tools</a>
-            <button id="menu-btn" class="lg:hidden text-gold text-2xl w-10 h-10 grid place-items-center rounded-lg hover:bg-white/5" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+            <button id="menu-btn" class="lg:hidden text-accent text-2xl w-10 h-10 grid place-items-center rounded-lg hover:bg-ink/5" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
         </div>
-        <nav id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-black" aria-label="Mobile">
+        <nav id="mobile-menu" class="hidden lg:hidden border-t border-ink/10 bg-paper" aria-label="Mobile">
             <div class="wrap py-3 grid grid-cols-2 gap-1">${PAGES.map((p) => `<a href="${p.href}" class="nav-link !py-3"${p.href === here ? ' aria-current="page"' : ''}>${p.label}</a>`).join('')}</div>
         </nav>`;
     document.body.prepend(header);
@@ -68,30 +68,30 @@
 
     // ── Footer ──────────────────────────────────────────────────────────
     const footer = document.createElement('footer');
-    footer.className = 'border-t border-white/10 bg-black mt-8';
+    footer.className = 'border-t border-ink/10 bg-paper mt-8';
     footer.innerHTML = `
         <div class="wrap py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
             <div>
-                <p class="font-display text-xl font-bold text-gold">SAFE</p>
-                <p class="text-gray-400 mt-2">Free, beginner-friendly financial education for South Africans. Built for the South African Intervarsity Hackathon 2025.</p>
+                <p class="font-display text-xl font-bold text-accent">SAFE</p>
+                <p class="text-ink-2 mt-2">Free, beginner-friendly financial education for South Africans. Built for the South African Intervarsity Hackathon 2025.</p>
             </div>
-            <div><p class="font-semibold mb-3">Learn</p><ul class="space-y-2 text-gray-400">
-                <li><a class="hover:text-gold" href="learn.html">Learning library</a></li><li><a class="hover:text-gold" href="glossary.html">Glossary</a></li><li><a class="hover:text-gold" href="index.html#path">Learning path</a></li></ul></div>
-            <div><p class="font-semibold mb-3">Tools</p><ul class="space-y-2 text-gray-400">
-                <li><a class="hover:text-gold" href="tools.html#budget">Budget planner</a></li><li><a class="hover:text-gold" href="tools.html#debt">Debt payoff</a></li><li><a class="hover:text-gold" href="tools.html#property">Property costs</a></li><li><a class="hover:text-gold" href="game.html">Stock market game</a></li></ul></div>
-            <div><p class="font-semibold mb-3">SAFE</p><ul class="space-y-2 text-gray-400">
-                <li><a class="hover:text-gold" href="faq.html">FAQ</a></li><li><a class="hover:text-gold" href="faq.html#contact">Contact</a></li>
-                <li><a class="hover:text-gold" href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M" target="_blank" rel="noopener">WhatsApp channel</a></li></ul></div>
+            <div><p class="font-semibold mb-3">Learn</p><ul class="space-y-2 text-ink-2">
+                <li><a class="hover:text-accent" href="learn.html">Learning library</a></li><li><a class="hover:text-accent" href="glossary.html">Glossary</a></li><li><a class="hover:text-accent" href="index.html#path">Learning path</a></li></ul></div>
+            <div><p class="font-semibold mb-3">Tools</p><ul class="space-y-2 text-ink-2">
+                <li><a class="hover:text-accent" href="tools.html#budget">Budget planner</a></li><li><a class="hover:text-accent" href="tools.html#debt">Debt payoff</a></li><li><a class="hover:text-accent" href="tools.html#property">Property costs</a></li><li><a class="hover:text-accent" href="game.html">Stock market game</a></li></ul></div>
+            <div><p class="font-semibold mb-3">SAFE</p><ul class="space-y-2 text-ink-2">
+                <li><a class="hover:text-accent" href="faq.html">FAQ</a></li><li><a class="hover:text-accent" href="faq.html#contact">Contact</a></li>
+                <li><a class="hover:text-accent" href="https://whatsapp.com/channel/0029Vavvo9GCRs1fQl620s1M" target="_blank" rel="noopener">WhatsApp channel</a></li></ul></div>
         </div>
-        <div class="border-t border-white/10"><div class="wrap py-6 text-xs text-gray-500 flex flex-col sm:flex-row gap-2 justify-between">
+        <div class="border-t border-ink/10"><div class="wrap py-6 text-xs text-ink-3 flex flex-col sm:flex-row gap-2 justify-between">
             <p>© ${new Date().getFullYear()} SAFE. Educational information only, not financial advice. For personalised advice, consult an FSCA-registered financial advisor.</p>
-            <p>Built by <a class="hover:text-gold" href="https://letlhogonolo-kgatshe.github.io/" target="_blank" rel="noopener">Letlhogonolo Kgatshe</a></p>
+            <p>Built by <a class="hover:text-accent" href="https://letlhogonolo-kgatshe.github.io/" target="_blank" rel="noopener">Letlhogonolo Kgatshe</a></p>
         </div></div>`;
     document.body.appendChild(footer);
 
     // ── Back to top ─────────────────────────────────────────────────────
     const top = document.createElement('button');
-    top.className = 'fixed bottom-5 right-5 z-40 w-11 h-11 rounded-full bg-gold text-black font-bold shadow-xl opacity-0 pointer-events-none transition';
+    top.className = 'fixed bottom-5 right-5 z-40 w-11 h-11 rounded-full bg-ink text-on-accent font-bold shadow-xl opacity-0 pointer-events-none transition';
     top.setAttribute('aria-label', 'Back to top');
     top.textContent = '↑';
     document.body.appendChild(top);

@@ -1,14 +1,18 @@
 // Shared Tailwind (CDN) theme for every SAFE page.
 tailwind.config = {
+    future: { hoverOnlyWhenSupported: true },
     theme: {
         extend: {
-            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Poppins', 'Inter', 'sans-serif'] },
+            fontFamily: { sans: ['"Inter Tight"', 'system-ui', 'sans-serif'], display: ['"Inter Tight"', 'system-ui', 'sans-serif'] },
+            // Named by role, not by shade, so the markup reads the same in any theme.
             colors: {
-                gold: '#FFD700',
-                'dark-gold': '#E6B800',
-                primary: '#000',
-                card: '#141414',
-                ink: { 900: '#0a0a0a', 800: '#111111', 700: '#1c1c1c', 600: '#262626' },
+                paper: '#ffffff',
+                surface: '#fafaf7',
+                tint: { DEFAULT: '#f4f2ec', 2: '#e9e6dc' },
+                ink: { DEFAULT: '#111111', 2: '#3f3d38', 3: '#5f5a50' },
+                accent: { DEFAULT: '#8a6400', deep: '#6b4d00' },
+                'on-accent': '#ffffff',
+                gold: '#e0a800',
             },
         },
     },

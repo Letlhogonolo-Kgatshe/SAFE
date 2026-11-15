@@ -11,14 +11,14 @@
     const drawChart = (canvas, config) => {
         if (chart) chart.destroy();
         if (!window.Chart) return;
-        Chart.defaults.color = '#9ca3af';
+        Chart.defaults.color = '#5f5a50';
         Chart.defaults.font.family = 'Inter, system-ui, sans-serif';
         chart = new Chart(canvas, config);
     };
     const field = (id, label, value, extra = '') =>
         `<label class="block"><span class="label">${label}</span><input id="${id}" class="field" inputmode="decimal" value="${esc(value)}" ${extra}></label>`;
     const stat = (label, value, cls = '') => `<div class="stat"><p class="stat-label">${label}</p><p class="stat-value ${cls}">${value}</p></div>`;
-    const head = (title, intro) => `<h2 class="text-2xl font-bold">${title}</h2><p class="text-gray-400 mt-1 mb-6">${intro}</p>`;
+    const head = (title, intro) => `<h2 class="text-2xl font-bold">${title}</h2><p class="text-ink-2 mt-1 mb-6">${intro}</p>`;
     const monthName = (m) => { const d = new Date(); d.setMonth(d.getMonth() + m); return d.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' }); };
 
     // ── Budget planner ──────────────────────────────────────────────────
@@ -39,19 +39,19 @@
                     <option value="need"${kind === 'need' ? ' selected' : ''}>Need</option><option value="want"${kind === 'want' ? ' selected' : ''}>Want</option><option value="save"${kind === 'save' ? ' selected' : ''}>Save/debt</option>
                 </select>
                 <input class="field !py-2 !w-28 text-sm text-right" data-k="amt" inputmode="decimal" value="${amt}" aria-label="Monthly amount">
-                <button class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-500" data-del="${i}" aria-label="Remove ${esc(name)}">✕</button>
+                <button class="w-8 h-8 rounded-lg hover:bg-ink/10 text-ink-3" data-del="${i}" aria-label="Remove ${esc(name)}">✕</button>
             </div>`;
         panel.innerHTML = head('Budget planner', 'Give every rand a job. Compare your spending with the 50/30/20 guideline: 50% needs, 30% wants, 20% saving and debt.') + `
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 <div>
                     ${field('b-income', 'Monthly take-home pay (after tax)', s.income)}
                     <div class="mt-4 space-y-2" id="b-rows">${s.lines.map(row).join('')}</div>
-                    <div class="mt-3 flex gap-2"><button class="btn-ghost !py-2 text-sm" id="b-add">+ Add item</button><button class="text-sm text-gray-400 hover:text-white px-3" id="b-reset">Reset example</button></div>
+                    <div class="mt-3 flex gap-2"><button class="btn-ghost !py-2 text-sm" id="b-add">+ Add item</button><button class="text-sm text-ink-2 hover:text-ink px-3" id="b-reset">Reset example</button></div>
                 </div>
                 <div>
                     <div class="grid grid-cols-2 gap-3" id="b-stats"></div>
                     <div class="mt-5 space-y-4" id="b-bars"></div>
-                    <p class="mt-5 text-sm text-gray-300" id="b-tip"></p>
+                    <p class="mt-5 text-sm text-ink-2" id="b-tip"></p>
                 </div>
             </div>`;
         const read = () => ({ income: num($('#b-income').value), lines: $$('#b-rows [data-row]').map((r) => [$('[data-k=name]', r).value, $('[data-k=kind]', r).value, num($('[data-k=amt]', r).value)]) });
@@ -59,13 +59,13 @@
             const d = read(); store.set('budget', d);
             const sum = (k) => d.lines.filter((l) => l[1] === k).reduce((a, l) => a + l[2], 0);
             const need = sum('need'), want = sum('want'), save = sum('save'), left = d.income - need - want - save;
-            $('#b-stats').innerHTML = stat('Planned', rand(need + want + save)) + stat(left >= 0 ? 'Unallocated' : 'Overspent', rand(Math.abs(left)), left >= 0 ? 'text-emerald-400' : 'text-rose-400');
+            $('#b-stats').innerHTML = stat('Planned', rand(need + want + save)) + stat(left >= 0 ? 'Unallocated' : 'Overspent', rand(Math.abs(left)), left >= 0 ? 'text-emerald-700' : 'text-rose-700');
             const bar = (label, val, target, color) => {
                 const pct = d.income ? (val / d.income) * 100 : 0;
-                return `<div><div class="flex justify-between text-sm"><span>${label}</span><span class="tabular-nums">${rand(val)} · <strong>${pct.toFixed(0)}%</strong> <span class="text-gray-500">(guide ${target}%)</span></span></div>
-                    <div class="mt-1.5 h-2.5 rounded-full bg-white/10 overflow-hidden relative"><div class="h-full rounded-full ${color}" style="width:${Math.min(pct, 100)}%"></div><div class="absolute top-0 bottom-0 w-px bg-white/60" style="left:${target}%"></div></div></div>`;
+                return `<div><div class="flex justify-between text-sm"><span>${label}</span><span class="tabular-nums">${rand(val)} · <strong>${pct.toFixed(0)}%</strong> <span class="text-ink-3">(guide ${target}%)</span></span></div>
+                    <div class="mt-1.5 h-2.5 rounded-full bg-ink/10 overflow-hidden relative"><div class="h-full rounded-full ${color}" style="width:${Math.min(pct, 100)}%"></div><div class="absolute top-0 bottom-0 w-px bg-ink/60" style="left:${target}%"></div></div></div>`;
             };
-            $('#b-bars').innerHTML = bar('Needs', need, 50, 'bg-sky-400') + bar('Wants', want, 30, 'bg-fuchsia-400') + bar('Saving & debt', save, 20, 'bg-gold');
+            $('#b-bars').innerHTML = bar('Needs', need, 50, 'bg-sky-400') + bar('Wants', want, 30, 'bg-fuchsia-400') + bar('Saving & debt', save, 20, 'bg-ink');
             const savePct = d.income ? (save / d.income) * 100 : 0;
             $('#b-tip').innerHTML = left < 0 ? `⚠️ You've planned <strong>${rand(-left)}</strong> more than you earn. Trim wants first, then needs.`
                 : savePct < 10 ? `💡 You're saving ${savePct.toFixed(0)}%. Even moving <strong>${rand(Math.max(left, d.income * 0.05))}</strong> into saving makes a real difference over time.`
@@ -106,36 +106,36 @@
                 <input class="field !py-2 text-sm" data-k="b" inputmode="decimal" value="${b}" aria-label="Balance (R)">
                 <input class="field !py-2 text-sm" data-k="r" inputmode="decimal" value="${r}" aria-label="Interest rate %">
                 <input class="field !py-2 text-sm" data-k="m" inputmode="decimal" value="${m}" aria-label="Minimum payment (R)">
-                <button class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-500" data-del="${i}" aria-label="Remove ${esc(n)}">✕</button>
+                <button class="w-8 h-8 rounded-lg hover:bg-ink/10 text-ink-3" data-del="${i}" aria-label="Remove ${esc(n)}">✕</button>
             </div>`;
         panel.innerHTML = head('Debt payoff planner', 'Compare the snowball (smallest balance first) and avalanche (highest interest first) methods, and see when you could be debt-free.') + `
-            <div class="hidden sm:grid grid-cols-[1.4fr_1fr_.7fr_1fr_auto] gap-2 text-xs text-gray-500 mb-1 pr-10"><span>Debt</span><span>Balance (R)</span><span>Rate %</span><span>Min. payment (R)</span></div>
+            <div class="hidden sm:grid grid-cols-[1.4fr_1fr_.7fr_1fr_auto] gap-2 text-xs text-ink-3 mb-1 pr-10"><span>Debt</span><span>Balance (R)</span><span>Rate %</span><span>Min. payment (R)</span></div>
             <div class="space-y-2" id="d-rows">${s.debts.map(row).join('')}</div>
             <div class="mt-3 flex flex-wrap gap-3 items-end">
                 <button class="btn-ghost !py-2 text-sm" id="d-add">+ Add debt</button>
                 <div class="w-56">${field('d-extra', 'Extra you can pay each month (R)', s.extra)}</div>
             </div>
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" id="d-out"></div>
-            <p class="mt-4 text-sm text-gray-400" id="d-note"></p>`;
+            <p class="mt-4 text-sm text-ink-2" id="d-note"></p>`;
         const read = () => ({ extra: num($('#d-extra').value), debts: $$('#d-rows [data-row]').map((r) => [$('[data-k=n]', r).value, num($('[data-k=b]', r).value), num($('[data-k=r]', r).value), num($('[data-k=m]', r).value)]) });
         const calc = () => {
             const d = read(); store.set('debt', d);
             const debts = d.debts.filter((x) => x[1] > 0);
-            if (!debts.length) { $('#d-out').innerHTML = '<p class="text-gray-400">Add at least one debt.</p>'; return; }
+            if (!debts.length) { $('#d-out').innerHTML = '<p class="text-ink-2">Add at least one debt.</p>'; return; }
             const snow = simulate(debts, d.extra, (a, b) => a.bal - b.bal);
             const aval = simulate(debts, d.extra, (a, b) => b.r - a.r);
             const base = simulate(debts, 0, (a, b) => b.r - a.r);
             const card = (title, sub, r, best) => `
-                <div class="rounded-2xl p-5 ${best ? 'bg-gold/10 border border-gold/40' : 'bg-white/5 border border-white/10'}">
-                    <div class="flex justify-between items-start"><div><p class="font-semibold">${title}</p><p class="text-xs text-gray-400">${sub}</p></div>${best ? '<span class="badge bg-gold text-black">Saves most</span>' : ''}</div>
-                    ${r.stuck ? '<p class="mt-4 text-rose-400 text-sm">Your payments don\'t cover the interest. Increase the payments to make progress.</p>' : `
+                <div class="rounded-2xl p-5 ${best ? 'bg-ink/10 border border-accent/40' : 'bg-ink/5 border border-ink/10'}">
+                    <div class="flex justify-between items-start"><div><p class="font-semibold">${title}</p><p class="text-xs text-ink-2">${sub}</p></div>${best ? '<span class="badge bg-ink text-on-accent">Saves most</span>' : ''}</div>
+                    ${r.stuck ? '<p class="mt-4 text-rose-700 text-sm">Your payments don\'t cover the interest. Increase the payments to make progress.</p>' : `
                     <div class="grid grid-cols-2 gap-3 mt-4">${stat('Debt-free in', `${Math.floor(r.month / 12)}y ${r.month % 12}m`)}${stat('Interest paid', rand(r.interest))}</div>
-                    <p class="text-sm text-gray-300 mt-3">Debt-free by <strong>${monthName(r.month)}</strong></p>
-                    <ol class="mt-3 text-sm text-gray-400 space-y-1 list-decimal list-inside">${r.cleared.map((c) => `<li>${esc(c.name)} cleared in month ${c.month}</li>`).join('')}</ol>`}
+                    <p class="text-sm text-ink-2 mt-3">Debt-free by <strong>${monthName(r.month)}</strong></p>
+                    <ol class="mt-3 text-sm text-ink-2 space-y-1 list-decimal list-inside">${r.cleared.map((c) => `<li>${esc(c.name)} cleared in month ${c.month}</li>`).join('')}</ol>`}
                 </div>`;
             const avBest = aval.interest <= snow.interest;
             $('#d-out').innerHTML = card('🏔️ Avalanche', 'Highest interest rate first', aval, avBest) + card('⛄ Snowball', 'Smallest balance first: quick wins', snow, !avBest);
-            $('#d-note').innerHTML = base.stuck || aval.stuck ? '' : `Paying an extra <strong>${rand(d.extra)}</strong>/month saves about <strong>${rand(base.interest - aval.interest)}</strong> in interest and makes you debt-free <strong>${base.month - aval.month} months</strong> sooner than paying only the minimums. In serious difficulty? Speak to an <a class="text-gold underline" href="https://www.ncr.org.za/" target="_blank" rel="noopener">NCR-registered debt counsellor</a>.`;
+            $('#d-note').innerHTML = base.stuck || aval.stuck ? '' : `Paying an extra <strong>${rand(d.extra)}</strong>/month saves about <strong>${rand(base.interest - aval.interest)}</strong> in interest and makes you debt-free <strong>${base.month - aval.month} months</strong> sooner than paying only the minimums. In serious difficulty? Speak to an <a class="text-accent underline" href="https://www.ncr.org.za/" target="_blank" rel="noopener">NCR-registered debt counsellor</a>.`;
         };
         panel.oninput = calc;
         panel.onclick = (e) => {
@@ -156,7 +156,7 @@
                     ${field('g-monthly', 'Monthly saving (R)', s.monthly)}${field('g-rate', 'Interest / return per year (%)', s.rate)}
                     <div class="sm:col-span-2">${field('g-months', 'Or reach it within (months)', s.months)}</div>
                 </div>
-                <div><div class="grid grid-cols-2 gap-3" id="g-stats"></div><p class="mt-4 text-sm text-gray-300" id="g-text"></p><div class="mt-4 h-48"><canvas id="g-chart" aria-label="Savings growth towards goal"></canvas></div></div>
+                <div><div class="grid grid-cols-2 gap-3" id="g-stats"></div><p class="mt-4 text-sm text-ink-2" id="g-text"></p><div class="mt-4 h-48"><canvas id="g-chart" aria-label="Savings growth towards goal"></canvas></div></div>
             </div>`;
         const calc = () => {
             const d = { name: $('#g-name').value, target: num($('#g-target').value), saved: num($('#g-saved').value), monthly: num($('#g-monthly').value), rate: num($('#g-rate').value), months: Math.max(1, Math.round(num($('#g-months').value))) };
@@ -166,11 +166,11 @@
             while (bal < d.target && m < 600) { bal = bal * (1 + r) + d.monthly; m++; if (m <= 120) path.push(bal); }
             const g = Math.pow(1 + r, d.months);
             const need = r ? Math.max(0, (d.target - d.saved * g) * r / (g - 1)) : Math.max(0, (d.target - d.saved) / d.months);
-            $('#g-stats').innerHTML = stat('Time to goal', m >= 600 ? 'Not reached' : `${Math.floor(m / 12)}y ${m % 12}m`) + stat(`Needed for ${d.months} months`, rand(need) + '/m', 'text-gold');
+            $('#g-stats').innerHTML = stat('Time to goal', m >= 600 ? 'Not reached' : `${Math.floor(m / 12)}y ${m % 12}m`) + stat(`Needed for ${d.months} months`, rand(need) + '/m', 'text-accent');
             $('#g-text').innerHTML = m >= 600 ? 'Increase your monthly saving to reach this goal.' : `Saving <strong>${rand(d.monthly)}</strong>/month, you'll reach <strong>${esc(d.name)}</strong> (${rand(d.target)}) around <strong>${monthName(m)}</strong>. Interest contributes about ${rand(Math.max(0, d.target - d.saved - d.monthly * m))}.`;
             drawChart($('#g-chart'), { type: 'line', data: { labels: path.map((_, i) => i), datasets: [
-                { label: 'Saved', data: path, borderColor: '#FFD700', backgroundColor: 'rgba(255,215,0,.15)', fill: true, tension: .3, pointRadius: 0 },
-                { label: 'Goal', data: path.map(() => d.target), borderColor: '#6b7280', borderDash: [5, 4], pointRadius: 0 } ] },
+                { label: 'Saved', data: path, borderColor: '#b58100', backgroundColor: 'rgba(181,129,0,.12)', fill: true, tension: .3, pointRadius: 0 },
+                { label: 'Goal', data: path.map(() => d.target), borderColor: '#a8a29e', borderDash: [5, 4], pointRadius: 0 } ] },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { boxWidth: 10 } } }, scales: { x: { title: { display: true, text: 'Months' }, ticks: { maxTicksLimit: 8 }, grid: { display: false } }, y: { ticks: { callback: (v) => rand(v) }, grid: { color: 'rgba(255,255,255,.05)' } } } } });
         };
         panel.oninput = calc; panel.onclick = null; calc();
@@ -183,23 +183,23 @@
         const rows = (list, kind) => list.map(([n, v], i) => `
             <div class="grid grid-cols-[1fr_auto_auto] gap-2" data-${kind}="${i}">
                 <input class="field !py-2 text-sm" data-k="n" value="${esc(n)}" aria-label="Name"><input class="field !py-2 !w-32 text-sm text-right" data-k="v" inputmode="decimal" value="${v}" aria-label="Value (R)">
-                <button class="w-8 h-8 rounded-lg hover:bg-white/10 text-gray-500" data-del="${kind}:${i}" aria-label="Remove">✕</button></div>`).join('');
+                <button class="w-8 h-8 rounded-lg hover:bg-ink/10 text-ink-3" data-del="${kind}:${i}" aria-label="Remove">✕</button></div>`).join('');
         panel.innerHTML = head('Net worth tracker', 'Everything you own minus everything you owe. Save a snapshot each month to watch your progress.') + `
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div><p class="font-semibold text-emerald-400 mb-2">Assets</p><div class="space-y-2" id="nw-a">${rows(s.assets, 'a')}</div><button class="btn-ghost !py-1.5 text-sm mt-2" data-add="a">+ Asset</button></div>
-                <div><p class="font-semibold text-rose-400 mb-2">Liabilities</p><div class="space-y-2" id="nw-l">${rows(s.liabs, 'l')}</div><button class="btn-ghost !py-1.5 text-sm mt-2" data-add="l">+ Liability</button></div>
+                <div><p class="font-semibold text-emerald-700 mb-2">Assets</p><div class="space-y-2" id="nw-a">${rows(s.assets, 'a')}</div><button class="btn-ghost !py-1.5 text-sm mt-2" data-add="a">+ Asset</button></div>
+                <div><p class="font-semibold text-rose-700 mb-2">Liabilities</p><div class="space-y-2" id="nw-l">${rows(s.liabs, 'l')}</div><button class="btn-ghost !py-1.5 text-sm mt-2" data-add="l">+ Liability</button></div>
             </div>
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3" id="nw-stats"></div>
-            <div class="mt-4 flex items-center gap-3"><button class="btn-gold !py-2 text-sm" id="nw-snap">📸 Save this month's snapshot</button><span class="text-xs text-gray-500">Stored only in this browser.</span></div>
+            <div class="mt-4 flex items-center gap-3"><button class="btn-gold !py-2 text-sm" id="nw-snap">📸 Save this month's snapshot</button><span class="text-xs text-ink-3">Stored only in this browser.</span></div>
             <div class="mt-4 h-48 ${s.history.length > 1 ? '' : 'hidden'}"><canvas id="nw-chart" aria-label="Net worth history"></canvas></div>`;
         const read = () => ({ assets: $$('[data-a]').map((r) => [$('[data-k=n]', r).value, num($('[data-k=v]', r).value)]), liabs: $$('[data-l]').map((r) => [$('[data-k=n]', r).value, num($('[data-k=v]', r).value)]), history: store.get('networth', NW_DEFAULT).history || [] });
         const calc = () => {
             const d = read(); store.set('networth', d);
             const a = d.assets.reduce((x, r) => x + r[1], 0), l = d.liabs.reduce((x, r) => x + r[1], 0);
-            $('#nw-stats').innerHTML = stat('Assets', rand(a), 'text-emerald-400') + stat('Liabilities', rand(l), 'text-rose-400') + stat('Net worth', rand(a - l), a - l >= 0 ? 'text-gold' : 'text-rose-400');
+            $('#nw-stats').innerHTML = stat('Assets', rand(a), 'text-emerald-700') + stat('Liabilities', rand(l), 'text-rose-700') + stat('Net worth', rand(a - l), a - l >= 0 ? 'text-accent' : 'text-rose-700');
             return { d, net: a - l };
         };
-        const drawHistory = (h) => { if (h.length > 1) drawChart($('#nw-chart'), { type: 'line', data: { labels: h.map((x) => x.date), datasets: [{ label: 'Net worth', data: h.map((x) => x.net), borderColor: '#FFD700', tension: .3 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: (v) => rand(v) } } } } }); };
+        const drawHistory = (h) => { if (h.length > 1) drawChart($('#nw-chart'), { type: 'line', data: { labels: h.map((x) => x.date), datasets: [{ label: 'Net worth', data: h.map((x) => x.net), borderColor: '#b58100', tension: .3 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: (v) => rand(v) } } } } }); };
         panel.oninput = calc;
         panel.onclick = (e) => {
             const add = e.target.closest('[data-add]'), del = e.target.closest('[data-del]');
@@ -223,7 +223,7 @@
                     ${field('i-start', 'Starting amount (R)', s.start)}${field('i-monthly', 'Monthly contribution (R)', s.monthly)}
                     ${field('i-rate', 'Expected return per year (%)', s.rate)}${field('i-years', 'Years', s.years)}
                     ${field('i-raise', 'Increase contributions yearly (%)', s.raise)}${field('i-infl', 'Inflation (%)', s.inflation)}
-                    <p class="col-span-2 text-xs text-gray-500">Returns aren't guaranteed. Equities have historically beaten inflation over long periods, with ups and downs along the way. Tip: inside a TFSA, all of this growth is tax-free.</p>
+                    <p class="col-span-2 text-xs text-ink-3">Returns aren't guaranteed. Equities have historically beaten inflation over long periods, with ups and downs along the way. Tip: inside a TFSA, all of this growth is tax-free.</p>
                 </div>
                 <div><div class="grid grid-cols-3 gap-3" id="i-stats"></div><div class="mt-4 h-60"><canvas id="i-chart" aria-label="Investment growth by year"></canvas></div></div>
             </div>`;
@@ -233,10 +233,10 @@
             const r = d.rate / 1200; let bal = d.start, contrib = d.start, pmt = d.monthly; const yearsBal = [], yearsContrib = [];
             for (let y = 1; y <= d.years; y++) { for (let m = 0; m < 12; m++) { bal = bal * (1 + r) + pmt; contrib += pmt; } yearsBal.push(bal); yearsContrib.push(contrib); pmt *= 1 + d.raise / 100; }
             const real = bal / Math.pow(1 + d.inflation / 100, d.years);
-            $('#i-stats').innerHTML = stat('Future value', rand(bal), 'text-gold') + stat('You put in', rand(contrib)) + stat("In today's rand", rand(real));
+            $('#i-stats').innerHTML = stat('Future value', rand(bal), 'text-accent') + stat('You put in', rand(contrib)) + stat("In today's rand", rand(real));
             drawChart($('#i-chart'), { type: 'bar', data: { labels: yearsBal.map((_, i) => `Y${i + 1}`), datasets: [
-                { label: 'Contributions', data: yearsContrib, backgroundColor: '#4b5563', stack: 's' },
-                { label: 'Growth', data: yearsBal.map((b, i) => b - yearsContrib[i]), backgroundColor: '#FFD700', stack: 's' } ] },
+                { label: 'Contributions', data: yearsContrib, backgroundColor: '#d6d3cb', stack: 's' },
+                { label: 'Growth', data: yearsBal.map((b, i) => b - yearsContrib[i]), backgroundColor: '#b58100', stack: 's' } ] },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { boxWidth: 10 } }, tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${rand(c.parsed.y)}` } } }, scales: { x: { stacked: true, grid: { display: false }, ticks: { maxTicksLimit: 10 } }, y: { stacked: true, ticks: { callback: (v) => rand(v) }, grid: { color: 'rgba(255,255,255,.05)' } } } } });
         };
         panel.oninput = calc; panel.onclick = null; calc();
@@ -251,9 +251,9 @@
                     <div class="col-span-2">${field('l-amount', 'Loan amount (R)', s.amount)}</div>
                     ${field('l-rate', 'Interest rate (%)', s.rate)}${field('l-years', 'Term (years)', s.years)}
                     ${field('l-extra', 'Extra payment per month (R)', s.extra)}${field('l-income', 'Gross monthly income (R)', s.income)}
-                    <p class="col-span-2 text-xs text-gray-500">Rates are usually quoted against prime (repo + 3.5%). Banks typically limit bond repayments to about 30% of gross monthly income.</p>
+                    <p class="col-span-2 text-xs text-ink-3">Rates are usually quoted against prime (repo + 3.5%). Banks typically limit bond repayments to about 30% of gross monthly income.</p>
                 </div>
-                <div><div class="grid grid-cols-2 gap-3" id="l-stats"></div><p class="mt-4 text-sm text-gray-300" id="l-text"></p></div>
+                <div><div class="grid grid-cols-2 gap-3" id="l-stats"></div><p class="mt-4 text-sm text-ink-2" id="l-text"></p></div>
             </div>`;
         const calc = () => {
             const d = { amount: num($('#l-amount').value), rate: num($('#l-rate').value), years: Math.max(1, num($('#l-years').value)), extra: num($('#l-extra').value), income: num($('#l-income').value) };
@@ -265,9 +265,9 @@
             const total = pmt * n - d.amount;
             const maxPmt = d.income * 0.3;
             const maxLoan = r ? maxPmt * (1 - Math.pow(1 + r, -n)) / r : maxPmt * n;
-            $('#l-stats').innerHTML = stat('Monthly repayment', rand(pmt), 'text-gold') + stat('Total interest', rand(total)) +
-                stat('Paid off with extra', `${Math.floor(m / 12)}y ${m % 12}m`) + stat('Interest saved', rand(Math.max(0, total - int2)), 'text-emerald-400');
-            $('#l-text').innerHTML = `On a gross income of <strong>${rand(d.income)}</strong>, a repayment of about <strong>${rand(maxPmt)}</strong> (30%) supports a loan of roughly <strong>${rand(maxLoan)}</strong> at this rate. ${pmt > maxPmt ? '<span class="text-rose-400">This loan is above that guideline.</span>' : '<span class="text-emerald-400">This loan is within that guideline.</span>'}`;
+            $('#l-stats').innerHTML = stat('Monthly repayment', rand(pmt), 'text-accent') + stat('Total interest', rand(total)) +
+                stat('Paid off with extra', `${Math.floor(m / 12)}y ${m % 12}m`) + stat('Interest saved', rand(Math.max(0, total - int2)), 'text-emerald-700');
+            $('#l-text').innerHTML = `On a gross income of <strong>${rand(d.income)}</strong>, a repayment of about <strong>${rand(maxPmt)}</strong> (30%) supports a loan of roughly <strong>${rand(maxLoan)}</strong> at this rate. ${pmt > maxPmt ? '<span class="text-rose-700">This loan is above that guideline.</span>' : '<span class="text-emerald-700">This loan is within that guideline.</span>'}`;
         };
         panel.oninput = calc; panel.onclick = null; calc();
     }
@@ -287,17 +287,17 @@
         panel.innerHTML = head('Property purchase costs', 'Budget for the cash costs on top of your deposit: SARS transfer duty plus transfer and bond attorney fees.') + `
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 self-start">${field('p-price', 'Purchase price (R)', s.price)}${field('p-deposit', 'Deposit (R)', s.deposit)}
-                    <p class="sm:col-span-2 text-xs text-gray-500">Transfer duty uses the SARS table effective 1 March 2024 (no duty up to R1,210,000). Attorney and Deeds Office fees are rough estimates including VAT. Get a quote from a conveyancer.</p></div>
-                <div><div class="grid grid-cols-2 gap-3" id="p-stats"></div><div class="mt-4 card !bg-white/5 p-4 text-sm space-y-2" id="p-lines"></div></div>
+                    <p class="sm:col-span-2 text-xs text-ink-3">Transfer duty uses the SARS table effective 1 March 2024 (no duty up to R1,210,000). Attorney and Deeds Office fees are rough estimates including VAT. Get a quote from a conveyancer.</p></div>
+                <div><div class="grid grid-cols-2 gap-3" id="p-stats"></div><div class="mt-4 card !bg-ink/5 p-4 text-sm space-y-2" id="p-lines"></div></div>
             </div>`;
         const calc = () => {
             const d = { price: num($('#p-price').value), deposit: num($('#p-deposit').value) }; store.set('property', d);
             const duty = transferDuty(d.price), bond = Math.max(0, d.price - d.deposit), tFees = attorneyEstimate(d.price), bFees = attorneyEstimate(bond);
             const cash = duty + tFees + bFees;
-            $('#p-stats').innerHTML = stat('Cash needed upfront', rand(cash + d.deposit), 'text-gold') + stat('Bond amount', rand(bond));
+            $('#p-stats').innerHTML = stat('Cash needed upfront', rand(cash + d.deposit), 'text-accent') + stat('Bond amount', rand(bond));
             $('#p-lines').innerHTML = [['Deposit', d.deposit], ['Transfer duty (SARS)', duty], ['Transfer attorney fees (est.)', tFees], ['Bond registration fees (est.)', bFees]]
-                .map(([k, v]) => `<div class="flex justify-between"><span class="text-gray-400">${k}</span><span class="tabular-nums">${rand(v)}</span></div>`).join('') +
-                `<div class="flex justify-between border-t border-white/10 pt-2 font-semibold"><span>Total cash</span><span class="tabular-nums text-gold">${rand(cash + d.deposit)}</span></div>`;
+                .map(([k, v]) => `<div class="flex justify-between"><span class="text-ink-2">${k}</span><span class="tabular-nums">${rand(v)}</span></div>`).join('') +
+                `<div class="flex justify-between border-t border-ink/10 pt-2 font-semibold"><span>Total cash</span><span class="tabular-nums text-accent">${rand(cash + d.deposit)}</span></div>`;
         };
         panel.oninput = calc; panel.onclick = null; calc();
     }
@@ -319,9 +319,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-end max-w-3xl">
                 <div>${field('fx-amount', 'Amount', s.amount)}<select id="fx-from" class="field mt-2" aria-label="From currency">${opts(s.from)}</select></div>
                 <button id="fx-swap" class="btn-ghost !px-3 !py-3 justify-self-center" aria-label="Swap currencies">⇄</button>
-                <div><span class="label">Converted</span><div class="field !bg-white/5 text-xl font-bold text-gold tabular-nums" id="fx-out">…</div><select id="fx-to" class="field mt-2" aria-label="To currency">${opts(s.to)}</select></div>
+                <div><span class="label">Converted</span><div class="field !bg-ink/5 text-xl font-bold text-accent tabular-nums" id="fx-out">…</div><select id="fx-to" class="field mt-2" aria-label="To currency">${opts(s.to)}</select></div>
             </div>
-            <p class="mt-4 text-sm text-gray-400" id="fx-rate"></p>
+            <p class="mt-4 text-sm text-ink-2" id="fx-rate"></p>
             <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3" id="fx-board"></div>`;
         const calc = async () => {
             const d = { amount: num($('#fx-amount').value), from: $('#fx-from').value, to: $('#fx-to').value }; store.set('fx', d);
@@ -340,8 +340,8 @@
 
     // ── Tabs ────────────────────────────────────────────────────────────
     const TOOLS = [
-        ['budget', '🧾', 'Budget planner', budget], ['debt', '⛓️', 'Debt payoff', debt], ['goal', '🎯', 'Savings goal', goal], ['networth', '📊', 'Net worth', networth],
-        ['invest', '📈', 'Investment growth', invest], ['loan', '🏦', 'Loan & bond', loan], ['property', '🏠', 'Property costs', property], ['currency', '💱', 'Currency', currency],
+        ['budget', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>`, 'Budget planner', budget], ['debt', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>`, 'Debt payoff', debt], ['goal', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".5"/></svg>`, 'Savings goal', goal], ['networth', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>`, 'Net worth', networth],
+        ['invest', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>`, 'Investment growth', invest], ['loan', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg>`, 'Loan & bond', loan], ['property', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg>`, 'Property costs', property], ['currency', `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14l-4-4"/><path d="M20 16H6l4 4"/></svg>`, 'Currency', currency],
     ];
     const tabs = $('#tool-tabs');
     tabs.innerHTML = TOOLS.map(([id, icon, label]) => `<a href="#${id}" class="tab lg:w-full" role="tab" data-tool="${id}" aria-selected="false"><span aria-hidden="true">${icon}</span>${label}</a>`).join('');
